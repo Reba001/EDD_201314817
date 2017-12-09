@@ -19,8 +19,6 @@ struct Nodo
     Nodo(Pasajero pasajero);
     Nodo(char escritorio);
     Nodo (Avion avion);
-
-
 };
 
 struct Listas
