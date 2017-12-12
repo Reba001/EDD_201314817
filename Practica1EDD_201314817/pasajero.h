@@ -22,6 +22,7 @@ public:
     void setId(int value);
     int getTurnos() const;
     void setTurnos(int value);
+    string toString();
 };
 
 #endif // PASAJERO_H

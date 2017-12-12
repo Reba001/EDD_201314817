@@ -38,6 +38,13 @@ void Pasajero::setTurnos(int value)
     this->turnos = value;
 }
 
+string Pasajero::toString()
+{
+    string cadena = "";
+    cadena += "id: "+ to_string(id) + "\n documento: "+ to_string(documento) + "\n maletas: "+to_string(maletas)+ "\n Turnos: "+to_string(turnos);
+    return cadena;
+}
+
 int Pasajero::getDocumento() const
 {
     return this->documento;
