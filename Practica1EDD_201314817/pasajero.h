@@ -14,6 +14,7 @@ private:
     int turnos;
 public:
     Pasajero(int documento, int maletas, int id, int turnos);
+    Pasajero();
     int getDocumento() const;
     void setDocumento(int value);
     int getMaletas() const;

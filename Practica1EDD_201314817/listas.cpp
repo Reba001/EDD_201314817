@@ -1,7 +1,7 @@
 #include "listas.h"
 
 
-Listas::Listas()
+List::List()
 {
     this->cabezaS = nullptr;
     this->colaS = nullptr;
@@ -15,7 +15,7 @@ Listas::Listas()
 
 }
 
-void Listas::insertarS(int numero)
+void List::insertarS(int numero)
 {
     Nodo * nuevo = new Nodo(numero);
     if (this->cabezaS == nullptr){
@@ -29,7 +29,7 @@ void Listas::insertarS(int numero)
 
 }
 
-void Listas::insertarD(int numero)
+void List::insertarD(int numero)
 {
     Nodo *nuevo = new Nodo(numero);
     if(this->cabezaD == nullptr)
@@ -46,7 +46,7 @@ void Listas::insertarD(int numero)
 
 }
 
-void Listas::insertarC(int numero)
+void List::insertarC(int numero)
 {
     Nodo *nuevo = new Nodo(numero);
     if(this->cabezaC == nullptr)
@@ -66,7 +66,7 @@ void Listas::insertarC(int numero)
     this->tamanioC++;
 }
 
-void Listas::insertarDEsc(char esc)
+void List::insertarDEsc(char esc)
 {
     Nodo *nuevo = new Nodo(esc);
     if(this->cabezaD == nullptr)
@@ -83,7 +83,7 @@ void Listas::insertarDEsc(char esc)
 
 }
 
-void Listas::insertarSD(int numero)
+void List::insertarSD(int numero)
 {
     Nodo * nuevo = new Nodo(numero);
     if (this->cabezaS == nullptr){
@@ -96,7 +96,7 @@ void Listas::insertarSD(int numero)
     this->tamanioS++;
 }
 
-void Listas::insertarDD(int numero)
+void List::insertarDD(int numero)
 {
     Nodo *nuevo = new Nodo(numero);
     if(this->cabezaD == nullptr)
@@ -112,13 +112,13 @@ void Listas::insertarDD(int numero)
     this->tamanioD++;
 }
 
-void Listas::insertarCD(int numero)
+void List::insertarCD(int numero)
 {
     Nodo *nuevo = new Nodo(numero);
     if(this->cabezaC == nullptr)
     {
-        nuevo->izquierda = nuevo;
-        nuevo->derecha = nuevo;
+        nuevo->siguiente = nuevo;
+        nuevo->anterior = nuevo;
         this->cabezaC = this->colaC = nuevo;
     }
     else
@@ -132,7 +132,7 @@ void Listas::insertarCD(int numero)
     this->tamanioC++;
 }
 
-void Listas::recorrerS()
+void List::recorrerS()
 {
     if (this->cabezaS != nullptr){
         Nodo * auxiliar= this->cabezaS;
@@ -146,7 +146,7 @@ void Listas::recorrerS()
 
 }
 
-void Listas::recorrerD()
+void List::recorrerD()
 {
     if (this->cabezaD != nullptr){
         Nodo * auxiliar= this->cabezaD;
@@ -160,7 +160,7 @@ void Listas::recorrerD()
 
 }
 
-void Listas::recorrerC()
+void List::recorrerC()
 {
     if (this->cabezaC != nullptr){
         Nodo * auxiliar= this->cabezaC;
@@ -175,7 +175,7 @@ void Listas::recorrerC()
     }
 }
 
-void Listas::eliminarS(int numero)
+void List::eliminarS(int numero)
 {
     if(this->cabezaS != nullptr)
     {
@@ -214,7 +214,7 @@ void Listas::eliminarS(int numero)
     }
 }
 
-void Listas::eliminarD(int numero)
+void List::eliminarD(int numero)
 {
     if(this->cabezaD != nullptr)
     {
@@ -252,7 +252,7 @@ void Listas::eliminarD(int numero)
     }
 }
 
-void Listas::eliminarC(int numero)
+void List::eliminarC(int numero)
 {
     if(this->cabezaC != nullptr)
     {
@@ -260,9 +260,14 @@ void Listas::eliminarC(int numero)
             if (this->cabezaC->siguiente != this->cabezaC){
                 Nodo *aux = this->cabezaC;
                 this->cabezaC = this->cabezaC->siguiente;
+                this->colaC->siguiente = this->cabezaC;
+                this->cabezaC->anterior = this->colaC;
                 delete aux;
             }else{
+                this->cabezaC = nullptr;
+                this->colaC = nullptr;
                 delete this->cabezaC;
+                delete this->colaC;
             }
         }else{
             Nodo *aux = this->cabezaC;
@@ -270,6 +275,7 @@ void Listas::eliminarC(int numero)
                 if (aux->numero == numero){
                     aux->anterior->siguiente = aux->siguiente;
                     aux->siguiente->anterior = aux->anterior;
+                    aux = nullptr;
                     delete aux;
                     this->tamanioC--;
                     return;
@@ -281,6 +287,7 @@ void Listas::eliminarC(int numero)
             if (aux->siguiente == this->cabezaC && aux->numero == numero){
                 aux->anterior->siguiente = this->cabezaC;
                 this->colaC = aux->anterior;
+                aux = nullptr;
                 delete aux;
             }
         }
@@ -293,23 +300,18 @@ void Listas::eliminarC(int numero)
 
 }
 
-Nodo::Nodo()
-{
 
-
-}
 
 Nodo::Nodo(int numero)
 {
-    this->numero;
+    this->numero = numero;
     this->anterior = nullptr;
     this->siguiente = nullptr;
     this->arriba = nullptr;
     this->abajo = nullptr;
 }
 
-Nodo::Nodo(Pasajero pasajero)
-{
+Nodo::Nodo(Pasajero pasajero){
     this->pasajero = pasajero;
     this->anterior = nullptr;
     this->siguiente = nullptr;
@@ -338,8 +340,14 @@ Nodo::Nodo(Avion avion)
 Cola::Cola()
 {
     this->cabeza = nullptr;
-    this->cabeza = nullptr;
+    this->cola = nullptr;
+
+    this->cabezaD = nullptr;
+    this->colaD = nullptr;
+
     this->tamanio = 0;
+    this->tamanioD = 0;
+
 }
 
 Nodo * Cola::pop()
@@ -349,12 +357,12 @@ Nodo * Cola::pop()
             Nodo *aux = this->cabeza;
             this->cabeza = this->cabeza->siguiente;
             aux->siguiente = nullptr;
-            this->tamanio--;
+            --tamanio;
             return aux;
         }else{
-            aux = this->cabeza;
+            Nodo * aux = this->cabeza;
             this->cabeza = nullptr;
-            this->tamanio--;
+            --tamanio;
             return aux;
         }
     }
@@ -362,12 +370,109 @@ Nodo * Cola::pop()
     return nullptr;
 }
 
+void Cola::pushA(Avion avion)
+{
+    Nodo *nuevo = new Nodo(avion);
+    if (this->cabeza == nullptr){
+        this->cabeza = nuevo;
+        this->cola = nuevo;
+    }else{
+        this->cola->siguiente = nuevo;
+        this->cola = nuevo;
+    }
+    ++tamanio;
+
+}
+
+Nodo *Cola::popA()
+{
+    if (this->cabeza != nullptr){
+        if (this->cabeza->siguiente != nullptr){
+            Nodo *aux = this->cabeza;
+            this->cabeza = this->cabeza->siguiente;
+            aux->siguiente = nullptr;
+            --tamanio;
+            return aux;
+        }else{
+            Nodo * aux = this->cabeza;
+            this->cabeza = nullptr;
+            --tamanio;
+            return aux;
+        }
+    }
+    cout << "Vacio DX !! " << endl;
+    return nullptr;
+
+}
+
+void Cola::recorrerA()
+{
+    if(this->cabeza != nullptr){
+        Nodo * aux = this->cabeza;
+        while (aux != nullptr){
+            cout << "Cola : " << aux->avion.toString() << endl ;
+            aux = aux->siguiente;
+        }
+    }else{
+        cout << "Vacio DX !!" << endl;
+    }
+}
+
+void Cola::pushD(Avion avion)
+{
+    Nodo * nuevo = new Nodo(avion);
+    if (this->cabezaD == nullptr){
+        this->cabezaD = this->colaD = nuevo;
+    }else{
+        this->colaD->siguiente = nuevo;
+        nuevo->anterior = this->colaD;
+        this->colaD = nuevo;
+    }
+    ++tamanioD;
+}
+
+Nodo *Cola::popD()
+{
+    if (this->cabezaD != nullptr){
+        if (this->cabezaD->siguiente != nullptr){
+            Nodo *aux = this->cabezaD;
+            this->cabezaD = this->cabezaD->siguiente;
+            aux->siguiente = nullptr;
+            this->cabezaD->anterior = nullptr;
+            --tamanioD;
+            return aux;
+        }else{
+            Nodo *aux = this->cabezaD;
+            this->cabezaD = nullptr;
+            --tamanioD;
+            return aux;
+        }
+    }
+    return nullptr;
+}
+
+
+
 void Cola::recorrer()
 {
     if(this->cabeza != nullptr){
         Nodo * aux = this->cabeza;
         while (aux != nullptr){
-            cout << "Pila : " << aux->pasajero.toString() << endl ;
+            cout << "Cola : " << aux->pasajero.toString() << endl ;
+            aux = aux->siguiente;
+        }
+    }else{
+        cout << "Vacio DX !!" << endl;
+    }
+}
+
+void Cola::recorrerD()
+{
+
+    if(this->cabezaD != nullptr){
+        Nodo * aux = this->cabezaD;
+        while (aux != nullptr){
+            cout << "Cola : " << aux->avion.toString() << endl ;
             aux = aux->siguiente;
         }
     }else{
@@ -378,21 +483,31 @@ void Cola::recorrer()
 void Cola::push(Pasajero pasajero)
 {
     Nodo *nuevo = new Nodo(pasajero);
-    if (this->cabeza = nullptr){
+    if (this->cabeza == nullptr){
         this->cabeza = nuevo;
         this->cola = nuevo;
     }else{
         this->cola->siguiente = nuevo;
         this->cola = nuevo;
     }
-    this->tamanio++;
+    ++tamanio;
 }
 
-Escritorios::Escritorios()
+Escritorios::Escritorios(char desk)
 {
-    this->Desk = new Listas();
-    this->pasajero = nullptr;
-    this->documents = nullptr;
+    this->desk = desk;
+    this->siguiente = nullptr;
+    this->anterior = nullptr;
+    this->documentos = new Pila();
+    this->pasajeros = new Cola();
+
+}
+
+Pila::Pila()
+{
+    this->cabeza = nullptr;
+    this->cola = nullptr;
+    this->tamanio = 0;
 }
 
 void Pila::apilar(int numero)
@@ -412,10 +527,16 @@ void Pila::apilar(int numero)
 void Pila::desapilar()
 {
     if (this->cabeza != nullptr){
-        Nodo *aux = this->cabeza;
-        this->cabeza = this->cabeza->siguiente;
-        this->cabeza->anterior = nullptr;
-        delete aux;
+        if (this->cabeza->siguiente != nullptr){
+
+            Nodo *aux = this->cabeza;
+            this->cabeza = this->cabeza->siguiente;
+            this->cabeza->anterior = nullptr;
+            delete aux;
+
+        }else{
+            this->eliminar();
+        }
 
     }else {
         cout << "Vacios! " << endl;
@@ -437,25 +558,19 @@ void Pila::recorrer()
 
 void Pila::eliminar()
 {
+    this->cabeza = nullptr;
     delete this->cabeza;
-}
-
-Escritorios::Escritorios(char desk)
-{
-    this->desk = desk;
-    this->siguiente = nullptr;
-    this->anterior = nullptr;
-    this->documentos = nullptr;
-    this->pasajeros = nullptr;
 }
 
 ListaEscritorio::ListaEscritorio()
 {
     this->primero = nullptr;
+    this->ultimo = nullptr;
 }
 
-void ListaEscritorio::insertar(Escritorios *desktop)
+void ListaEscritorio::insertar(char desk)
 {
+    Escritorios *desktop = new Escritorios(desk);
     if (this->primero == nullptr){
         this->primero = desktop;
         this->ultimo = desktop;
@@ -481,3 +596,124 @@ Escritorios *ListaEscritorio::getEscritorio(char desk)
 }
 
 
+
+Desktops::Desktops()
+{
+    this->listadesktop = new ListaEscritorio();
+}
+
+void Desktops::insertar(char desk)
+{
+    Escritorios *esc = this->listadesktop->getEscritorio(desk);
+    if (esc == nullptr){
+        this->listadesktop->insertar(desk);
+    }else{
+        cout << "ya insertado" << endl;
+    }
+}
+
+void Desktops::insertarPasajeros(Pasajero pasajero)
+{
+    if(this->listadesktop->primero != nullptr){
+        Escritorios *aux = this->listadesktop->primero;
+        while(aux != nullptr){
+            if (aux->pasajeros->tamanio < 11){
+                aux->pasajeros->push(pasajero);
+                for(int i =1; i <= pasajero.getDocumento(); i++){
+                    aux->documentos->apilar(i);
+                }
+                return;
+            }
+            aux = aux->siguiente;
+        }
+        cout << "Escritorios LLenos espere en la cola" << endl;
+    }else{
+        cout << "Vacio DX" << endl;
+    }
+}
+
+
+void Desktops::recorrer()
+{
+    if (this->listadesktop->primero != nullptr){
+        Escritorios *aux = this->listadesktop->primero;
+        while (aux != nullptr){
+            cout << aux->desk << endl;
+            aux->pasajeros->recorrer();
+            aux->documentos->recorrer();
+            aux = aux->siguiente;
+        }
+    }else{
+        cout << "Vacio DX !! " << endl;
+    }
+}
+
+
+
+Mantenimiento::Mantenimiento(int numero)
+{
+    this->numero = numero;
+    this->avionesM = new Cola();
+    this->siguiente = nullptr;
+}
+
+ListaMantenimiento::ListaMantenimiento()
+{
+    this->primero = nullptr;
+    this->ultimo = nullptr;
+}
+
+void ListaMantenimiento::insertar(int numero)
+{
+    Mantenimiento *nuevo = new Mantenimiento(numero);
+    if (this->primero == nullptr){
+        this->primero = nuevo;
+        this->ultimo = nuevo;
+    }else{
+        this->ultimo->siguiente = nuevo;
+        this->ultimo = nuevo;
+    }
+}
+
+void ListaMantenimiento::insertarA(Avion avion, int numero)
+{
+    if (this->primero != nullptr){
+        Mantenimiento *busca = this->buscarM(numero);
+        if (busca != nullptr){
+            busca->avionesM->pushA(avion);
+        }else{
+            cout<<"No se encontro la estacion !!" << endl;
+        }
+    }else{
+        cout<<"Vacios!!" << endl;
+    }
+
+}
+
+Mantenimiento *ListaMantenimiento::buscarM(int numero)
+{
+    if (this->primero != nullptr){
+        Mantenimiento *buscar = this->primero;
+        while(buscar != nullptr){
+            if(buscar->numero == numero){
+                return buscar;
+            }
+            buscar = buscar->siguiente;
+        }
+    }
+    return nullptr;
+}
+
+void ListaMantenimiento::recorrer()
+{
+    if(this->primero != nullptr){
+        Mantenimiento *aux = this->primero;
+        while(aux != nullptr){
+            cout << to_string(aux->numero) << endl;
+            aux->avionesM->recorrerA();
+            aux = aux->siguiente;
+        }
+    }else{
+        cout << "Vacio DX !!" << endl;
+    }
+}

@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "listas.h"
+#include "pasajero.h"
+#include "avion.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +20,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    Cola *aviones;
+    Cola *pasajeros;
+    Desktops *escritorios;
+    List *listaEq;
+    ListaMantenimiento *listmant;
 };
 
 #endif // MAINWINDOW_H

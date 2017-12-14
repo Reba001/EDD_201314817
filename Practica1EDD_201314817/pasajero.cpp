@@ -8,6 +8,11 @@ Pasajero::Pasajero(int documento, int maletas, int id, int turnos)
     this->turnos = turnos;
 }
 
+Pasajero::Pasajero()
+{
+
+}
+
 int Pasajero::getMaletas() const
 {
     return this->maletas;
