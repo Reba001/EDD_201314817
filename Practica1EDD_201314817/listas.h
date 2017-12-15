@@ -119,6 +119,7 @@ struct Escritorios{
 struct ListaEscritorio{
     Escritorios * primero;
     Escritorios * ultimo;
+    int tamanioE;
     ListaEscritorio();
     void insertar(char desk);
     Escritorios * getEscritorio(char desk);
@@ -126,9 +127,12 @@ struct ListaEscritorio{
 
 struct Desktops{
     ListaEscritorio *listadesktop;
+
     Desktops();
     void insertar(char desk);
+    bool colasllenas();
     void insertarPasajeros(Pasajero pasajero);
+    void finalizarRegistro();
     void recorrer();
 
 };

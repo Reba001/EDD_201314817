@@ -566,6 +566,7 @@ ListaEscritorio::ListaEscritorio()
 {
     this->primero = nullptr;
     this->ultimo = nullptr;
+    this->tamanioE = 0;
 }
 
 void ListaEscritorio::insertar(char desk)
@@ -579,6 +580,7 @@ void ListaEscritorio::insertar(char desk)
         desktop->anterior = this->ultimo;
         this->ultimo = desktop;
     }
+    ++tamanioE;
 }
 
 Escritorios *ListaEscritorio::getEscritorio(char desk)
@@ -600,6 +602,7 @@ Escritorios *ListaEscritorio::getEscritorio(char desk)
 Desktops::Desktops()
 {
     this->listadesktop = new ListaEscritorio();
+
 }
 
 void Desktops::insertar(char desk)
@@ -607,9 +610,19 @@ void Desktops::insertar(char desk)
     Escritorios *esc = this->listadesktop->getEscritorio(desk);
     if (esc == nullptr){
         this->listadesktop->insertar(desk);
+
     }else{
         cout << "ya insertado" << endl;
     }
+}
+
+bool Desktops::colasllenas()
+{
+    if (this->listadesktop->primero != nullptr){
+        int tam = this->listadesktop->ultimo->pasajeros->tamanio;
+        return tam == 10;
+    }
+    return true;
 }
 
 void Desktops::insertarPasajeros(Pasajero pasajero)
@@ -617,10 +630,12 @@ void Desktops::insertarPasajeros(Pasajero pasajero)
     if(this->listadesktop->primero != nullptr){
         Escritorios *aux = this->listadesktop->primero;
         while(aux != nullptr){
-            if (aux->pasajeros->tamanio < 11){
+            if (aux->pasajeros->tamanio < 10){
                 aux->pasajeros->push(pasajero);
-                for(int i =1; i <= pasajero.getDocumento(); i++){
-                    aux->documentos->apilar(i);
+                if (aux->pasajeros->cabeza->pasajero.toString() == pasajero.toString()){
+                    for(int i =1; i <= pasajero.getDocumento(); i++){
+                        aux->documentos->apilar(i);
+                    }
                 }
                 return;
             }
@@ -629,6 +644,27 @@ void Desktops::insertarPasajeros(Pasajero pasajero)
         cout << "Escritorios LLenos espere en la cola" << endl;
     }else{
         cout << "Vacio DX" << endl;
+    }
+}
+
+void Desktops::finalizarRegistro()
+{
+    if (this->listadesktop->primero != nullptr){
+        Escritorios *aux = this->listadesktop->primero;
+        while(aux != nullptr){
+            if (aux->pasajeros->cabeza->pasajero.getTurnos() <= 0){
+                Nodo *passs = aux->pasajeros->pop();
+                passs = nullptr;
+                delete passs;
+                aux->documentos->eliminar();
+            }else{
+                int t = aux->pasajeros->cabeza->pasajero.getTurnos();
+                aux->pasajeros->cabeza->pasajero.setTurnos(t-1);
+            }
+            aux = aux->siguiente;
+        }
+    }else {
+        cout << "Vacio DXAAAAAA" << endl;
     }
 }
 

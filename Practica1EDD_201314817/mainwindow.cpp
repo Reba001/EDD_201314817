@@ -136,3 +136,15 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    if(!this->ui->lineEdit->text().isEmpty()){
+        QString st1 = this->ui->lineEdit->text();
+        QString st2 = this->ui->lineEdit_2->text();
+        QString st3 = this->ui->lineEdit_3->text();
+        Simulador *sim = new Simulador(st1, st2, st3, this);
+        sim->exec();
+    }
+
+}
