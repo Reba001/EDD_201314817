@@ -132,7 +132,7 @@ struct Desktops{
     void insertar(char desk);
     bool colasllenas();
     void insertarPasajeros(Pasajero pasajero);
-    void finalizarRegistro();
+    void finalizarRegistro(int &numero);
     void recorrer();
 
 };

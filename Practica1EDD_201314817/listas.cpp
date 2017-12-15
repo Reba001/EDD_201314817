@@ -619,10 +619,16 @@ void Desktops::insertar(char desk)
 bool Desktops::colasllenas()
 {
     if (this->listadesktop->primero != nullptr){
-        int tam = this->listadesktop->ultimo->pasajeros->tamanio;
-        return tam == 10;
+        Escritorios *aux = this->listadesktop->primero;
+        int resultado = 0;
+        while (aux != nullptr){
+            int tam = aux->pasajeros->tamanio;
+            resultado += tam;
+            aux = aux->siguiente;
+        }
+        return resultado == (this->listadesktop->tamanioE *10);
     }
-    return true;
+    return false;
 }
 
 void Desktops::insertarPasajeros(Pasajero pasajero)
@@ -647,19 +653,34 @@ void Desktops::insertarPasajeros(Pasajero pasajero)
     }
 }
 
-void Desktops::finalizarRegistro()
+void Desktops::finalizarRegistro(int &numero)
 {
     if (this->listadesktop->primero != nullptr){
         Escritorios *aux = this->listadesktop->primero;
         while(aux != nullptr){
-            if (aux->pasajeros->cabeza->pasajero.getTurnos() <= 0){
-                Nodo *passs = aux->pasajeros->pop();
-                passs = nullptr;
-                delete passs;
-                aux->documentos->eliminar();
-            }else{
-                int t = aux->pasajeros->cabeza->pasajero.getTurnos();
-                aux->pasajeros->cabeza->pasajero.setTurnos(t-1);
+            if (aux->pasajeros->cabeza != nullptr){
+                if (aux->pasajeros->cabeza->pasajero.getTurnos() < 1){
+                    Nodo *passs = aux->pasajeros->pop();
+                    numero = passs->pasajero.getMaletas();
+                    passs = nullptr;
+                    delete passs;
+                    aux->documentos->eliminar();
+                    if (aux->pasajeros->cabeza != nullptr){
+                        for(int i =1; i <= aux->pasajeros->cabeza->pasajero.getDocumento(); i++){
+                            aux->documentos->apilar(i);
+                        }
+
+                        int t = aux->pasajeros->cabeza->pasajero.getTurnos();
+                        aux->pasajeros->cabeza->pasajero.setTurnos(--t);
+                    }
+
+                }else{
+                    int t = aux->pasajeros->cabeza->pasajero.getTurnos();
+                    aux->pasajeros->cabeza->pasajero.setTurnos(--t);
+                    numero = -1;
+                }
+            }else {
+                cout << "Vacio Pasajero" << endl;
             }
             aux = aux->siguiente;
         }

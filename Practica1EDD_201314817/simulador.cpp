@@ -110,10 +110,18 @@ void Simulador::generacionPasajeros()
             int cantMa = 1+(rand()%4);
             int turnR = 1+(rand()%3);
             Pasajero pa(numDoc, cantMa, id, turnR);
-            if (this->escrito->colasllenas())
+            if (this->escrito->colasllenas()){
                 this->pasajeros->push(pa);
-            else
+                for (int j = 0; j < pa.getMaletas() ; j++){
+                    this->listaEq->insertarC(j);
+                }
+            }else{
                 this->escrito->insertarPasajeros(pa);
+                for (int j = 0; j < pa.getMaletas() ; j++){
+                    this->listaEq->insertarC(j);
+                }
+            }
+
         }
         this->avGlobal->avion.setTurnos(avGlobal->avion.getTurnos()-1);
     }
@@ -146,10 +154,14 @@ void Simulador::desabordajePasajero()
                     int cantMa = 1+(rand()%4);
                     int turnR = 1+(rand()%3);
                     Pasajero pa(numDoc, cantMa, id, turnR);
-                    if (this->escrito->colasllenas())
+                    if (this->escrito->colasllenas()){
                         this->pasajeros->push(pa);
-                    else
+
+                    }else{
                         this->escrito->insertarPasajeros(pa);
+
+                    }
+
                 }
                 this->avGlobal->avion.setTurnos(avGlobal->avion.getTurnos()-1);
             }
@@ -180,10 +192,25 @@ void Simulador::desabordajePasajero()
                     int cantMa = 1+(rand()%4);
                     int turnR = 1+(rand()%3);
                     Pasajero pa(numDoc, cantMa, id, turnR);
+                    for (int j = 0; j < pa.getMaletas() ; j++){
+                        this->listaEq->insertarC(j);
+                    }
                     if (this->escrito->colasllenas())
                         this->pasajeros->push(pa);
-                    else
-                        this->escrito->insertarPasajeros(pa);
+                    else{
+                        if (this->pasajeros->cabeza != nullptr){
+                            this->pasajeros->push(pa);
+
+                            Nodo *nuevoP = pasajeros->pop();
+                            this->escrito->insertarPasajeros(nuevoP->pasajero);
+                            nuevoP = nullptr;
+                            delete nuevoP;
+
+                        }else{
+                            this->escrito->insertarPasajeros(pa);
+
+                        }
+                    }
                 }
                 this->avGlobal->avion.setTurnos(avGlobal->avion.getTurnos()-1);
             }
@@ -197,10 +224,36 @@ void Simulador::desabordajePasajero()
 
 }
 
+void Simulador::insertardesdeColaEspera()
+{
+    if (this->avions->cabezaD == nullptr){
+        if (!this->escrito->colasllenas()){
+            if (this->pasajeros->cabeza != nullptr){
+                Nodo *nuevoP = pasajeros->pop();
+                this->escrito->insertarPasajeros(nuevoP->pasajero);
+                nuevoP = nullptr;
+                delete nuevoP;
+            }
+        }
+
+    }
+}
+
 void Simulador::on_pushButton_clicked()
 {
-    this->escrito->finalizarRegistro();
+    int numero;
+    this->escrito->finalizarRegistro(numero);
+    if(numero < 4 && numero > -1){
+        for (int k = 0; k<numero; k++ ){
+            this->listaEq->eliminarC(k);
+        }
+    }
+    cout << "EStas son las maletas " << endl;
+    this->listaEq->recorrerC();
+    cout << "Se terminaron las maletas" << endl;
+    cout << "Este es el numero de maletas: " << to_string(numero) << endl;
     this->desabordajePasajero();
+    this->insertardesdeColaEspera();
     cout << "Escritorios Ocupados " << endl;
     this->escrito->recorrer();
     cout << "Pasajeros en cola " << endl;

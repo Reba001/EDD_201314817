@@ -45,6 +45,7 @@ private:
     void generacionServicio();
     void generacionPasajeros();
     void desabordajePasajero();
+    void insertardesdeColaEspera();
 };
 
 #endif // SIMULADOR_H
