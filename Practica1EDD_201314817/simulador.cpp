@@ -311,6 +311,8 @@ void Simulador::on_pushButton_clicked()
     this->avions->grafoAvionD();
     this->escrito->grafoEscritorio();
     this->grafoGeneral();
+    QPixmap imagen("//home//reba//Escritorio//grafoFinal.png");
+    this->ui->label_2->setPixmap(imagen);
 
 }
 
