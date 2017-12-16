@@ -21,6 +21,7 @@ Simulador::Simulador(QString avion, QString escritorios, QString servicios, QWid
     this->generacionServicio();
     this->avGlobal = this->avions->cabezaD;
     this->generacionPasajeros();
+    this->grafoGeneral();
 }
 
 Simulador::~Simulador()
@@ -110,20 +111,18 @@ void Simulador::generacionPasajeros()
             int cantMa = 1+(rand()%4);
             int turnR = 1+(rand()%3);
             Pasajero pa(numDoc, cantMa, id, turnR);
+            for (int j = 0; j < cantMa; j++){
+                this->listaEq->insertarC(j);
+            }
             if (this->escrito->colasllenas()){
                 this->pasajeros->push(pa);
-                for (int j = 0; j < pa.getMaletas() ; j++){
-                    this->listaEq->insertarC(j);
-                }
             }else{
                 this->escrito->insertarPasajeros(pa);
-                for (int j = 0; j < pa.getMaletas() ; j++){
-                    this->listaEq->insertarC(j);
-                }
             }
 
         }
-        this->avGlobal->avion.setTurnos(avGlobal->avion.getTurnos()-1);
+        int t = avGlobal->avion.getTurnos();
+        this->avGlobal->avion.setTurnos(--t);
     }
 
 
@@ -154,16 +153,19 @@ void Simulador::desabordajePasajero()
                     int cantMa = 1+(rand()%4);
                     int turnR = 1+(rand()%3);
                     Pasajero pa(numDoc, cantMa, id, turnR);
+                    for(int k = 1; k < cantMa+1 ; k++){
+                        this->listaEq->insertarC(k);
+                    }
                     if (this->escrito->colasllenas()){
                         this->pasajeros->push(pa);
 
                     }else{
                         this->escrito->insertarPasajeros(pa);
-
                     }
 
                 }
-                this->avGlobal->avion.setTurnos(avGlobal->avion.getTurnos()-1);
+                int t = avGlobal->avion.getTurnos();
+                this->avGlobal->avion.setTurnos(--t);
             }
 
 
@@ -171,6 +173,7 @@ void Simulador::desabordajePasajero()
 
             this->avMant->pushA(avGlobal->avion);
             Nodo *aux = this->avions->popD();
+            this->avMant->pushD(aux->avion);
             aux = nullptr;
             delete aux;
             avGlobal = nullptr;
@@ -192,27 +195,21 @@ void Simulador::desabordajePasajero()
                     int cantMa = 1+(rand()%4);
                     int turnR = 1+(rand()%3);
                     Pasajero pa(numDoc, cantMa, id, turnR);
-                    for (int j = 0; j < pa.getMaletas() ; j++){
-                        this->listaEq->insertarC(j);
-                    }
-                    if (this->escrito->colasllenas())
+
+                    if (this->escrito->colasllenas()){
                         this->pasajeros->push(pa);
-                    else{
-                        if (this->pasajeros->cabeza != nullptr){
-                            this->pasajeros->push(pa);
 
-                            Nodo *nuevoP = pasajeros->pop();
-                            this->escrito->insertarPasajeros(nuevoP->pasajero);
-                            nuevoP = nullptr;
-                            delete nuevoP;
-
-                        }else{
-                            this->escrito->insertarPasajeros(pa);
-
-                        }
+                    }else{
+                        this->pasajeros->push(pa);
+                        Nodo *nuevoP = pasajeros->pop();
+                        this->escrito->insertarPasajeros(nuevoP->pasajero);
+                        nuevoP = nullptr;
+                        delete nuevoP;
                     }
+
                 }
-                this->avGlobal->avion.setTurnos(avGlobal->avion.getTurnos()-1);
+                int t = avGlobal->avion.getTurnos();
+                this->avGlobal->avion.setTurnos(--t);
             }
 
         }
@@ -239,21 +236,68 @@ void Simulador::insertardesdeColaEspera()
     }
 }
 
+void Simulador::eliminarMaletas(int n)
+{
+    for (int i =0 ; i < n ; i++){
+        this->listaEq->popC();
+    }
+}
+
+void Simulador::grafoGeneral()
+{
+    string grafo = "digraph g{\n";
+    grafo += "\t node[shape=box, color=Gray95];\n";
+    grafo += "\t edge[color=black];\n";
+    grafo += "\t subgraph ColaPasajero{\n";
+
+    this->pasajeros->cadenaPasajero(grafo);
+    grafo += "\t label = \"Pasajeros\";\n" ;
+    grafo += "\t color = blue\n" ;
+    grafo += "\t}\n";
+    grafo += "\t subgraph ColaAviones{\n";
+    grafo += "\t \"Aviones\";\n";
+    this->avions->cadenaAvionD(grafo);
+    grafo += "\t label = \"Aviones\";\n" ;
+    grafo += "\t color = blue\n" ;
+    grafo += "\t}\n";
+    grafo += "\t subgraph ColaEscritorios{\n";
+    grafo += "\t rankdir=UD;\n";
+    this->escrito->cadenaEscritorio(grafo);
+    grafo += "label = \"Escritorio\";\n" ;
+    grafo += "\t color = blue\n" ;
+    grafo += "\t}\n";
+    grafo += "\t subgraph ListaServicios{\n";
+    grafo += "\t rankdir=UD;\n";
+    this->listmant->cadenaGrafoS(grafo);
+    grafo += "label = \"Mantenimiento\";\n" ;
+    grafo += "\t color = blue\n" ;
+    grafo += "\t}\n";
+    grafo += "\t subgraph AvionesMantenimiento{\n";
+    grafo += "\t rankdir=UD;\n";
+    this->avMant->cadenaAvionD(grafo);
+    grafo += "label = \"Aviones en Mantenimiento\";\n" ;
+    grafo += "\t color = blue\n" ;
+    grafo += "\t}\n";
+    grafo += "}\n";
+    ofstream archivo("//home//reba//Escritorio//grafoFinal.dot");
+    archivo << grafo;
+    archivo.close();
+    system("dot -Tpng //home//reba//Escritorio//grafoFinal.dot -o //home//reba//Escritorio//grafoFinal.png");
+
+}
+
 void Simulador::on_pushButton_clicked()
 {
-    int numero;
-    this->escrito->finalizarRegistro(numero);
-    if(numero < 4 && numero > -1){
-        for (int k = 0; k<numero; k++ ){
-            this->listaEq->eliminarC(k);
-        }
-    }
+    int n = 0;
+    this->escrito->finalizarRegistro(n);
+    this->eliminarMaletas(n);
+    this->desabordajePasajero();
+    this->insertardesdeColaEspera();
+
+    cout << "Este es el numero de maletas: " << to_string(n) << endl;
     cout << "EStas son las maletas " << endl;
     this->listaEq->recorrerC();
     cout << "Se terminaron las maletas" << endl;
-    cout << "Este es el numero de maletas: " << to_string(numero) << endl;
-    this->desabordajePasajero();
-    this->insertardesdeColaEspera();
     cout << "Escritorios Ocupados " << endl;
     this->escrito->recorrer();
     cout << "Pasajeros en cola " << endl;
@@ -262,5 +306,16 @@ void Simulador::on_pushButton_clicked()
     cout << "Inicia Lista Aviones " << endl;
     this->avions->recorrerD();
     cout << "Finaliza Lista Aviones" << endl;
+    this->listaEq->crearGrafo();
+    this->pasajeros->grafoPasajero();
+    this->avions->grafoAvionD();
+    this->escrito->grafoEscritorio();
+    this->grafoGeneral();
 
+}
+
+void Simulador::on_pushButton_2_clicked()
+{
+
+    QDesktopServices::openUrl(QUrl("//home//reba//Escritorio//grafoFinal.png",QUrl::TolerantMode));
 }

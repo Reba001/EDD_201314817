@@ -132,6 +132,145 @@ void List::insertarCD(int numero)
     this->tamanioC++;
 }
 
+void List::popC()
+{
+    if (this->cabezaC != nullptr){
+        if (this->cabezaC == this->colaC){
+            this->cabezaC = nullptr;
+            this->colaC = nullptr;
+            delete this->cabezaC;
+            delete this->colaC;
+            return;
+
+        }else if(this->cabezaC->siguiente == this->colaC){
+            Nodo *aux = this->cabezaC;
+            this->cabezaC = this->cabezaC->siguiente;
+            this->cabezaC->anterior = this->colaC;
+            this->cabezaC->siguiente = this->colaC;
+            this->colaC->anterior = this->cabezaC;
+            this->colaC->siguiente = this->cabezaC;
+            aux = nullptr;
+            delete aux;
+            return;
+        }
+
+        Nodo *aux = this->cabezaC;
+        this->cabezaC = this->cabezaC->siguiente;
+        this->cabezaC->anterior = this->colaC;
+        this->colaC->siguiente = this->cabezaC;
+        aux->anterior = nullptr;
+        aux->siguiente = nullptr;
+        aux = nullptr;
+        delete aux;
+        return;
+
+    }else{
+        cout << "Vacia ggizi" << endl;
+    }
+
+}
+
+void List::crearGrafo()
+{
+
+    string grafo = "digraph g{\n";
+    grafo += "\t node[shape=box, style=filled, color=Gray95];\n";
+    grafo += "\t edge[color=black];\n";
+    grafo += "\t subgraph ListaMaletin{\n";
+    grafo += "\t node[style=filled];\n";
+    this->cadenaGrafo(grafo);
+    grafo += "\t}\n";
+    grafo += "}\n";
+    ofstream archivo("grafo.dot");
+    archivo << grafo;
+    archivo.close();
+    system("dot -Tpng grafo.dot -o grafo.png");
+
+}
+
+void List::cadenaGrafo(string &graph)
+{
+    if(this->cabezaC != nullptr){
+        Nodo *aux = this->cabezaC;
+        do{
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(aux);
+                direccion = ostm.str();
+            }
+
+            std::string direccionsig;
+            {
+                std::ostringstream ostms;
+                ostms << reinterpret_cast<std::uintptr_t>(aux->siguiente);
+                direccionsig = ostms.str();
+            }
+
+            std::string direccionant;
+            {
+                std::ostringstream ostm2;
+                ostm2 << reinterpret_cast<std::uintptr_t>(aux->anterior);
+                direccionant = ostm2.str();
+            }
+            graph += "\t"+ direccion+"[label=\""+to_string(aux->numero)+"\"];\n";
+            graph += "\t"+ direccionant+"[label=\""+to_string(aux->anterior->numero)+"\"];\n";
+            graph += "\t"+ direccion+" -> "+direccionant+";\n";
+            graph += "\t"+ direccion+" -> "+direccionsig+";\n";
+            aux = aux->siguiente;
+
+        }
+        while(aux != this->cabezaC);
+
+    }else {
+        graph += "Vacio DX" ;
+    }
+}
+
+void List::cadenaGrafoS(string &graph)
+{
+    if(this->cabezaS != nullptr){
+        Nodo *aux = this->cabezaS;
+        Nodo *aux2 = this->cabezaS;
+        graph += "{rank=min;\"SERVICIOS\";";
+        while(aux2 != nullptr){
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(aux2);
+                direccion = ostm.str();
+            }
+            graph += direccion +";";
+            aux2 = aux2->siguiente;
+        }
+        graph+= "};\n";
+        while(aux->siguiente != nullptr){
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(aux);
+                direccion = ostm.str();
+            }
+
+            std::string direccionsig;
+            {
+                std::ostringstream ostms;
+                ostms << reinterpret_cast<std::uintptr_t>(aux->siguiente);
+                direccionsig = ostms.str();
+            }
+
+
+            graph += "\t"+ direccion+"[label=\""+to_string(aux->numero)+"\"];\n";
+            graph += "\t"+ direccionsig+"[label=\""+to_string(aux->siguiente->numero)+"\"];\n";
+            graph += "\t"+ direccion+" -> "+direccionsig+";\n";
+            aux = aux->siguiente;
+        }
+    }else {
+        graph += "Vacio";
+    }
+
+}
+
 void List::recorrerS()
 {
     if (this->cabezaS != nullptr){
@@ -370,6 +509,55 @@ Nodo * Cola::pop()
     return nullptr;
 }
 
+void Cola::grafoPasajero()
+{
+    string grafo = "digraph g{\n";
+    grafo += "\t node[shape=box, style=filled, color=Gray95];\n";
+    grafo += "\t edge[color=black];\n";
+    grafo += "\t subgraph ColaPasajero{\n";
+    grafo += "\t node[style=filled];\n";
+    this->cadenaPasajero(grafo);
+    grafo += "\t}\n";
+    grafo += "}\n";
+    ofstream archivo("grafoPasajero.dot");
+    archivo << grafo;
+    archivo.close();
+    system("dot -Tpng grafoPasajero.dot -o grafoPasajero.png");
+
+}
+
+void Cola::cadenaPasajero(string &graph)
+{
+    if (this->cabeza != nullptr){
+        Nodo *aux = this->cabeza;
+
+        while(aux->siguiente != nullptr){
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(aux);
+                direccion = ostm.str();
+            }
+
+            std::string direccionsig;
+            {
+                std::ostringstream ostms;
+                ostms << reinterpret_cast<std::uintptr_t>(aux->siguiente);
+                direccionsig = ostms.str();
+            }
+
+            graph += "\t"+ direccion+"[label=\""+aux->pasajero.toString()+"\"];\n";
+            graph += "\t"+ direccionsig+"[label=\""+aux->siguiente->pasajero.toString()+"\"];\n";
+            graph += "\t"+ direccion+" -> "+direccionsig;
+
+            aux = aux->siguiente;
+
+        }
+    }else{
+        graph +="\"Vacio DX\"";
+    }
+}
+
 void Cola::pushA(Avion avion)
 {
     Nodo *nuevo = new Nodo(avion);
@@ -418,6 +606,55 @@ void Cola::recorrerA()
     }
 }
 
+void Cola::grafoAvion()
+{
+
+    string grafo = "digraph g{\n";
+    grafo += "\t node[shape=box, style=filled, color=Gray95];\n";
+    grafo += "\t edge[color=black];\n";
+    grafo += "\t subgraph ColaAvion{\n";
+    grafo += "\t node[style=filled];\n";
+    this->cadenaAvion(grafo);
+    grafo += "\t}\n";
+    grafo += "}\n";
+    ofstream archivo("grafoAvion.dot");
+    archivo << grafo;
+    archivo.close();
+    system("dot -Tpng grafoAvion.dot -o grafoAvion.png");
+
+}
+
+void Cola::cadenaAvion(string &graph)
+{
+    if(this->cabeza != nullptr){
+        Nodo *aux = this->cabeza;
+
+        while(aux->siguiente != nullptr){
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(aux);
+                direccion = ostm.str();
+            }
+
+            std::string direccionsig;
+            {
+                std::ostringstream ostms;
+                ostms << reinterpret_cast<std::uintptr_t>(aux->siguiente);
+                direccionsig = ostms.str();
+            }
+
+            graph += "\t"+ direccion+"[label=\""+aux->avion.toString()+"\"];\n";
+            graph += "\t"+ direccionsig+"[label=\""+aux->siguiente->avion.toString()+"\"];\n";
+            graph += "\t"+ direccion+" -> "+direccionsig;
+
+            aux = aux->siguiente;
+        }
+    }else{
+        graph += "Vacio" ;
+    }
+}
+
 void Cola::pushD(Avion avion)
 {
     Nodo * nuevo = new Nodo(avion);
@@ -449,6 +686,68 @@ Nodo *Cola::popD()
         }
     }
     return nullptr;
+}
+
+void Cola::grafoAvionD()
+{
+
+    string grafo = "digraph g{\n";
+    grafo += "\t node[shape=box, style=filled, color=Gray95];\n";
+    grafo += "\t edge[color=black];\n";
+    grafo += "\t subgraph ColaAvionDesabordaje{\n";
+    grafo += "\t node[style=filled];\n";
+    this->cadenaAvionD(grafo);
+    grafo += "\t}\n";
+    grafo += "}\n";
+    ofstream archivo("grafoAvionD.dot");
+    archivo << grafo;
+    archivo.close();
+    system("dot -Tpng grafoAvionD.dot -o grafoAvionD.png");
+}
+
+void Cola::cadenaAvionD(string &graph)
+{
+    if(this->cabezaD != nullptr){
+        Nodo *aux = this->cabezaD;
+        while(aux->siguiente != nullptr){
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(aux);
+                direccion = ostm.str();
+            }
+
+            std::string direccionsig;
+            {
+                std::ostringstream ostms;
+                ostms << reinterpret_cast<std::uintptr_t>(aux->siguiente);
+                direccionsig = ostms.str();
+            }
+
+            if(aux->anterior != nullptr){
+
+                std::string direccionAnt;
+                {
+                    std::ostringstream ostmA;
+                    ostmA << reinterpret_cast<std::uintptr_t>(aux->anterior);
+                    direccionAnt = ostmA.str();
+                }
+
+                graph += "\t"+ direccionAnt+"[label=\""+aux->anterior->avion.toString()+"\"];\n";
+                graph += "\t"+ direccion+" -> "+direccionAnt;
+
+            }
+
+
+            graph += "\t"+ direccion+"[label=\""+aux->avion.toString()+"\"];\n";
+            graph += "\t"+ direccionsig+"[label=\""+aux->siguiente->avion.toString()+"\"];\n";
+            graph += "\t"+ direccion+" -> "+direccionsig;
+
+            aux = aux->siguiente;
+        }
+    }else{
+        graph += "Vacio" ;
+    }
 }
 
 
@@ -602,7 +901,7 @@ Escritorios *ListaEscritorio::getEscritorio(char desk)
 Desktops::Desktops()
 {
     this->listadesktop = new ListaEscritorio();
-
+    this->listEq = new List();
 }
 
 void Desktops::insertar(char desk)
@@ -642,6 +941,7 @@ void Desktops::insertarPasajeros(Pasajero pasajero)
                     for(int i =1; i <= pasajero.getDocumento(); i++){
                         aux->documentos->apilar(i);
                     }
+
                 }
                 return;
             }
@@ -653,7 +953,7 @@ void Desktops::insertarPasajeros(Pasajero pasajero)
     }
 }
 
-void Desktops::finalizarRegistro(int &numero)
+void Desktops::finalizarRegistro(int &num)
 {
     if (this->listadesktop->primero != nullptr){
         Escritorios *aux = this->listadesktop->primero;
@@ -661,7 +961,7 @@ void Desktops::finalizarRegistro(int &numero)
             if (aux->pasajeros->cabeza != nullptr){
                 if (aux->pasajeros->cabeza->pasajero.getTurnos() < 1){
                     Nodo *passs = aux->pasajeros->pop();
-                    numero = passs->pasajero.getMaletas();
+                    num = passs->pasajero.getMaletas();
                     passs = nullptr;
                     delete passs;
                     aux->documentos->eliminar();
@@ -676,8 +976,8 @@ void Desktops::finalizarRegistro(int &numero)
 
                 }else{
                     int t = aux->pasajeros->cabeza->pasajero.getTurnos();
+                    num = 0;
                     aux->pasajeros->cabeza->pasajero.setTurnos(--t);
-                    numero = -1;
                 }
             }else {
                 cout << "Vacio Pasajero" << endl;
@@ -702,6 +1002,152 @@ void Desktops::recorrer()
         }
     }else{
         cout << "Vacio DX !! " << endl;
+    }
+}
+
+void Desktops::grafoEscritorio()
+{
+
+    string grafo = "digraph g{\n";
+    grafo += "\t node[shape=box, style=filled, color=Gray95];\n";
+    grafo += "\t edge[color=black];\n";
+    grafo += "\t subgraph ColaEscritorios{\n";
+    grafo += "\t node[style=filled];\n";
+    this->cadenaEscritorio(grafo);
+    grafo += "\t}\n";
+    grafo += "}\n";
+    ofstream archivo("grafoEscritorios.dot");
+    archivo << grafo;
+    archivo.close();
+    system("dot -Tpng grafoEscritorios.dot -o grafoEscritorios.png");
+
+}
+
+void Desktops::cadenaEscritorio(string &graph)
+{
+    if(this->listadesktop->primero != nullptr){
+        Escritorios *esc = this->listadesktop->primero;
+        int contador= 0;
+        Escritorios *escaux = this->listadesktop->primero;
+        graph += "{rank=min;\"ESCRITORIO\";";
+        while(escaux != nullptr){
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(escaux);
+                direccion = ostm.str();
+            }
+            graph+= direccion+";";
+            escaux = escaux->siguiente;
+        }
+        graph+="\n};\n";
+        while(esc->siguiente != nullptr){
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(esc);
+                direccion = ostm.str();
+            }
+            std::string direccionSig;
+            {
+                std::ostringstream ostmS;
+                ostmS << reinterpret_cast<std::uintptr_t>(esc->siguiente);
+                direccionSig = ostmS.str();
+            }
+
+            if (esc->anterior != nullptr){
+
+                std::string direccionAnt;
+                {
+                    std::ostringstream ostmA;
+                    ostmA << reinterpret_cast<std::uintptr_t>(esc->anterior);
+                    direccionAnt = ostmA.str();
+                }
+                graph += "\t\t "+direccionAnt+"[label=\""+esc->anterior->desk+"\"];\n";
+                graph+= "\t\t "+ direccion + " -> "+direccionAnt+";\n";
+            }
+
+            graph+= "\t\t "+ direccion+ "[label=\""+esc->desk+"\"];\n";
+            graph+= "\t\t "+ direccionSig+ "[label=\""+esc->siguiente->desk+"\"];\n";
+            graph+= "\t\t "+ direccion + " -> "+direccionSig+";\n";
+
+            if (esc->pasajeros->cabeza != nullptr){
+                std::string direccionCP;
+                {
+                    std::ostringstream ostmCP;
+                    ostmCP << reinterpret_cast<std::uintptr_t>(esc->pasajeros->cabeza);
+                    direccionCP = ostmCP.str();
+                }
+                graph+= "\t\t "+ direccion + " -> "+direccionCP+";\n";
+
+
+            }
+            graph+= "\t\t subgraph "+direccion+to_string(contador)+"{\n";
+            esc->pasajeros->cadenaPasajero(graph);
+            graph+= "\t\t }\n";
+            esc = esc->siguiente;
+            contador++;
+        }
+
+        if (esc->siguiente == nullptr && esc->anterior != nullptr){
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(esc);
+                direccion = ostm.str();
+            }
+            std::string direccionAnt;
+            {
+                std::ostringstream ostmS;
+                ostmS << reinterpret_cast<std::uintptr_t>(esc->anterior);
+                direccionAnt = ostmS.str();
+            }
+
+
+            graph+= "\t\t "+ direccion+ "[label=\""+esc->desk+"\"];\n";
+            graph+= "\t\t "+ direccionAnt+ "[label=\""+esc->anterior->desk+"\"];\n";
+            graph+= "\t\t "+ direccion + " -> "+direccionAnt+";\n";
+
+            if (esc->pasajeros->cabeza != nullptr){
+                std::string direccionCP;
+                {
+                    std::ostringstream ostmCP;
+                    ostmCP << reinterpret_cast<std::uintptr_t>(esc->pasajeros->cabeza);
+                    direccionCP = ostmCP.str();
+                }
+                graph+= "\t\t "+ direccion + " -> "+direccionCP+";\n";
+            }
+
+            graph+= "\t\t subgraph "+direccion+to_string(this->listadesktop->tamanioE)+"{\n";
+            esc->pasajeros->cadenaPasajero(graph);
+            graph+= "\t\t }\n";
+
+        }else if (esc->siguiente == nullptr && esc->anterior == nullptr){
+            std::string direccion;
+            {
+                std::ostringstream ostm;
+                ostm << reinterpret_cast<std::uintptr_t>(esc);
+                direccion = ostm.str();
+            }
+
+            graph+= "\t\t "+ direccion+ "[label=\""+esc->desk+"\"];\n";
+
+            if (esc->pasajeros->cabeza != nullptr){
+                std::string direccionCP;
+                {
+                    std::ostringstream ostmCP;
+                    ostmCP << reinterpret_cast<std::uintptr_t>(esc->pasajeros->cabeza);
+                    direccionCP = ostmCP.str();
+                }
+                graph+= "\t\t "+ direccion + " -> "+direccionCP+";\n";
+                graph+= "\t\t subgraph "+direccion+"0"+"{\n";
+                esc->pasajeros->cadenaPasajero(graph);
+                graph+= "\t\t }\n";
+            }
+
+        }
+    }else{
+        graph +="Vacio DX";
     }
 }
 

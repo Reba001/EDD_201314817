@@ -5,6 +5,9 @@
 #include "stdlib.h"
 #include "iostream"
 #include "stdio.h"
+#include <cstdint>
+#include <sstream>
+#include "fstream"
 using namespace std;
 typedef struct Nodo Nodo;
 typedef struct List List;
@@ -55,6 +58,14 @@ struct List
     void insertarDD(int numero);
     void insertarCD(int numero);
 
+    void popC();
+
+    void crearGrafo();
+    void cadenaGrafo(string &graph);
+
+    void crearGrafoS();
+    void cadenaGrafoS(string &graph);
+
     void recorrerS();
     void recorrerD();
     void recorrerC();
@@ -78,14 +89,21 @@ struct Cola{
     Cola();
     void push(Pasajero pasajero);
     Nodo * pop();
+    void grafoPasajero();
+    void cadenaPasajero(string &graph);
 
     void pushA(Avion avion);
     Nodo * popA();
     void recorrerA();
 
+    void grafoAvion();
+    void cadenaAvion(string &graph);
+
 
     void pushD(Avion avion);
     Nodo *popD();
+    void grafoAvionD();
+    void cadenaAvionD(string &graph);
 
     void recorrer();
     void recorrerD();
@@ -128,12 +146,15 @@ struct ListaEscritorio{
 struct Desktops{
     ListaEscritorio *listadesktop;
 
+    List *listEq;
     Desktops();
     void insertar(char desk);
     bool colasllenas();
     void insertarPasajeros(Pasajero pasajero);
-    void finalizarRegistro(int &numero);
+    void finalizarRegistro(int &num);
     void recorrer();
+    void grafoEscritorio();
+    void cadenaEscritorio(string &graph);
 
 };
 

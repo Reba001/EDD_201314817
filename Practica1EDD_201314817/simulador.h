@@ -10,6 +10,10 @@
 #include <iostream>
 #include <avion.h>
 #include <pasajero.h>
+#include <QUrl>
+#include <QIODevice>
+#include <QDesktopServices>
+#include <QFile>
 
 namespace Ui {
 class Simulador;
@@ -25,6 +29,8 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::Simulador *ui;
@@ -46,6 +52,8 @@ private:
     void generacionPasajeros();
     void desabordajePasajero();
     void insertardesdeColaEspera();
+    void eliminarMaletas(int n);
+    void grafoGeneral();
 };
 
 #endif // SIMULADOR_H
