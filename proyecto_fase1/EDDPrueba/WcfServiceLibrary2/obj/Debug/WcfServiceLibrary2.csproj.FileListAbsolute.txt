@@ -1,0 +1,9 @@
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\EDDPrueba\WcfServiceLibrary2\obj\Debug\WcfServiceLibrary2.csprojResolveAssemblyReference.cache
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\EDDPrueba\WcfServiceLibrary2\obj\Debug\WcfServiceLibrary2.dll
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\EDDPrueba\WcfServiceLibrary2\obj\Debug\WcfServiceLibrary2.pdb
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\EDDPrueba\WcfServiceLibrary2\bin\WcfServiceLibrary2.dll.config
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\EDDPrueba\WcfServiceLibrary2\bin\WcfServiceLibrary2.dll
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\EDDPrueba\WcfServiceLibrary2\bin\WcfServiceLibrary2.pdb
+C:\Users\aaper\onedrive\documentos\visual studio 2013\Projects\EDDPrueba\WcfServiceLibrary2\bin\Interop.WINGRAPHVIZLib.dll
+C:\Users\aaper\onedrive\documentos\visual studio 2013\Projects\EDDPrueba\WcfServiceLibrary2\obj\Debug\Interop.WINGRAPHVIZLib.dll
+C:\Users\aaper\onedrive\documentos\visual studio 2013\Projects\EDDPrueba\WcfServiceLibrary2\obj\Debug\WcfServiceLibrary2.csproj.ResolveComReference.cache

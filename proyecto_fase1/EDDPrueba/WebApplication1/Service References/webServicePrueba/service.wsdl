@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setPieza_InputMessage">
+    <wsdl:part name="parameters" element="tns:setPieza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setPieza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setPiezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPieza_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPieza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPieza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPiezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:setUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_invocarGrafo_InputMessage">
+    <wsdl:part name="parameters" element="tns:invocarGrafo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_invocarGrafo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:invocarGrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_modificarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_modificarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_modificarContrasenia_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarContrasenia" />
+  </wsdl:message>
+  <wsdl:message name="IService1_modificarContrasenia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarContraseniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_modificarCorreo_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarCorreo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_modificarCorreo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_modificarEstad_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarEstad" />
+  </wsdl:message>
+  <wsdl:message name="IService1_modificarEstad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarEstadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setPieza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/setPieza" message="tns:IService1_setPieza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/setPiezaResponse" message="tns:IService1_setPieza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPieza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getPieza" message="tns:IService1_getPieza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getPiezaResponse" message="tns:IService1_getPieza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/setUsuario" message="tns:IService1_setUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/setUsuarioResponse" message="tns:IService1_setUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getUsuarios" message="tns:IService1_getUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getUsuariosResponse" message="tns:IService1_getUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="invocarGrafo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/invocarGrafo" message="tns:IService1_invocarGrafo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/invocarGrafoResponse" message="tns:IService1_invocarGrafo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/eliminarUsuario" message="tns:IService1_eliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/eliminarUsuarioResponse" message="tns:IService1_eliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/modificarUsuario" message="tns:IService1_modificarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/modificarUsuarioResponse" message="tns:IService1_modificarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarContrasenia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/modificarContrasenia" message="tns:IService1_modificarContrasenia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/modificarContraseniaResponse" message="tns:IService1_modificarContrasenia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarCorreo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/modificarCorreo" message="tns:IService1_modificarCorreo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/modificarCorreoResponse" message="tns:IService1_modificarCorreo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarEstad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/modificarEstad" message="tns:IService1_modificarEstad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/modificarEstadResponse" message="tns:IService1_modificarEstad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarUsuario" message="tns:IService1_buscarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarUsuarioResponse" message="tns:IService1_buscarUsuario_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPieza">
+      <soap:operation soapAction="http://tempuri.org/IService1/setPieza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPieza">
+      <soap:operation soapAction="http://tempuri.org/IService1/getPieza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/setUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsuarios">
+      <soap:operation soapAction="http://tempuri.org/IService1/getUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invocarGrafo">
+      <soap:operation soapAction="http://tempuri.org/IService1/invocarGrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/modificarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarContrasenia">
+      <soap:operation soapAction="http://tempuri.org/IService1/modificarContrasenia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarCorreo">
+      <soap:operation soapAction="http://tempuri.org/IService1/modificarCorreo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarEstad">
+      <soap:operation soapAction="http://tempuri.org/IService1/modificarEstad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfServiceLibrary2/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
