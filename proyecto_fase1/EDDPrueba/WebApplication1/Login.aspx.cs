@@ -37,7 +37,7 @@ namespace WebApplication1
                     {
                         Session["usuarioAdmin"] = usuario;
                         serv1.modificarEstad(usuario, true);
-                        Response.Redirect("Default.aspx");
+                        Response.Redirect("IngresoUsuarios.aspx");
                     }
                     else 
                     {
