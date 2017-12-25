@@ -15,36 +15,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="setPieza">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="pieza" nillable="true" type="q1:Pieza" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="setPiezaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="setPiezaResult" nillable="true" type="q2:Pieza" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getPieza">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getPiezaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="getPiezaResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="setUsuario">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q3:Usuario" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q1:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -161,7 +135,63 @@
   <xs:element name="buscarUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarUsuarioResult" nillable="true" type="q4:Usuario" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="buscarUsuarioResult" nillable="true" type="q2:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertarJuegos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nicknameActual" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="game" nillable="true" type="q3:Juego" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertarJuegosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertarJuegosResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertarenTablero">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fila" type="xs:int" />
+        <xs:element minOccurs="0" name="columna" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nivel" type="xs:int" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="pieza" nillable="true" type="q4:Pieza" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertarenTableroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertarenTableroResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recorrerFila">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recorrerFilaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recorrerFilaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recorrerCol">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="recorrerColResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recorrerColResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

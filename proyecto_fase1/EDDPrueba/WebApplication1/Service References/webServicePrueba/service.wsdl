@@ -13,18 +13,6 @@
   <wsdl:message name="IService1_GetData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_setPieza_InputMessage">
-    <wsdl:part name="parameters" element="tns:setPieza" />
-  </wsdl:message>
-  <wsdl:message name="IService1_setPieza_OutputMessage">
-    <wsdl:part name="parameters" element="tns:setPiezaResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_getPieza_InputMessage">
-    <wsdl:part name="parameters" element="tns:getPieza" />
-  </wsdl:message>
-  <wsdl:message name="IService1_getPieza_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getPiezaResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_setUsuario_InputMessage">
     <wsdl:part name="parameters" element="tns:setUsuario" />
   </wsdl:message>
@@ -79,18 +67,34 @@
   <wsdl:message name="IService1_buscarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:buscarUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_insertarJuegos_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarJuegos" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertarJuegos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarJuegosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertarenTablero_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarenTablero" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertarenTablero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarenTableroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_recorrerFila_InputMessage">
+    <wsdl:part name="parameters" element="tns:recorrerFila" />
+  </wsdl:message>
+  <wsdl:message name="IService1_recorrerFila_OutputMessage">
+    <wsdl:part name="parameters" element="tns:recorrerFilaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_recorrerCol_InputMessage">
+    <wsdl:part name="parameters" element="tns:recorrerCol" />
+  </wsdl:message>
+  <wsdl:message name="IService1_recorrerCol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:recorrerColResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="setPieza">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/setPieza" message="tns:IService1_setPieza_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/setPiezaResponse" message="tns:IService1_setPieza_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getPieza">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getPieza" message="tns:IService1_getPieza_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getPiezaResponse" message="tns:IService1_getPieza_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="setUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/setUsuario" message="tns:IService1_setUsuario_InputMessage" />
@@ -128,29 +132,27 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarUsuario" message="tns:IService1_buscarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarUsuarioResponse" message="tns:IService1_buscarUsuario_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="insertarJuegos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/insertarJuegos" message="tns:IService1_insertarJuegos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/insertarJuegosResponse" message="tns:IService1_insertarJuegos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTablero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/insertarenTablero" message="tns:IService1_insertarenTablero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/insertarenTableroResponse" message="tns:IService1_insertarenTablero_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="recorrerFila">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/recorrerFila" message="tns:IService1_recorrerFila_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/recorrerFilaResponse" message="tns:IService1_recorrerFila_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="recorrerCol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/recorrerCol" message="tns:IService1_recorrerCol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/recorrerColResponse" message="tns:IService1_recorrerCol_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetData">
       <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="setPieza">
-      <soap:operation soapAction="http://tempuri.org/IService1/setPieza" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getPieza">
-      <soap:operation soapAction="http://tempuri.org/IService1/getPieza" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -232,6 +234,42 @@
     </wsdl:operation>
     <wsdl:operation name="buscarUsuario">
       <soap:operation soapAction="http://tempuri.org/IService1/buscarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarJuegos">
+      <soap:operation soapAction="http://tempuri.org/IService1/insertarJuegos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTablero">
+      <soap:operation soapAction="http://tempuri.org/IService1/insertarenTablero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerFila">
+      <soap:operation soapAction="http://tempuri.org/IService1/recorrerFila" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerCol">
+      <soap:operation soapAction="http://tempuri.org/IService1/recorrerCol" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -9,18 +9,18 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="default.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'/>
 </head>
 <body>
     <form id="form1" runat="server">
     
 <div id="menu">
 	<ul>
-		<li class="active"><a href="Registro.aspx">Ingreso</a></li>
+		<li class="active"><a href="IngresoUsuarios.aspx">Ingreso</a></li>
 		<li><a href="ModificarEliminar.aspx">Modificar y Eliminar</a></li>
-		<li><a href="#">Eliminar</a></li>
+		<li><a href="MostrarGrafo.aspx">Grafo Usuario</a></li>
 		<li><a href="#">Usuarios</a></li>
 		<li><a href="#">Documento</a></li>
 	</ul>

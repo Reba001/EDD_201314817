@@ -119,6 +119,21 @@ hr {
 	text-decoration: underline;
 }
 
+/*GRAFO
+
+*/
+
+grafo {
+	width: 730px;
+	height: 60px;
+	margin: 0 auto;
+	padding-left: 10px;
+	background: url(images/Arbol.jpg);
+}
+
+
+/*FIN GRAFO*/
+
 /* Logo */
 
 #logo {

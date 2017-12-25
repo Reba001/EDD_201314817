@@ -14,9 +14,33 @@ namespace WcfServiceLibrary2
         private Nodo adelante;
         private Nodo atras;
         private Pieza pieza;
+        private int fila;
+        private string columna;
+        private int nivel;
 
-        public Nodo(Pieza piece) {
+        public int Fila
+        {
+            get { return fila; }
+            set { fila = value; }
+        }
+
+        public string Columna
+        {
+            get { return columna; }
+            set { columna = value; }
+        }
+
+        public int Nivel
+        {
+            get { return nivel; }
+            set { nivel = value; }
+        }
+
+        public Nodo(int fila, string columna, int nivel, Pieza piece) {
             this.pieza = piece;
+            this.fila = fila;
+            this.columna = columna;
+            this.nivel = nivel;
         }
 
 

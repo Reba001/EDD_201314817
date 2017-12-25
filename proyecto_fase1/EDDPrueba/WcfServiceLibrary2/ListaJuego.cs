@@ -7,8 +7,8 @@ namespace WcfServiceLibrary2
 {
     public class ListaJuego
     {
-        NodoL primero;
-        NodoL ultimo;
+        public NodoL primero;
+        public NodoL ultimo;
         int tamanio;
 
         public ListaJuego() {
@@ -90,6 +90,22 @@ namespace WcfServiceLibrary2
             return "Vacio";
         }
 
+
+        public String grafo() {
+            string graph = "";
+            if (this.primero != null){
+                NodoL aux = this.primero;
+                while(aux.Siguiente != null){
+                    if(aux.Anterior != null){
+                        graph += "\t\t\""+aux.Juego.toString()+ "\" -> \""+aux.Anterior.Juego.toString()+"\";\n";
+                    }
+                    graph += "\t\t\""+aux.Juego.toString() + "\" -> \"" + aux.Siguiente.Juego.toString() + "\";\n";
+                    aux = aux.Siguiente;
+                }
+                return graph;
+            }
+            return graph;
+        }
         
 
 

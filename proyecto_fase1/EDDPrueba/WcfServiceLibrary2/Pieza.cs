@@ -60,5 +60,13 @@ namespace WcfServiceLibrary2
             set { vida = value; }
         }
 
+        public string toString() {
+            return "Unidad: "+this.unidad + "\n"+
+                "Alcance: "+ this.alcance.ToString()+ "\n"+
+                "Movimiento: "+ this.movimiento.ToString()+"\n"+
+                "Daño: "+ this.danio.ToString()+"\n"+
+                "Vida: "+ this.vida.ToString();
+        }
+
     }
 }

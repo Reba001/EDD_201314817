@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace WebApplication1
 {
@@ -13,37 +14,118 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             servicio = (webServicePrueba.Service1Client)Application["WebServer"];
-            webServicePrueba.Usuario usuario1 = new webServicePrueba.Usuario();
-            usuario1.Nickname = "Reba";
-            usuario1.Contrasenia = "26653754Zu";
-            usuario1.Email = "aaperez.tomas@gmail.com";
-            usuario1.Conectado = false;
-            servicio.setUsuario(usuario1);
+        }
 
-            webServicePrueba.Usuario usuario2 = new webServicePrueba.Usuario();
-            usuario2.Nickname = "Alan";
-            usuario2.Contrasenia = "26653754Zu";
-            usuario2.Email = "aaperez.tomas@gmail.com";
-            usuario2.Conectado = false;
-            servicio.setUsuario(usuario2);
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
 
-            webServicePrueba.Usuario usuario3 = new webServicePrueba.Usuario();
-            usuario3.Nickname = "Malacates";
-            usuario3.Contrasenia = "26653754Zu";
-            usuario3.Email = "aaperez.tomas@gmail.com";
-            usuario3.Conectado = false;
-            servicio.setUsuario(usuario3);
+                using (StreamReader readFile = new StreamReader("C:\\CSVFile\\tablero.csv"))
+                {
+                    string line;
+                    string[] row;
+                    int contador = 0;
+                    while ((line = readFile.ReadLine()) != null)
+                    {
+                        if (contador != 0)
+                        {
+                            row = line.Split(',');
+                            webServicePrueba.Pieza pieza = new webServicePrueba.Pieza();
+                            if (row[3].StartsWith("Neosatelite"))
+                            {
+                                pieza.Unidad = row[3];
+                                pieza.Movimiento = 6;
+                                pieza.Alcance = 0;
+                                pieza.Danio = 2;
+                                pieza.Vida = 10;
+                                int fila = Convert.ToInt32(row[2]);
+                                servicio.insertarenTablero(fila, row[1], 4, pieza);
+                                
+                            }
+                            else if (row[3].StartsWith("Bombardero") )
+                            {
+                                pieza.Unidad = row[3];
+                                pieza.Movimiento = 7;
+                                pieza.Alcance = 0;
+                                pieza.Danio = 5;
+                                pieza.Vida = 10;
+                                
+                                int fila = Convert.ToInt32(row[2]);
+                                servicio.insertarenTablero(fila, row[1], 3, pieza);
+                            }
+                            else if (row[3].StartsWith("Caza"))
+                            {
+                                pieza.Unidad = row[3];
+                                pieza.Movimiento = 9;
+                                pieza.Alcance = 1;
+                                pieza.Danio = 2;
+                                pieza.Vida = 20;
 
-            webServicePrueba.Usuario usuario4 = new webServicePrueba.Usuario();
-            usuario4.Nickname = "Zury";
-            usuario4.Contrasenia = "26653754Zu";
-            usuario4.Email = "aaperez.tomas@gmail.com";
-            usuario4.Conectado = false;
-            servicio.setUsuario(usuario4);
-            servicio.invocarGrafo();
-            Label1.Text = servicio.getUsuarios();
+                                int fila = Convert.ToInt32(row[2]);
+                                servicio.insertarenTablero(fila, row[1], 3, pieza);
+                            }
+                            else if (row[3].StartsWith("Helicóptero de combate"))
+                            {
+                                pieza.Unidad = row[3];
+                                pieza.Movimiento = 9;
+                                pieza.Alcance = 1;
+                                pieza.Danio = 3;
+                                pieza.Vida = 15;
+                                
+                                int fila = Convert.ToInt32(row[2]);
+                                servicio.insertarenTablero(fila, row[1], 3, pieza);
+                            }
+                            else if (row[3].StartsWith("Fragata"))
+                            {
+                                pieza.Unidad = row[3];
+                                pieza.Movimiento = 5;
+                                pieza.Alcance = 6;
+                                pieza.Danio = 3;
+                                pieza.Vida = 10;
 
+                                int fila = Convert.ToInt32(row[2]);
+                                servicio.insertarenTablero(fila, row[1], 2, pieza);
 
+                            }
+                            else if (row[3].StartsWith("Crucero"))
+                            {
+                                pieza.Unidad = row[3];
+                                pieza.Movimiento = 6;
+                                pieza.Alcance = 1;
+                                pieza.Danio = 3;
+                                pieza.Vida = 15;
+
+                                int fila = Convert.ToInt32(row[2]);
+                                servicio.insertarenTablero(fila, row[1], 2, pieza);
+
+                            }
+                            else if (row[3].StartsWith("Submarino"))
+                            {
+                                pieza.Unidad = row[3];
+                                pieza.Movimiento = 5;
+                                pieza.Alcance = 1;
+                                pieza.Danio = 2;
+                                pieza.Vida = 10;
+
+                                int fila = Convert.ToInt32(row[2]);
+                                servicio.insertarenTablero(fila, row[1], 1, pieza);
+
+                            }
+                        }
+                        contador++;
+                    }
+
+                    Label1.Text = servicio.recorrerCol();
+                    Label2.Text = servicio.recorrerFila();
+                }
+
+            }
+            catch
+            {
+                String popupScript = "<script language='JavaScript'> alert('Archivo Invalido'); </script>";
+                Page.RegisterStartupScript("PopupScript", popupScript);
+            }
 
         }
     }

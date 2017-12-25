@@ -51,6 +51,7 @@
     <Compile Include="ListaEncabezado.cs" />
     <Compile Include="ListaJuego.cs" />
     <Compile Include="ListaPrueba.cs" />
+    <Compile Include="Matriz.cs" />
     <Compile Include="Nodo.cs" />
     <Compile Include="NodoA.cs" />
     <Compile Include="NodoL.cs" />

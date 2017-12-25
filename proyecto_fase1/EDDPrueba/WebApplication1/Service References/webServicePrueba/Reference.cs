@@ -15,6 +15,208 @@ namespace WebApplication1.webServicePrueba {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
+    [System.SerializableAttribute()]
+    public partial class Usuario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ConectadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContraseniaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NicknameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Conectado {
+            get {
+                return this.ConectadoField;
+            }
+            set {
+                if ((this.ConectadoField.Equals(value) != true)) {
+                    this.ConectadoField = value;
+                    this.RaisePropertyChanged("Conectado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Contrasenia {
+            get {
+                return this.ContraseniaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContraseniaField, value) != true)) {
+                    this.ContraseniaField = value;
+                    this.RaisePropertyChanged("Contrasenia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nickname {
+            get {
+                return this.NicknameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NicknameField, value) != true)) {
+                    this.NicknameField = value;
+                    this.RaisePropertyChanged("Nickname");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Juego", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
+    [System.SerializableAttribute()]
+    public partial class Juego : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DesplegadasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DestruidasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool GanarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NicknameOField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SobrevivientesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Desplegadas {
+            get {
+                return this.DesplegadasField;
+            }
+            set {
+                if ((this.DesplegadasField.Equals(value) != true)) {
+                    this.DesplegadasField = value;
+                    this.RaisePropertyChanged("Desplegadas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Destruidas {
+            get {
+                return this.DestruidasField;
+            }
+            set {
+                if ((this.DestruidasField.Equals(value) != true)) {
+                    this.DestruidasField = value;
+                    this.RaisePropertyChanged("Destruidas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Ganar {
+            get {
+                return this.GanarField;
+            }
+            set {
+                if ((this.GanarField.Equals(value) != true)) {
+                    this.GanarField = value;
+                    this.RaisePropertyChanged("Ganar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NicknameO {
+            get {
+                return this.NicknameOField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NicknameOField, value) != true)) {
+                    this.NicknameOField = value;
+                    this.RaisePropertyChanged("NicknameO");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Sobrevivientes {
+            get {
+                return this.SobrevivientesField;
+            }
+            set {
+                if ((this.SobrevivientesField.Equals(value) != true)) {
+                    this.SobrevivientesField = value;
+                    this.RaisePropertyChanged("Sobrevivientes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Pieza", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
     [System.SerializableAttribute()]
     public partial class Pieza : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -122,111 +324,12 @@ namespace WebApplication1.webServicePrueba {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Usuario", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
-    [System.SerializableAttribute()]
-    public partial class Usuario : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ConectadoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ContraseniaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NicknameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Conectado {
-            get {
-                return this.ConectadoField;
-            }
-            set {
-                if ((this.ConectadoField.Equals(value) != true)) {
-                    this.ConectadoField = value;
-                    this.RaisePropertyChanged("Conectado");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Contrasenia {
-            get {
-                return this.ContraseniaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContraseniaField, value) != true)) {
-                    this.ContraseniaField = value;
-                    this.RaisePropertyChanged("Contrasenia");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email {
-            get {
-                return this.EmailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nickname {
-            get {
-                return this.NicknameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NicknameField, value) != true)) {
-                    this.NicknameField = value;
-                    this.RaisePropertyChanged("Nickname");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="webServicePrueba.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         string GetData(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/setPieza", ReplyAction="http://tempuri.org/IService1/setPiezaResponse")]
-        WebApplication1.webServicePrueba.Pieza setPieza(WebApplication1.webServicePrueba.Pieza pieza);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getPieza", ReplyAction="http://tempuri.org/IService1/getPiezaResponse")]
-        string getPieza();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/setUsuario", ReplyAction="http://tempuri.org/IService1/setUsuarioResponse")]
         string setUsuario(WebApplication1.webServicePrueba.Usuario user);
@@ -254,6 +357,18 @@ namespace WebApplication1.webServicePrueba {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/buscarUsuario", ReplyAction="http://tempuri.org/IService1/buscarUsuarioResponse")]
         WebApplication1.webServicePrueba.Usuario buscarUsuario(string nickname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insertarJuegos", ReplyAction="http://tempuri.org/IService1/insertarJuegosResponse")]
+        string insertarJuegos(string nicknameActual, WebApplication1.webServicePrueba.Juego game);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insertarenTablero", ReplyAction="http://tempuri.org/IService1/insertarenTableroResponse")]
+        string insertarenTablero(int fila, string columna, int nivel, WebApplication1.webServicePrueba.Pieza pieza);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/recorrerFila", ReplyAction="http://tempuri.org/IService1/recorrerFilaResponse")]
+        string recorrerFila();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/recorrerCol", ReplyAction="http://tempuri.org/IService1/recorrerColResponse")]
+        string recorrerCol();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -285,14 +400,6 @@ namespace WebApplication1.webServicePrueba {
         
         public string GetData(int value) {
             return base.Channel.GetData(value);
-        }
-        
-        public WebApplication1.webServicePrueba.Pieza setPieza(WebApplication1.webServicePrueba.Pieza pieza) {
-            return base.Channel.setPieza(pieza);
-        }
-        
-        public string getPieza() {
-            return base.Channel.getPieza();
         }
         
         public string setUsuario(WebApplication1.webServicePrueba.Usuario user) {
@@ -329,6 +436,22 @@ namespace WebApplication1.webServicePrueba {
         
         public WebApplication1.webServicePrueba.Usuario buscarUsuario(string nickname) {
             return base.Channel.buscarUsuario(nickname);
+        }
+        
+        public string insertarJuegos(string nicknameActual, WebApplication1.webServicePrueba.Juego game) {
+            return base.Channel.insertarJuegos(nicknameActual, game);
+        }
+        
+        public string insertarenTablero(int fila, string columna, int nivel, WebApplication1.webServicePrueba.Pieza pieza) {
+            return base.Channel.insertarenTablero(fila, columna, nivel, pieza);
+        }
+        
+        public string recorrerFila() {
+            return base.Channel.recorrerFila();
+        }
+        
+        public string recorrerCol() {
+            return base.Channel.recorrerCol();
         }
     }
 }

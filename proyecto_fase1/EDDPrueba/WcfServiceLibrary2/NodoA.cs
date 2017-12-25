@@ -11,12 +11,14 @@ namespace WcfServiceLibrary2
         private NodoA derecha;
         private NodoA padre;
         private Usuario usuario;
+        public ListaJuego listJuego;
         //public ListaJuego listGame;
         public NodoA(Usuario usuario) {
             this.usuario = usuario;
             this.izquierda = null;
             this.derecha = null;
             this.padre = null;
+            this.listJuego = new ListaJuego();
           //  this.listGame = new ListaJuego();
         }
         public Usuario Usuario

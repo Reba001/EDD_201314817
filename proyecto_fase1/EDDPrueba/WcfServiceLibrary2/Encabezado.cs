@@ -7,6 +7,14 @@ namespace WcfServiceLibrary2
 {
     class Encabezado
     {
+        private ListaEncabezado listAcceso;
+
+        public ListaEncabezado ListAcceso
+        {
+            get { return listAcceso; }
+            set { listAcceso = value; }
+        }
+
         private Encabezado siguiente;
 
         public Encabezado Siguiente
@@ -49,6 +57,8 @@ namespace WcfServiceLibrary2
             this.siguiente = null;
             this.anterior = null;
             this.acceso = null;
+            this.listAcceso = new ListaEncabezado();
+
         }
 
         public Encabezado(string identificador)
@@ -57,6 +67,7 @@ namespace WcfServiceLibrary2
             this.siguiente = null;
             this.anterior = null;
             this.acceso = null;
+            this.listAcceso = new ListaEncabezado();
         }
     }
 }

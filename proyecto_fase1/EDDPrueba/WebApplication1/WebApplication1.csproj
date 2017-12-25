@@ -300,6 +300,7 @@
     <Content Include="Default.aspx" />
     <Content Include="default.css" />
     <Content Include="Global.asax" />
+    <Content Include="images\Arbol.jpg" />
     <Content Include="images\img01.gif" />
     <Content Include="images\img02.jpg" />
     <Content Include="images\img03.jpg" />
@@ -314,6 +315,7 @@
     <Content Include="license.txt" />
     <Content Include="Login.aspx" />
     <Content Include="ModificarEliminar.aspx" />
+    <Content Include="MostrarGrafo.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -459,9 +461,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Web.config" />
-    <Content Include="Service References\webServicePrueba\WebApplication1.webServicePrueba.Pieza.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -501,6 +500,13 @@
     </Compile>
     <Compile Include="ModificarEliminar.aspx.designer.cs">
       <DependentUpon>ModificarEliminar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarGrafo.aspx.cs">
+      <DependentUpon>MostrarGrafo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MostrarGrafo.aspx.designer.cs">
+      <DependentUpon>MostrarGrafo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\webServicePrueba\Reference.cs">

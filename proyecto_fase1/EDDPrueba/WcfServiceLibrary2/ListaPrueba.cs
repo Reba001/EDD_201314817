@@ -15,27 +15,7 @@ namespace WcfServiceLibrary2
             this.Cabeza = null;
             this.tamanio = 0;
         }
-        public void insertar(Pieza pieces)
-        {
-
-            Nodo nuevo = new Nodo(pieces);
-            if (this.Cabeza == null)
-            {
-                this.Cabeza = nuevo;
-            }
-            else
-            {
-                Nodo aux = this.Cabeza;
-                while (aux.Siguiente != null)
-                {
-                    aux = aux.Siguiente;
-                }
-
-                aux.Siguiente = nuevo;
-            }
-            tamanio++;
-        }
-
+        
         public void recorrer()
         {
             if (this.Cabeza != null)

@@ -15,12 +15,6 @@ namespace WcfServiceLibrary2
         string GetData(int value);
 
         [OperationContract]
-        Pieza setPieza(Pieza pieza);
-
-        [OperationContract]
-        string getPieza();
-
-        [OperationContract]
         string setUsuario(Usuario user);
 
         [OperationContract]
@@ -44,6 +38,18 @@ namespace WcfServiceLibrary2
 
         [OperationContract]
         Usuario buscarUsuario(string nickname);
+
+        [OperationContract]
+        string insertarJuegos(string nicknameActual, Juego game);
+
+        [OperationContract]
+        string insertarenTablero(int fila, string columna, int nivel, Pieza pieza);
+
+        [OperationContract]
+        string recorrerFila();
+
+        [OperationContract]
+        string recorrerCol();
 
         // TODO: agregue aquí sus operaciones de servicio
     }

@@ -12,28 +12,12 @@ namespace WcfServiceLibrary2
     {
         public static ListaPrueba list = new ListaPrueba();
         public static Arbol usuarios = new Arbol();
+        public static Matriz tablero = new Matriz();
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
         }
 
-
-
-        public Pieza setPieza(Pieza pieza)
-        {
-            if (pieza == null)
-            {
-                throw new ArgumentNullException("pieza");
-            }
-            list.insertar(pieza);
-            return pieza;
-        }
-        
-        public string getPieza()
-        {
-            return list.recorrer2();
-        }
-        
         public string setUsuario(Usuario user)
         {
             if (user == null)
@@ -133,6 +117,34 @@ namespace WcfServiceLibrary2
                 return buscar.Usuario;
             }
             return null;
+        }
+
+
+        public string insertarJuegos(string nicknameActual, Juego game)
+        {
+            NodoA users = usuarios.buscar(nicknameActual);
+            if (users != null){
+                users.listJuego.insertar(game);
+                return "Dato ingresado";
+            }
+            return "Dato no ingresado";
+        }
+
+
+        public string insertarenTablero(int fila, string columna, int nivel, Pieza pieza)
+        {
+            tablero.insertar(fila, columna, nivel, pieza);
+            return "Insertado!";
+        }
+
+        public string recorrerFila()
+        {
+            return tablero.recorrerFilas();
+        }
+
+        public string recorrerCol()
+        {
+            return tablero.recorridoColumna();
         }
     }
 }

@@ -94,9 +94,9 @@ namespace WcfServiceLibrary2
             string grafo = "digraph g{\n";
             grafo += preOrden();
             grafo += "}\n";
-            System.IO.File.WriteAllText(@"C:\Users\aaper\Desktop\Arbol.dot", grafo);
+            System.IO.File.WriteAllText("images/Arbol.dot", grafo);
             ProcessStartInfo starInfo = new ProcessStartInfo("dot.exe");
-            starInfo.Arguments = "-Tjpg C:\\Users\\aaper\\Desktop\\Arbol.dot -o C:\\Users\\aaper\\Desktop\\Arbol.jpg";
+            starInfo.Arguments = "-Tjpg images/Arbol.dot -o images/Arbol.jpg";
             Process.Start(starInfo);
         }
         public string preOrden() 
@@ -120,6 +120,13 @@ namespace WcfServiceLibrary2
                 {
                     recorrido += "\t\"" + actual.Usuario.toString() + "\" -> \"" + actual.Derecha.Usuario.toString() + "\";\n";
                 }
+
+                if (actual.listJuego.primero != null){
+                    recorrido += "\t\""+actual.Usuario.toString()+ "\" -> \""+actual.listJuego.primero.Juego.toString()+"\";\n";
+                    recorrido += "\t subgraph cluster"+idUsuario(actual.Usuario.Nickname)+"{\n";
+                    recorrido += "\t\t"+actual.listJuego.grafo();
+                    recorrido += "}\n";
+                }
                 
                 preO(actual.Izquierda, ref recorrido);
                 preO(actual.Derecha, ref recorrido);
@@ -127,6 +134,16 @@ namespace WcfServiceLibrary2
             }
             return recorrido;
             
+        }
+
+        private string idUsuario(string nickname) {
+            char[] arreglo = nickname.ToCharArray();
+            int total = 0;
+            for (int i = 0; i < arreglo.Length; i++ )
+            {
+                total += arreglo[i];
+            }
+            return total.ToString();
         }
         //FIN IMPRESION PREORDEN
 

@@ -7,48 +7,105 @@ namespace WcfServiceLibrary2
 {
     class ListaEncabezado
     {
+
         private Encabezado cabeza;
+
+        internal Encabezado Cabeza
+        {
+            get { return cabeza; }
+            set { cabeza = value; }
+        }
         private Encabezado cola;
         private int tamanio;
         public ListaEncabezado() {
+           
             this.cabeza = null;
             this.cola = null;
             this.tamanio = 0;
         }
 
-        public void insertar(int id)
-        {
-            Encabezado nuevo = new Encabezado(id);
+        public void insertarF(Encabezado nuevo) {
             if (this.cabeza == null)
             {
                 this.cabeza = nuevo;
-                this.cola = nuevo;
             }
-            else
+            else 
             {
-                this.cola.Siguiente = nuevo;
-                nuevo.Anterior = this.cola;
-                this.cola = nuevo;
+                if (nuevo.Id < this.cabeza.Id)
+                {
+                    nuevo.Siguiente = this.cabeza;
+                    this.cabeza.Anterior = nuevo;
+                    this.cabeza = nuevo;
+                }
+                else 
+                {
+                    Encabezado actual = this.cabeza;
+                    while(actual.Siguiente != null)
+                    {
+                        if (nuevo.Id <  actual.Siguiente.Id)
+                        {
+                            nuevo.Siguiente = actual.Siguiente;
+                            actual.Siguiente.Anterior = nuevo;
+                            nuevo.Anterior = actual;
+                            actual.Siguiente = nuevo;
+                            break;
+                        }
+                        actual = actual.Siguiente;
+                    }
+
+                    if (actual.Siguiente == null)
+                    {
+                        actual.Siguiente = nuevo;
+                        nuevo.Anterior = actual;
+                    }
+                }
+
             }
             tamanio++;
         }
 
-        public void insertar(string identificador)
+        public void insertarC(Encabezado nuevo)
         {
-            Encabezado nuevo = new Encabezado(identificador);
             if (this.cabeza == null)
             {
                 this.cabeza = nuevo;
-                this.cola = nuevo;
             }
             else
             {
-                this.cola.Siguiente = nuevo;
-                nuevo.Anterior = this.cola;
-                this.cola = nuevo;
+
+                if (String.Compare(nuevo.Identificador, cabeza.Identificador) < 0)
+                {
+                    nuevo.Siguiente = this.cabeza;
+                    this.cabeza.Anterior = nuevo;
+                    this.cabeza = nuevo;
+                }
+                else
+                {
+                    Encabezado actual = this.cabeza;
+                    while (actual.Siguiente != null)
+                    {
+                        if (String.Compare(nuevo.Identificador, actual.Identificador) < 0)
+                        {
+                            nuevo.Siguiente = actual.Siguiente;
+                            actual.Siguiente.Anterior = nuevo;
+                            nuevo.Anterior = actual;
+                            actual.Siguiente = nuevo;
+                            break;
+                        }
+                        actual = actual.Siguiente;
+                    }
+
+                    if (actual.Siguiente == null)
+                    {
+                        actual.Siguiente = nuevo;
+                        nuevo.Anterior = actual;
+                    }
+                }
+
             }
             tamanio++;
         }
+
 
         public Encabezado getEncabezado(int id)
         {
