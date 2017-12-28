@@ -82,6 +82,19 @@ namespace WcfServiceLibrary2
 
         [OperationContract]
         void ArbolEspejo();
+        [OperationContract]
+        string modNickO(string nickname, string nicko, string nicknuevo);
+        [OperationContract]
+        string modDesp(string nickname, string nicko, int desp);
+        [OperationContract]
+        string modSob(string nickname, string nicko, int sob);
+        [OperationContract]
+        string modDest(string nickname, string nicko, int dest);
+        [OperationContract]
+        string modgana(string nickname, string nicko, bool gana);
+
+        [OperationContract]
+        string eliminarJuego(string nickname, string nicko);
         // TODO: agregue aquí sus operaciones de servicio
     }
 

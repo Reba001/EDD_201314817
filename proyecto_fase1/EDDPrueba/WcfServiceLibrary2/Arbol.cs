@@ -230,6 +230,100 @@ namespace WcfServiceLibrary2
 
             }
         }
+
+        // Eliminacion de Juego/
+        public string eliminarJuego(string nickname, string nicknameO) 
+        {
+            if (raiz != null)
+            {
+                NodoA actual = buscar(nickname);
+                if (actual != null)
+                {
+                    actual.listJuego.eliminarJuego(nicknameO);
+                    if (actual.listJuego.primero == null){
+                        eliminarNodo(actual);
+                    }
+                    return "Eliminado";
+                }
+            }
+            return "No encontrado";
+        }
+
+        public string modifiCarOp(string nickname, string nickO, string nickONuevo) 
+        {
+            if (raiz != null)
+            {
+                NodoA actual = buscar(nickname);
+                if (actual != null)
+                {
+                    Juego game = actual.listJuego.getJuego(nickO);
+                    game.NicknameO = nickONuevo;
+                    return "Oponente Modificado";
+                }
+            }
+            return "No encontrado";
+        }
+
+        public string modifiCarDes(string nickname, string nickO, int desp)
+        {
+            if (raiz != null)
+            {
+                NodoA actual = buscar(nickname);
+                if (actual != null)
+                {
+                    Juego game = actual.listJuego.getJuego(nickO);
+                    game.Desplegadas = desp;
+                    return "Desplegadas Modificado";
+                }
+            }
+            return "No encontrado";
+        }
+
+        public string modifiCarSob(string nickname, string nickO, int sob)
+        {
+            if (raiz != null)
+            {
+                NodoA actual = buscar(nickname);
+                if (actual != null)
+                {
+                    Juego game = actual.listJuego.getJuego(nickO);
+                    game.Sobrevivientes = sob;
+                    return "Sobrevivientes Modificado";
+                }
+            }
+            return "No encontrado";
+        }
+
+        public string modifiCarDest(string nickname, string nickO, int dest)
+        {
+            if (raiz != null)
+            {
+                NodoA actual = buscar(nickname);
+                if (actual != null)
+                {
+                    Juego game = actual.listJuego.getJuego(nickO);
+                    game.Destruidas = dest;
+                    return "Destruidas Modificado";
+                }
+            }
+            return "No encontrado";
+        }
+
+        public string modifiCarGanada(string nickname, string nickO, bool gana)
+        {
+            if (raiz != null)
+            {
+                NodoA actual = buscar(nickname);
+                if (actual != null)
+                {
+                    Juego game = actual.listJuego.getJuego(nickO);
+                    game.Ganar = gana;
+                    return "Desplegadas Modificado";
+                }
+            }
+            return "No encontrado";
+        }
+        //Fin eliminacion de Juego
         //FIN CALCULO DE ALTURA
         // calculo de ramas 
         public int getRamas() 

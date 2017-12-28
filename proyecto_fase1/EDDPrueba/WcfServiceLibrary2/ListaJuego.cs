@@ -43,6 +43,7 @@ namespace WcfServiceLibrary2
                     {
                         this.primero = null;
                         this.ultimo = null;
+
                     }
                     else 
                     {
@@ -76,7 +77,21 @@ namespace WcfServiceLibrary2
             }
             return false;
         }
-
+        public Juego getJuego(string nickO) 
+        {
+            if (this.primero != null)
+            {
+                NodoL actual = this.primero;
+                while(actual != null)
+                {
+                    if (actual.Juego.NicknameO == nickO)
+                        return actual.Juego;
+                    
+                    actual = actual.Siguiente;
+                }
+            }
+            return null;
+        }
         public string getListJuego() {
             if (this.primero != null){
                 NodoL aux = this.primero;

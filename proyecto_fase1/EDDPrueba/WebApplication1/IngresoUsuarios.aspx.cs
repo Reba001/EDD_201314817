@@ -117,6 +117,7 @@ namespace WebApplication1
                         
                     }
                     servicio.invocarGrafo();
+                    servicio.ArbolEspejo();
                 }
                 
             }catch{
@@ -325,8 +326,8 @@ namespace WebApplication1
                         if (contador != 0)
                         {
                             row = line.Split(',');
-                            Session["usuario1"] = row[0];
-                            Session["usuario2"] = row[1];
+                            Application["usuario1"] = row[0];
+                            Application["usuario2"] = row[1];
                             Application["n1"] = Convert.ToInt32(row[2]);
                             Application["n2"] = Convert.ToInt32(row[3]);
                             Application["n3"] = Convert.ToInt32(row[4]);
@@ -335,7 +336,7 @@ namespace WebApplication1
                             Application["lF"] = Convert.ToInt32(row[7]);
                             Application["tipo"] = Convert.ToInt32(row[8]);
                             if (row[8].Equals("2")) Application["tiempo"] = row[9];
-                            
+                            Label4.Text = "Datos Insertados";
                         }
                         contador++;
 

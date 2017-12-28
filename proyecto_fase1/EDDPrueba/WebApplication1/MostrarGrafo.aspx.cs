@@ -43,20 +43,29 @@ namespace WebApplication1
             if (File.Exists(Server.MapPath("/images") + "\\Matrizdestruccion4.jpg"))
                 File.Delete(Server.MapPath("/images") + "\\Matrizdestruccion4.jpg");
 
+
+
+            if (File.Exists(Server.MapPath("/images") + "\\Arbol.jpg"))
+                File.Delete(Server.MapPath("/images") + "\\Arbol.jpg");
+
+            if (File.Exists(Server.MapPath("/images") + "\\ArbolE.jpg"))
+                File.Delete(Server.MapPath("/images") + "\\ArbolE.jpg");
+
+
             if (Directory.Exists("C:\\CSVFile\\Imagen\\"))
             {
 
 
                 if (File.Exists("C:\\CSVFile\\Imagen\\Matriz1.jpg"))
                 {
-                    File.Move("C:\\CSVFile\\Imagen\\Matriz1.jpg", Server.MapPath("/images") + "\\Matriz1.jpg");
+                    File.Copy("C:\\CSVFile\\Imagen\\Matriz1.jpg", Server.MapPath("/images") + "\\Matriz1.jpg");
                     this.Image1.ImageUrl = "/images/Matriz1.jpg";
                 }
                 
 
                 if (File.Exists("C:\\CSVFile\\Imagen\\Matriz2.jpg"))
                 {
-                    File.Move("C:\\CSVFile\\Imagen\\Matriz2.jpg", Server.MapPath("/images") + "\\Matriz2.jpg");
+                    File.Copy("C:\\CSVFile\\Imagen\\Matriz2.jpg", Server.MapPath("/images") + "\\Matriz2.jpg");
                     this.Image2.ImageUrl = "/images/Matriz2.jpg";
                 }
                 
@@ -64,7 +73,7 @@ namespace WebApplication1
                 if (File.Exists("C:\\CSVFile\\Imagen\\Matriz3.jpg"))
                 {
 
-                    File.Move("C:\\CSVFile\\Imagen\\Matriz3.jpg", Server.MapPath("/images") + "\\Matriz3.jpg");
+                    File.Copy("C:\\CSVFile\\Imagen\\Matriz3.jpg", Server.MapPath("/images") + "\\Matriz3.jpg");
                     this.Image3.ImageUrl = "/images/Matriz3.jpg";
                 }
                 
@@ -72,47 +81,44 @@ namespace WebApplication1
                 {
 
                     
-                    File.Move("C:\\CSVFile\\Imagen\\Matriz4.jpg", Server.MapPath("/images") + "\\Matriz4.jpg");
+                    File.Copy("C:\\CSVFile\\Imagen\\Matriz4.jpg", Server.MapPath("/images") + "\\Matriz4.jpg");
                     this.Image4.ImageUrl = "/images/Matriz4.jpg";
                 }
 
                 if (File.Exists("C:\\CSVFile\\Imagen\\Matrizdestruccion1.jpg"))
                 {
-                    File.Move("C:\\CSVFile\\Imagen\\Matrizdestruccion1.jpg", Server.MapPath("/images") + "\\Matrizdestruccion1.jpg");
+                    File.Copy("C:\\CSVFile\\Imagen\\Matrizdestruccion1.jpg", Server.MapPath("/images") + "\\Matrizdestruccion1.jpg");
                     this.Image5.ImageUrl = "/images/Matrizdestruccion1.jpg";
                 }
                 
 
                 if (File.Exists("C:\\CSVFile\\Imagen\\Matrizdestruccion2.jpg"))
                 {
-                    File.Move("C:\\CSVFile\\Imagen\\Matrizdestruccion2.jpg", Server.MapPath("/images") + "\\Matrizdestruccion2.jpg");
+                    File.Copy("C:\\CSVFile\\Imagen\\Matrizdestruccion2.jpg", Server.MapPath("/images") + "\\Matrizdestruccion2.jpg");
                     this.Image6.ImageUrl = "/images/Matrizdestruccion2.jpg";
                 }
                 
                 if (File.Exists("C:\\CSVFile\\Imagen\\Matrizdestruccion3.jpg"))
                 {
-                    File.Move("C:\\CSVFile\\Imagen\\Matrizdestruccion3.jpg", Server.MapPath("/images") + "\\Matrizdestruccion3.jpg");
+                    File.Copy("C:\\CSVFile\\Imagen\\Matrizdestruccion3.jpg", Server.MapPath("/images") + "\\Matrizdestruccion3.jpg");
                     this.Image7.ImageUrl = "/images/Matrizdestruccion3.jpg";
                 }
 
                 if (File.Exists("C:\\CSVFile\\Imagen\\Matrizdestruccion4.jpg"))
                 {
-                    File.Move("C:\\CSVFile\\Imagen\\Matrizdestruccion4.jpg", Server.MapPath("/images") + "\\Matrizdestruccion4.jpg");
+                    File.Copy("C:\\CSVFile\\Imagen\\Matrizdestruccion4.jpg", Server.MapPath("/images") + "\\Matrizdestruccion4.jpg");
                     this.Image8.ImageUrl = "/images/Matrizdestruccion4.jpg";
                 }
 
                 if (File.Exists("C:\\CSVFile\\Imagen\\Arbol.jpg"))
                 {
-
-                    if (File.Exists(Server.MapPath("/images") + "\\Arbol.jpg"))
-                        File.Delete(Server.MapPath("/images") + "\\Arbol.jpg");
-
-                    File.Move("C:\\CSVFile\\Imagen\\Arbol.jpg", Server.MapPath("/images") + "\\Arbol.jpg");
+                    File.Copy("C:\\CSVFile\\Imagen\\Arbol.jpg", Server.MapPath("/images") + "\\Arbol.jpg");
                     this.Image9.ImageUrl = "images/Arbol.jpg";
                 }
-                else 
+                if (File.Exists("C:\\CSVFile\\Imagen\\ArbolE.jpg"))
                 {
-                    this.Image9.ImageUrl = "images/Arbol.jpg";
+                    File.Copy("C:\\CSVFile\\Imagen\\ArbolE.jpg", Server.MapPath("/images") + "\\ArbolE.jpg");
+                    this.Image10.ImageUrl = "images/ArbolE.jpg";
                 }
             }
         }

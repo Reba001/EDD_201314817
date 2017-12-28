@@ -240,5 +240,37 @@ namespace WcfServiceLibrary2
         {
             usuarios.espejo();
         }
+
+
+        public string modNickO(string nickname, string nicko, string nicknuevo)
+        {
+            return usuarios.modifiCarOp(nickname, nicko, nicknuevo);
+        }
+
+        public string modDesp(string nickname, string nicko, int desp)
+        {
+            return usuarios.modifiCarDes(nickname, nicko, desp);
+        }
+
+        public string modSob(string nickname, string nicko, int sob)
+        {
+            return usuarios.modifiCarSob(nickname, nicko, sob);
+        }
+
+        public string modDest(string nickname, string nicko, int dest)
+        {
+            return usuarios.modifiCarDest(nickname, nicko, dest);
+        }
+
+        public string modgana(string nickname, string nicko, bool gana)
+        {
+            return usuarios.modifiCarGanada(nickname, nicko, gana);
+        }
+
+
+        public string eliminarJuego(string nickname, string nicko)
+        {
+            return usuarios.eliminarJuego(nickname, nicko);
+        }
     }
 }

@@ -13,8 +13,17 @@ namespace WebApplication1
         protected void Application_Start(object sender, EventArgs e)
         {
             webServicePrueba.Service1Client serv = new webServicePrueba.Service1Client();
+            Application["usuario1"] = "vacio1";
+            Application["usuario2"] = "vacio2";
             Application["WebServer"] = serv;
-
+            Application["n1"] = 0;
+            Application["n2"] = 0;
+            Application["n3"] = 0;
+            Application["n4"] = 0;
+            Application["lC"] = 0;
+            Application["lF"] = 0;
+            Application["tipo"] = 0;
+            Application["tiempo"] = "no hay";
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -613,6 +613,24 @@ namespace WebApplication1.webServicePrueba {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ArbolEspejo", ReplyAction="http://tempuri.org/IService1/ArbolEspejoResponse")]
         void ArbolEspejo();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modNickO", ReplyAction="http://tempuri.org/IService1/modNickOResponse")]
+        string modNickO(string nickname, string nicko, string nicknuevo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modDesp", ReplyAction="http://tempuri.org/IService1/modDespResponse")]
+        string modDesp(string nickname, string nicko, int desp);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modSob", ReplyAction="http://tempuri.org/IService1/modSobResponse")]
+        string modSob(string nickname, string nicko, int sob);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modDest", ReplyAction="http://tempuri.org/IService1/modDestResponse")]
+        string modDest(string nickname, string nicko, int dest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modgana", ReplyAction="http://tempuri.org/IService1/modganaResponse")]
+        string modgana(string nickname, string nicko, bool gana);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/eliminarJuego", ReplyAction="http://tempuri.org/IService1/eliminarJuegoResponse")]
+        string eliminarJuego(string nickname, string nicko);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -748,6 +766,30 @@ namespace WebApplication1.webServicePrueba {
         
         public void ArbolEspejo() {
             base.Channel.ArbolEspejo();
+        }
+        
+        public string modNickO(string nickname, string nicko, string nicknuevo) {
+            return base.Channel.modNickO(nickname, nicko, nicknuevo);
+        }
+        
+        public string modDesp(string nickname, string nicko, int desp) {
+            return base.Channel.modDesp(nickname, nicko, desp);
+        }
+        
+        public string modSob(string nickname, string nicko, int sob) {
+            return base.Channel.modSob(nickname, nicko, sob);
+        }
+        
+        public string modDest(string nickname, string nicko, int dest) {
+            return base.Channel.modDest(nickname, nicko, dest);
+        }
+        
+        public string modgana(string nickname, string nicko, bool gana) {
+            return base.Channel.modgana(nickname, nicko, gana);
+        }
+        
+        public string eliminarJuego(string nickname, string nicko) {
+            return base.Channel.eliminarJuego(nickname, nicko);
         }
     }
 }

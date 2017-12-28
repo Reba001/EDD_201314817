@@ -40,10 +40,60 @@ namespace WebApplication1
         {
             if(txtNickname.Text != "")
             {
-                Label1.Text = servicio.eliminarUsuario(txtNickname.Text);
+                Label10.Text = servicio.eliminarUsuario(txtNickname.Text);
 
             }
             servicio.invocarGrafo();
+            servicio.ArbolEspejo();
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            if (txtNickJuego.Text != "" && txtNicO.Text != "" && txtNicoNuevo.Text != "")
+            {
+                Label13.Text = servicio.modNickO(txtNickJuego.Text, txtNicO.Text, txtNicoNuevo.Text);
+            }
+
+            if(txtNicO.Text != "" && txtNickJuego.Text != "" && txtDesplegada.Text != "")
+            {
+                int desplegada = Convert.ToInt32(txtDesplegada.Text);
+                Label8.Text = servicio.modDesp(txtNickJuego.Text, txtNicO.Text, desplegada);
+            }
+
+            if (txtNickJuego.Text != "" && txtNicO.Text != "" && txtDest.Text != "")
+            {
+                int dest = Convert.ToInt32(txtDest.Text);
+                Label9.Text = servicio.modDest(txtNickJuego.Text, txtNicO.Text, dest);
+            }
+
+            if (txtNickJuego.Text != "" && txtNicO.Text != "" && txtSobreviviente.Text != "")
+            {
+                int sob = Convert.ToInt32(txtSobreviviente.Text);
+                Label11.Text = servicio.modSob(txtNickJuego.Text, txtNicO.Text, sob);
+            }
+
+            string ganar = DropDownList1.SelectedItem.ToString();
+            if (ganar == "Perdio")
+            
+                Label12.Text = servicio.modgana(txtNickJuego.Text, txtNicO.Text, false);
+            
+            else 
+            
+                Label12.Text = servicio.modgana(txtNickJuego.Text, txtNicO.Text, true);
+
+            servicio.invocarGrafo();
+            servicio.ArbolEspejo();
+        }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            if (txtNickJuego.Text != "" && txtNicO.Text != "")
+            {
+                Label10.Text = servicio.eliminarJuego(txtNickJuego.Text, txtNicO.Text);
+            }
+
+            servicio.invocarGrafo();
+            servicio.ArbolEspejo();
         }
     }
 }
