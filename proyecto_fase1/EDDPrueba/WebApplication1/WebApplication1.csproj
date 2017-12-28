@@ -457,6 +457,8 @@
     <Content Include="bootstrap-3.3.6\_config.yml" />
     <Content Include="Admin.Master" />
     <Content Include="Cliente.Master" />
+    <Content Include="WebForm1.aspx" />
+    <None Include="Properties\PublishProfiles\EDDfase1.pubxml" />
     <None Include="Service References\webServicePrueba\configuration91.svcinfo" />
     <None Include="Service References\webServicePrueba\configuration.svcinfo" />
     <None Include="Service References\webServicePrueba\Reference.svcmap">
@@ -539,6 +541,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Temporizador.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

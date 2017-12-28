@@ -9,8 +9,12 @@ namespace WcfServiceLibrary2
     public class Arbol
     {
         NodoA raiz;
+        ListaJuego listTopDest;
+        ListaJuego listToopWin;
         public Arbol() 
         {
+            this.listToopWin = new ListaJuego();
+            this.listTopDest = new ListaJuego();
             this.raiz = null;
         }
         // BUSQUEDA
@@ -200,7 +204,46 @@ namespace WcfServiceLibrary2
             return total.ToString();
         }
         //FIN IMPRESION PREORDEN
+        // INICIO RECORRIDO TOP WIN
+        public void getTopDest() {
+            this.listTopDest.primero = null;
+            if (raiz != null)
+            {
+                recorridoTopWin(raiz);
+                this.listToopWin.grafoTopWin("DESTRUIDAS");
+            }
+        }
 
+        public void recorridoDest(NodoA actual) 
+        {
+            if (actual != null && this.listTopDest != null)
+            {
+                int porcentaje = (actual.listJuego.contadoDest *100)/ actual.listJuego.contadoUni;
+                this.listTopDest.insertarMayor(actual.Usuario.Nickname, porcentaje);
+                recorridoDest(actual.Izquierda);
+                recorridoDest(actual.Derecha);
+            }
+        }
+        public void getTopWin() 
+        {
+            this.listToopWin.primero = null;
+            if (raiz != null){
+                recorridoTopWin(raiz);
+                this.listToopWin.grafoTopWin("GANADAS");
+            }
+        }
+
+        public void recorridoTopWin(NodoA actual) 
+        {
+            if (actual != null && listToopWin != null)
+            {
+                this.listToopWin.insertarMayor(actual.Usuario.Nickname, actual.listJuego.contadorganar);
+                recorridoTopWin(actual.Izquierda);
+                recorridoTopWin(actual.Derecha);
+            }
+             
+        }
+        //FIN RECORRIDO TOP WIN 
         //CALCULO DE ALTURA
         public int calcularAltura() 
         {

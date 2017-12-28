@@ -95,6 +95,11 @@ namespace WcfServiceLibrary2
 
         [OperationContract]
         string eliminarJuego(string nickname, string nicko);
+
+        [OperationContract]
+        void grafoTopWin();
+        [OperationContract]
+        void grafoTopDest();
         // TODO: agregue aquí sus operaciones de servicio
     }
 

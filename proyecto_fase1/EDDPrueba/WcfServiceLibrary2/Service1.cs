@@ -272,5 +272,16 @@ namespace WcfServiceLibrary2
         {
             return usuarios.eliminarJuego(nickname, nicko);
         }
+
+
+        public void grafoTopWin()
+        {
+            usuarios.getTopWin();
+        }
+
+        public void grafoTopDest()
+        {
+            usuarios.getTopDest();
+        }
     }
 }

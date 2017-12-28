@@ -301,48 +301,45 @@ namespace WebApplication1
             serv.grafoMatriz(2);
             serv.grafoMatriz(3);
             serv.grafoMatriz(4);
-            //para recargar los grafos 
+            //para recargar los grafos
+            if (File.Exists(Server.MapPath("/images") + "\\Matriz1.jpg"))
+                File.Delete(Server.MapPath("/images") + "\\Matriz1.jpg");
+                
+            if (File.Exists(Server.MapPath("/images") + "\\Matriz4.jpg"))
+                File.Delete(Server.MapPath("/images") + "\\Matriz4.jpg");
+
+            if (File.Exists(Server.MapPath("/images") + "\\Matriz2.jpg"))
+                File.Delete(Server.MapPath("/images") + "\\Matriz2.jpg");
+
+            if (File.Exists(Server.MapPath("/images") + "\\Matriz3.jpg"))
+                File.Delete(Server.MapPath("/images") + "\\Matriz3.jpg");
+                
             if (File.Exists("C:\\CSVFile\\Imagen\\Matriz1.jpg"))
             {
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz1.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz1.jpg");
                 File.Move("C:\\CSVFile\\Imagen\\Matriz1.jpg", Server.MapPath("/images") + "\\Matriz1.jpg");
                 this.Image1.ImageUrl = "/images/Matriz1.jpg";
             }
-                this.Image1.ImageUrl = "/images/Matriz1.jpg";
             
 
             if (File.Exists("C:\\CSVFile\\Imagen\\Matriz2.jpg"))
             {
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz2.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz2.jpg");
                 File.Move("C:\\CSVFile\\Imagen\\Matriz2.jpg", Server.MapPath("/images") + "\\Matriz2.jpg");
                 this.Image2.ImageUrl = "/images/Matriz2.jpg";
             }
-                this.Image2.ImageUrl = "/images/Matriz2.jpg";
             
 
             if (File.Exists("C:\\CSVFile\\Imagen\\Matriz3.jpg"))
             {
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz3.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz3.jpg");
                 File.Move("C:\\CSVFile\\Imagen\\Matriz3.jpg", Server.MapPath("/images") + "\\Matriz3.jpg");
                 this.Image3.ImageUrl = "/images/Matriz3.jpg";
             }
-                this.Image3.ImageUrl = "/images/Matriz3.jpg";
             
 
             if (File.Exists("C:\\CSVFile\\Imagen\\Matriz4.jpg"))
             {
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz4.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz4.jpg");
-
                 File.Move("C:\\CSVFile\\Imagen\\Matriz4.jpg", Server.MapPath("/images") + "\\Matriz4.jpg");
                 this.Image4.ImageUrl = "/images/Matriz4.jpg";
             }
-                this.Image4.ImageUrl = "/images/Matriz4.jpg";
             
             
         }

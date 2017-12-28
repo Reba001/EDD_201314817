@@ -460,8 +460,6 @@ namespace WcfServiceLibrary2
                 grafo += escrituraGrafoNivel1(nivel);
             else
                 grafo += "\"Tablero"+nivel.ToString()+"\"; \n";
-            
-            
             grafo += "}\n";
             System.IO.File.WriteAllText("C:\\CSVFile\\Imagen\\Matriz"+Destruccion+nivel.ToString()+".dot", grafo);
             ProcessStartInfo starInfo = new ProcessStartInfo("dot.exe");

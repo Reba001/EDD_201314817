@@ -631,6 +631,12 @@ namespace WebApplication1.webServicePrueba {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/eliminarJuego", ReplyAction="http://tempuri.org/IService1/eliminarJuegoResponse")]
         string eliminarJuego(string nickname, string nicko);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/grafoTopWin", ReplyAction="http://tempuri.org/IService1/grafoTopWinResponse")]
+        void grafoTopWin();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/grafoTopDest", ReplyAction="http://tempuri.org/IService1/grafoTopDestResponse")]
+        void grafoTopDest();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -790,6 +796,14 @@ namespace WebApplication1.webServicePrueba {
         
         public string eliminarJuego(string nickname, string nicko) {
             return base.Channel.eliminarJuego(nickname, nicko);
+        }
+        
+        public void grafoTopWin() {
+            base.Channel.grafoTopWin();
+        }
+        
+        public void grafoTopDest() {
+            base.Channel.grafoTopDest();
         }
     }
 }

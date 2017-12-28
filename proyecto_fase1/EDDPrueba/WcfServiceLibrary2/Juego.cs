@@ -17,9 +17,9 @@ namespace WcfServiceLibrary2
         bool ganar;
 
 
-        public Juego(string nicknameO, bool ganar) {
+        public Juego(string nicknameO,  int destruidas) {
             this.nicknameO = nicknameO;
-            this.ganar = ganar;
+            this.destruidas = destruidas;
         }
 
         [DataMember]

@@ -205,6 +205,18 @@
   <wsdl:message name="IService1_eliminarJuego_OutputMessage">
     <wsdl:part name="parameters" element="tns:eliminarJuegoResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_grafoTopWin_InputMessage">
+    <wsdl:part name="parameters" element="tns:grafoTopWin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoTopWin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:grafoTopWinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoTopDest_InputMessage">
+    <wsdl:part name="parameters" element="tns:grafoTopDest" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoTopDest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:grafoTopDestResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -337,6 +349,14 @@
     <wsdl:operation name="eliminarJuego">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/eliminarJuego" message="tns:IService1_eliminarJuego_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/eliminarJuegoResponse" message="tns:IService1_eliminarJuego_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopWin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/grafoTopWin" message="tns:IService1_grafoTopWin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/grafoTopWinResponse" message="tns:IService1_grafoTopWin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopDest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/grafoTopDest" message="tns:IService1_grafoTopDest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/grafoTopDestResponse" message="tns:IService1_grafoTopDest_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -631,6 +651,24 @@
     </wsdl:operation>
     <wsdl:operation name="eliminarJuego">
       <soap:operation soapAction="http://tempuri.org/IService1/eliminarJuego" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopWin">
+      <soap:operation soapAction="http://tempuri.org/IService1/grafoTopWin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopDest">
+      <soap:operation soapAction="http://tempuri.org/IService1/grafoTopDest" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

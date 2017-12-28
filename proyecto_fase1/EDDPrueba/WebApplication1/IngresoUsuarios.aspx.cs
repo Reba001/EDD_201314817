@@ -112,6 +112,9 @@ namespace WebApplication1
                             }
 
                             Label2.Text = servicio.insertarJuegos(row[0], game);
+                        
+                        
+                        
                         }
                         contador++;
                         

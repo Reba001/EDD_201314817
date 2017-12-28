@@ -41,18 +41,22 @@ namespace WebApplication1
                 File.Delete(Server.MapPath("/images") + "\\Matrizdestruccion3.jpg");
 
             if (File.Exists(Server.MapPath("/images") + "\\Matrizdestruccion4.jpg"))
+            {
                 File.Delete(Server.MapPath("/images") + "\\Matrizdestruccion4.jpg");
+                
+            }
 
-
-
-            if (File.Exists(Server.MapPath("/images") + "\\Arbol.jpg"))
+            if (File.Exists(Server.MapPath("/images") + "\\Arbol.jpg")) {
                 File.Delete(Server.MapPath("/images") + "\\Arbol.jpg");
+            }
 
-            if (File.Exists(Server.MapPath("/images") + "\\ArbolE.jpg"))
+
+            if (File.Exists(Server.MapPath("/images") + "\\ArbolE.jpg")) {
                 File.Delete(Server.MapPath("/images") + "\\ArbolE.jpg");
+            }
+            
 
-
-            if (Directory.Exists("C:\\CSVFile\\Imagen\\"))
+            if (Directory.Exists("C:\\CSVFile\\Imagen"))
             {
 
 
@@ -112,21 +116,49 @@ namespace WebApplication1
 
                 if (File.Exists("C:\\CSVFile\\Imagen\\Arbol.jpg"))
                 {
+
                     File.Copy("C:\\CSVFile\\Imagen\\Arbol.jpg", Server.MapPath("/images") + "\\Arbol.jpg");
-                    this.Image9.ImageUrl = "images/Arbol.jpg";
+
+                    this.Image9.ImageUrl = "/images/Arbol.jpg";       
                 }
+
                 if (File.Exists("C:\\CSVFile\\Imagen\\ArbolE.jpg"))
                 {
                     File.Copy("C:\\CSVFile\\Imagen\\ArbolE.jpg", Server.MapPath("/images") + "\\ArbolE.jpg");
-                    this.Image10.ImageUrl = "images/ArbolE.jpg";
+
+                    this.Image10.ImageUrl = "/images/ArbolE.jpg";       
                 }
             }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+        }
+
+        protected void btnGrafousuario_Click(object sender, EventArgs e)
+        {
+
             servicio.invocarGrafo();
-            Response.Redirect(Request.RawUrl);
+            servicio.ArbolEspejo();
+
+            if (File.Exists(Server.MapPath("/images") + "\\Arbol.jpg"))
+                File.Delete(Server.MapPath("/images") + "\\Arbol.jpg");
+
+            if (File.Exists(Server.MapPath("/images") + "\\ArbolE.jpg"))
+                File.Delete(Server.MapPath("/images") + "\\ArbolE.jpg");
+
+            if (File.Exists("C:\\CSVFile\\Imagen\\Arbol.jpg"))
+            {
+                File.Move("C:\\CSVFile\\Imagen\\Arbol.jpg", Server.MapPath("/images") + "\\Arbol.jpg");
+                this.Image9.ImageUrl = "images/Arbol.jpg";
+            }
+
+            if (File.Exists("C:\\CSVFile\\Imagen\\ArbolE.jpg"))
+            {
+                File.Move("C:\\CSVFile\\Imagen\\ArbolE.jpg", Server.MapPath("/images") + "\\ArbolE.jpg");
+                this.Image10.ImageUrl = "images/ArbolE.jpg";
+            }
+
         }
     }
 }

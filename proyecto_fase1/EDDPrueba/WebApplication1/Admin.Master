@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Discovery by TEMPLATED</title>
@@ -21,7 +21,7 @@
 		<li><a href="IngresoUsuarios.aspx">Ingreso</a></li>
 		<li><a href="ModificarEliminar.aspx">Modificar y Eliminar</a></li>
 		<li><a href="MostrarGrafo.aspx">Grafo Usuario</a></li>
-		<li><a href="#">Usuarios</a></li>
+		<li><a href="WebForm1.aspx">TOPS</a></li>
 		<li><a href="#">Documento</a></li>
 	</ul>
     
