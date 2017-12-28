@@ -13,6 +13,8 @@ namespace WcfServiceLibrary2
         public static ListaPrueba list = new ListaPrueba();
         public static Arbol usuarios = new Arbol();
         public static Matriz tablero = new Matriz();
+        public static Matriz tableroD = new Matriz();
+        public static ListaParametros listP = new ListaParametros();
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -133,8 +135,16 @@ namespace WcfServiceLibrary2
 
         public string insertarenTablero(int fila, string columna, int nivel, Pieza pieza)
         {
-            tablero.insertar(fila, columna, nivel, pieza);
-            return "Insertado!";
+            if (tablero.MatrizVacia())
+                tablero.iniciarMatriz();
+
+            Pieza p = tablero.buscarPieza(fila, columna, nivel);
+            if(p == null)
+            {
+                tablero.insertar(fila, columna, nivel, pieza);
+                return "Insertado!";
+            }
+            return "Ya hay un nodo en esa Posicion";
         }
 
         public string recorrerFila()
@@ -145,6 +155,90 @@ namespace WcfServiceLibrary2
         public string recorrerCol()
         {
             return tablero.recorridoColumna();
+        }
+
+
+        public void grafoMatriz(int level)
+        {
+            tablero.grafoNivel(level, "");
+        }
+
+
+        public Pieza getPieza(int fila, string columna, int nivel)
+        {
+            return tablero.buscarPieza(fila, columna, nivel);
+        }
+
+
+        public Parametros getPJ()
+        {
+            return listP.getPJ();
+        }
+
+        public void insertParametro(Parametros param)
+        {
+            listP.insertar(param);
+        }
+        
+        public string insertarenTableroD(int fila, string columna, int nivel, Pieza pieza)
+        {
+            if (tableroD.MatrizVacia())
+                tableroD.iniciarMatriz();
+            
+            Pieza p = tableroD.buscarPieza(fila, columna, nivel);
+            if (p == null)
+            {
+                
+                tableroD.insertar(fila, columna, nivel, pieza);
+                return "Insertado";
+            }
+            return "Nodo ya ocupado";
+        }
+
+
+        public void grafoDestruct(int nivel)
+        {
+            tableroD.grafoNivel(nivel, "destruccion");
+        }
+
+
+        public void grafoUsuario(string jugador, int nivel)
+        {
+            tablero.grafoJugador1(jugador, nivel);
+        }
+
+
+        public void crearMatriz()
+        {
+            tablero.iniciarMatriz();
+        }
+
+        public void eliminarMatriz()
+        {
+            tablero.eliminarMatriz();
+        }
+
+
+        public void crearMatrizD()
+        {
+            tableroD.iniciarMatriz();
+        }
+
+        public void eliminarMatrizD()
+        {
+            tableroD.eliminarMatriz();
+        }
+
+
+        public bool matrizVacia()
+        {
+            return tablero.MatrizVacia();
+        }
+
+
+        public void ArbolEspejo()
+        {
+            usuarios.espejo();
         }
     }
 }

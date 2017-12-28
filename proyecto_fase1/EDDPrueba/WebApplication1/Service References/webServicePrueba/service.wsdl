@@ -91,6 +91,84 @@
   <wsdl:message name="IService1_recorrerCol_OutputMessage">
     <wsdl:part name="parameters" element="tns:recorrerColResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_grafoMatriz_InputMessage">
+    <wsdl:part name="parameters" element="tns:grafoMatriz" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoMatriz_OutputMessage">
+    <wsdl:part name="parameters" element="tns:grafoMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPieza_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPieza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPieza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPiezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertParametro_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertParametro" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertParametro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertParametroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPJ_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPJ" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getPJ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPJResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertarenTableroD_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarenTableroD" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertarenTableroD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarenTableroDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoDestruct_InputMessage">
+    <wsdl:part name="parameters" element="tns:grafoDestruct" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoDestruct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:grafoDestructResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:grafoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:grafoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearMatriz_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearMatriz" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearMatriz_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarMatriz_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMatriz" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarMatriz_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearMatrizD_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearMatrizD" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearMatrizD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearMatrizDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarMatrizD_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMatrizD" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarMatrizD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMatrizDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_matrizVacia_InputMessage">
+    <wsdl:part name="parameters" element="tns:matrizVacia" />
+  </wsdl:message>
+  <wsdl:message name="IService1_matrizVacia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:matrizVaciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ArbolEspejo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ArbolEspejo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ArbolEspejo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ArbolEspejoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -147,6 +225,58 @@
     <wsdl:operation name="recorrerCol">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/recorrerCol" message="tns:IService1_recorrerCol_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/recorrerColResponse" message="tns:IService1_recorrerCol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoMatriz">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/grafoMatriz" message="tns:IService1_grafoMatriz_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/grafoMatrizResponse" message="tns:IService1_grafoMatriz_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPieza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getPieza" message="tns:IService1_getPieza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getPiezaResponse" message="tns:IService1_getPieza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertParametro">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/insertParametro" message="tns:IService1_insertParametro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/insertParametroResponse" message="tns:IService1_insertParametro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPJ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getPJ" message="tns:IService1_getPJ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getPJResponse" message="tns:IService1_getPJ_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTableroD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/insertarenTableroD" message="tns:IService1_insertarenTableroD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/insertarenTableroDResponse" message="tns:IService1_insertarenTableroD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoDestruct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/grafoDestruct" message="tns:IService1_grafoDestruct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/grafoDestructResponse" message="tns:IService1_grafoDestruct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/grafoUsuario" message="tns:IService1_grafoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/grafoUsuarioResponse" message="tns:IService1_grafoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearMatriz">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearMatriz" message="tns:IService1_crearMatriz_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearMatrizResponse" message="tns:IService1_crearMatriz_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatriz">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/eliminarMatriz" message="tns:IService1_eliminarMatriz_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/eliminarMatrizResponse" message="tns:IService1_eliminarMatriz_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearMatrizD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearMatrizD" message="tns:IService1_crearMatrizD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearMatrizDResponse" message="tns:IService1_crearMatrizD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatrizD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/eliminarMatrizD" message="tns:IService1_eliminarMatrizD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/eliminarMatrizDResponse" message="tns:IService1_eliminarMatrizD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="matrizVacia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/matrizVacia" message="tns:IService1_matrizVacia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/matrizVaciaResponse" message="tns:IService1_matrizVacia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ArbolEspejo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ArbolEspejo" message="tns:IService1_ArbolEspejo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ArbolEspejoResponse" message="tns:IService1_ArbolEspejo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -270,6 +400,123 @@
     </wsdl:operation>
     <wsdl:operation name="recorrerCol">
       <soap:operation soapAction="http://tempuri.org/IService1/recorrerCol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoMatriz">
+      <soap:operation soapAction="http://tempuri.org/IService1/grafoMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPieza">
+      <soap:operation soapAction="http://tempuri.org/IService1/getPieza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertParametro">
+      <soap:operation soapAction="http://tempuri.org/IService1/insertParametro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPJ">
+      <soap:operation soapAction="http://tempuri.org/IService1/getPJ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTableroD">
+      <soap:operation soapAction="http://tempuri.org/IService1/insertarenTableroD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoDestruct">
+      <soap:operation soapAction="http://tempuri.org/IService1/grafoDestruct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/grafoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearMatriz">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatriz">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearMatrizD">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearMatrizD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatrizD">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarMatrizD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="matrizVacia">
+      <soap:operation soapAction="http://tempuri.org/IService1/matrizVacia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArbolEspejo">
+      <soap:operation soapAction="http://tempuri.org/IService1/ArbolEspejo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

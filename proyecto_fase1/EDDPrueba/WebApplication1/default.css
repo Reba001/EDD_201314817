@@ -368,3 +368,12 @@ grafo {
     overflow-y: scroll;
     margin-left: 5px;
 }
+
+.contenido_derechoConsola {
+    float : right;
+    width: 500px;
+    height: 1200px;
+    overflow-y: scroll;
+    margin-left: 5px;
+    font: bold 15px Comic Sam MS, verdana;
+}

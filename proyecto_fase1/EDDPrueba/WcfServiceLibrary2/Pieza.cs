@@ -9,6 +9,7 @@ namespace WcfServiceLibrary2
     [DataContract]
     public class Pieza
     {
+        private string nickname;
         private string unidad;
         private int alcance;
         private int movimiento;
@@ -16,13 +17,20 @@ namespace WcfServiceLibrary2
         private float vida;
 
         
-        public Pieza(string unidad, int alcance, int movimiento, float danio, float vida) {
+        public Pieza(string nickname, string unidad, int alcance, int movimiento, float danio, float vida) {
             this.unidad = unidad;
             this.alcance = alcance;
             this.movimiento = movimiento;
             this.danio = danio;
             this.vida = vida;
-            
+            this.nickname = nickname;
+        }
+
+        [DataMember]
+        public string Nickname
+        {
+            get { return nickname; }
+            set { nickname = value; }
         }
 
         [DataMember]
@@ -61,7 +69,9 @@ namespace WcfServiceLibrary2
         }
 
         public string toString() {
-            return "Unidad: "+this.unidad + "\n"+
+            return 
+                "Usuario: "+this.nickname + "\n"+
+                "Unidad: "+this.unidad + "\n"+
                 "Alcance: "+ this.alcance.ToString()+ "\n"+
                 "Movimiento: "+ this.movimiento.ToString()+"\n"+
                 "Daño: "+ this.danio.ToString()+"\n"+

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="WebApplication1.Admin" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Cliente.master.cs" Inherits="WebApplication1.Cliente" %>
 
 <!DOCTYPE html>
 
@@ -16,16 +16,16 @@
 <body>
     <form id="form1" runat="server">
     
-<div id="menu">
+    <div id="menu">
 	<ul>
-		<li><a href="IngresoUsuarios.aspx">Ingreso</a></li>
-		<li><a href="ModificarEliminar.aspx">Modificar y Eliminar</a></li>
-		<li><a href="MostrarGrafo.aspx">Grafo Usuario</a></li>
-		<li><a href="#">Usuarios</a></li>
+		<li class="active"><a href="Registro.aspx">Registro</a></li>
+		<li><a href="ModificarUsuario.aspx">Modificar Datos</a></li>
+		<li><a href="Ver.aspx">Usuarios</a></li>
+		<li><a href="GestionUsuarios.aspx">Gestion de Usuarios</a></li>
 		<li><a href="#">Documento</a></li>
 	</ul>
     
-</div>
+    </div>
     
 
 <div id="logo">
@@ -51,7 +51,10 @@
 
             <asp:LinkButton ID="lbtLogout" runat="server" OnClick="lbtLogout_Click">Log-Out</asp:LinkButton>
         </div>
-         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+
+         </asp:ContentPlaceHolder>
     </div>
 </div>
         
@@ -66,4 +69,3 @@
     </form>
 </body>
 </html>
-

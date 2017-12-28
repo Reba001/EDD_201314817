@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WcfServiceLibrary2
 {
-    class Nodo
+    public class Nodo
     {
         private Nodo siguiente;
         private Nodo anterior;

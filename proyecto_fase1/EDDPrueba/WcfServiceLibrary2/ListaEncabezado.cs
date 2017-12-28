@@ -84,7 +84,7 @@ namespace WcfServiceLibrary2
                     Encabezado actual = this.cabeza;
                     while (actual.Siguiente != null)
                     {
-                        if (String.Compare(nuevo.Identificador, actual.Identificador) < 0)
+                        if (String.Compare(nuevo.Identificador, actual.Siguiente.Identificador) < 0)
                         {
                             nuevo.Siguiente = actual.Siguiente;
                             actual.Siguiente.Anterior = nuevo;
@@ -143,7 +143,7 @@ namespace WcfServiceLibrary2
 
         public void eliminar(int id)
         {
-            if (this.cabeza == null)
+            if (this.cabeza != null)
             {
                 if (this.cabeza.Id == id)
                 {
@@ -154,8 +154,10 @@ namespace WcfServiceLibrary2
                     }
                     else
                     {
+                        Encabezado aux = this.cabeza;
                         this.cabeza = this.cabeza.Siguiente;
                         this.cabeza.Anterior = null;
+                        aux = null;
                     }
                 }
                 else
@@ -167,6 +169,8 @@ namespace WcfServiceLibrary2
                         {
                             aux.Anterior.Siguiente = aux.Siguiente;
                             aux.Siguiente.Anterior = aux.Anterior;
+                            aux = null;
+                            return;
                         }
                         aux = aux.Siguiente;
                     }
@@ -186,7 +190,7 @@ namespace WcfServiceLibrary2
 
         public void eliminar(string identificador)
         {
-            if (this.cabeza == null)
+            if (this.cabeza != null)
             {
                 if (this.cabeza.Identificador == identificador)
                 {
@@ -197,8 +201,10 @@ namespace WcfServiceLibrary2
                     }
                     else
                     {
+                        Encabezado aux = this.cabeza;
                         this.cabeza = this.cabeza.Siguiente;
                         this.cabeza.Anterior = null;
+                        aux = null;
                     }
                 }
                 else
@@ -210,6 +216,8 @@ namespace WcfServiceLibrary2
                         {
                             aux.Anterior.Siguiente = aux.Siguiente;
                             aux.Siguiente.Anterior = aux.Anterior;
+                            aux = null;
+                            return;
                         }
                         aux = aux.Siguiente;
                     }

@@ -41,6 +41,29 @@ namespace WebApplication1
                     }
                     else 
                     {
+                        if (Session["usuario1"] != null && Session["usuario2"] != null)
+                        {
+                            if (user.Nickname.Equals(Session["usuario1"].ToString()))
+                            {
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            else if (user.Nickname.Equals(Session["usuario2"].ToString()))
+                            {
+                                Response.Redirect("Cliente2.aspx");
+                            }
+                            else
+                            {
+                                Session["usuario"] = user.Nickname;
+                                serv1.modificarEstad(user.Nickname, true);
+                                Response.Redirect("Jugando.aspx");
+                            }
+                        }
+                        else 
+                        {
+
+                        }
+
+                        
                     }
                    
 

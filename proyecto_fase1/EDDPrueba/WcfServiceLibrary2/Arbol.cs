@@ -89,14 +89,68 @@ namespace WcfServiceLibrary2
 
         //FIN INSERCION
         //IMPRESION PREORDEN
+        //arbol espejo
+        public void espejo() {
+            string grafo = "digraph g{\n";
+            string cuerpo = "";
+            int h = calcularAltura();
+            int nh = getNodoHoja();
+            int rama = getRamas();
+            grafo += "\"Altura: " + h.ToString() + "\n";
+            grafo += "Nodos Hoja: " + nh.ToString() + "\n";
+            grafo += "Niveles: " + Convert.ToString(h + 1) + "\n";
+            grafo += "Ramas: " + Convert.ToString(rama) + "\";\n";
+            grafo += escrituraEspejo(raiz, ref cuerpo);
+            grafo += "}\n";
+            System.IO.File.WriteAllText("C:\\CSVFile\\Imagen\\ArbolE.dot", grafo);
+            ProcessStartInfo starInfo = new ProcessStartInfo("dot.exe");
+            starInfo.Arguments = "-Tjpg C:\\CSVFile\\Imagen\\ArbolE.dot -o C:\\CSVFile\\Imagen\\ArbolE.jpg";
+            Process.Start(starInfo);
+
+        }
+
+        public string escrituraEspejo(NodoA actual, ref string recorrido) {
+            if (actual != null)
+            {
+                if (actual.Derecha != null)
+                {
+                    recorrido += "\t\"" + actual.Usuario.toString() + "\" -> \"" + actual.Derecha.Usuario.toString() + "\";\n";
+                }
+
+                if (actual.Izquierda != null)
+                {
+                    recorrido += "\t\"" + actual.Usuario.toString() + "\" -> \"" + actual.Izquierda.Usuario.toString() + "\";\n";
+                }
+                
+                if (actual.listJuego.primero != null)
+                {
+                    recorrido += "\t\"" + actual.Usuario.toString() + "\" -> \"" + actual.listJuego.primero.Juego.toString() + "\";\n";
+                    recorrido += "\t subgraph cluster" + idUsuario(actual.Usuario.Nickname) + "{\n";
+                    recorrido += "\t\t" + actual.listJuego.grafo();
+                    recorrido += "}\n";
+                }
+                escrituraEspejo(actual.Derecha, ref recorrido);
+                escrituraEspejo(actual.Izquierda, ref recorrido);
+                return recorrido;
+            }
+            return recorrido;
+        }
+        // fin arbol espejo
         public void crearGrafo() 
         {
             string grafo = "digraph g{\n";
+            int h = calcularAltura();
+            int nh = getNodoHoja();
+            int rama = getRamas();
+            grafo += "\"Altura: "+h.ToString()+ "\n";
+            grafo += "Nodos Hoja: "+nh.ToString()+"\n";
+            grafo += "Niveles: "+ Convert.ToString(h+1)+"\n";
+            grafo += "Ramas: " + Convert.ToString(rama)+"\";\n";
             grafo += preOrden();
             grafo += "}\n";
-            System.IO.File.WriteAllText("images/Arbol.dot", grafo);
+            System.IO.File.WriteAllText("C:\\CSVFile\\Imagen\\Arbol.dot", grafo);
             ProcessStartInfo starInfo = new ProcessStartInfo("dot.exe");
-            starInfo.Arguments = "-Tjpg images/Arbol.dot -o images/Arbol.jpg";
+            starInfo.Arguments = "-Tjpg C:\\CSVFile\\Imagen\\Arbol.dot -o C:\\CSVFile\\Imagen\\Arbol.jpg";
             Process.Start(starInfo);
         }
         public string preOrden() 
@@ -177,7 +231,34 @@ namespace WcfServiceLibrary2
             }
         }
         //FIN CALCULO DE ALTURA
+        // calculo de ramas 
+        public int getRamas() 
+        {
+            if (this.raiz == null)
+            {
+                return 0;
+            }
+            else 
+            {
+                return getRamas(raiz);
+            }
+            
+        }
 
+        public int getRamas(NodoA actual) 
+        {
+            if (actual == null)
+            {
+                return 0;
+            }
+            else 
+            {
+                int ri = getRamas(actual.Izquierda);
+                int rd = getRamas(actual.Derecha);
+                return ri + rd + 1;
+            }
+        }
+        // fin calculo de ramas
         //CALCULO DE NODO HOJA 
         public int getNodoHoja() 
         {

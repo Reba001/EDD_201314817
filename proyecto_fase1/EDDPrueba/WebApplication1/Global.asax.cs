@@ -19,6 +19,10 @@ namespace WebApplication1
 
         protected void Session_Start(object sender, EventArgs e)
         {
+            Application["contn1"] = 0;
+            Application["contn2"] = 0;
+            Application["contn3"] = 0;
+            Application["contn4"] = 0;
 
         }
 

@@ -234,6 +234,9 @@ namespace WebApplication1.webServicePrueba {
         private int MovimientoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NicknameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UnidadField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -289,6 +292,19 @@ namespace WebApplication1.webServicePrueba {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nickname {
+            get {
+                return this.NicknameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NicknameField, value) != true)) {
+                    this.NicknameField = value;
+                    this.RaisePropertyChanged("Nickname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Unidad {
             get {
                 return this.UnidadField;
@@ -310,6 +326,195 @@ namespace WebApplication1.webServicePrueba {
                 if ((this.VidaField.Equals(value) != true)) {
                     this.VidaField = value;
                     this.RaisePropertyChanged("Vida");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Parametros", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
+    [System.SerializableAttribute()]
+    public partial class Parametros : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LimitXField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LimitYField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int N1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int N2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int N3Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int N4Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TiempoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TipoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Usuario1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Usuario2Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LimitX {
+            get {
+                return this.LimitXField;
+            }
+            set {
+                if ((this.LimitXField.Equals(value) != true)) {
+                    this.LimitXField = value;
+                    this.RaisePropertyChanged("LimitX");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LimitY {
+            get {
+                return this.LimitYField;
+            }
+            set {
+                if ((this.LimitYField.Equals(value) != true)) {
+                    this.LimitYField = value;
+                    this.RaisePropertyChanged("LimitY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int N1 {
+            get {
+                return this.N1Field;
+            }
+            set {
+                if ((this.N1Field.Equals(value) != true)) {
+                    this.N1Field = value;
+                    this.RaisePropertyChanged("N1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int N2 {
+            get {
+                return this.N2Field;
+            }
+            set {
+                if ((this.N2Field.Equals(value) != true)) {
+                    this.N2Field = value;
+                    this.RaisePropertyChanged("N2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int N3 {
+            get {
+                return this.N3Field;
+            }
+            set {
+                if ((this.N3Field.Equals(value) != true)) {
+                    this.N3Field = value;
+                    this.RaisePropertyChanged("N3");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int N4 {
+            get {
+                return this.N4Field;
+            }
+            set {
+                if ((this.N4Field.Equals(value) != true)) {
+                    this.N4Field = value;
+                    this.RaisePropertyChanged("N4");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tiempo {
+            get {
+                return this.TiempoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TiempoField, value) != true)) {
+                    this.TiempoField = value;
+                    this.RaisePropertyChanged("Tiempo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Tipo {
+            get {
+                return this.TipoField;
+            }
+            set {
+                if ((this.TipoField.Equals(value) != true)) {
+                    this.TipoField = value;
+                    this.RaisePropertyChanged("Tipo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Usuario1 {
+            get {
+                return this.Usuario1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Usuario1Field, value) != true)) {
+                    this.Usuario1Field = value;
+                    this.RaisePropertyChanged("Usuario1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Usuario2 {
+            get {
+                return this.Usuario2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Usuario2Field, value) != true)) {
+                    this.Usuario2Field = value;
+                    this.RaisePropertyChanged("Usuario2");
                 }
             }
         }
@@ -369,6 +574,45 @@ namespace WebApplication1.webServicePrueba {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/recorrerCol", ReplyAction="http://tempuri.org/IService1/recorrerColResponse")]
         string recorrerCol();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/grafoMatriz", ReplyAction="http://tempuri.org/IService1/grafoMatrizResponse")]
+        void grafoMatriz(int level);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getPieza", ReplyAction="http://tempuri.org/IService1/getPiezaResponse")]
+        WebApplication1.webServicePrueba.Pieza getPieza(int fila, string columna, int nivel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insertParametro", ReplyAction="http://tempuri.org/IService1/insertParametroResponse")]
+        void insertParametro(WebApplication1.webServicePrueba.Parametros param);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getPJ", ReplyAction="http://tempuri.org/IService1/getPJResponse")]
+        WebApplication1.webServicePrueba.Parametros getPJ();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/insertarenTableroD", ReplyAction="http://tempuri.org/IService1/insertarenTableroDResponse")]
+        string insertarenTableroD(int fila, string columna, int nivel, WebApplication1.webServicePrueba.Pieza pieza);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/grafoDestruct", ReplyAction="http://tempuri.org/IService1/grafoDestructResponse")]
+        void grafoDestruct(int nivel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/grafoUsuario", ReplyAction="http://tempuri.org/IService1/grafoUsuarioResponse")]
+        void grafoUsuario(string jugador, int nivel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/crearMatriz", ReplyAction="http://tempuri.org/IService1/crearMatrizResponse")]
+        void crearMatriz();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/eliminarMatriz", ReplyAction="http://tempuri.org/IService1/eliminarMatrizResponse")]
+        void eliminarMatriz();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/crearMatrizD", ReplyAction="http://tempuri.org/IService1/crearMatrizDResponse")]
+        void crearMatrizD();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/eliminarMatrizD", ReplyAction="http://tempuri.org/IService1/eliminarMatrizDResponse")]
+        void eliminarMatrizD();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/matrizVacia", ReplyAction="http://tempuri.org/IService1/matrizVaciaResponse")]
+        bool matrizVacia();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ArbolEspejo", ReplyAction="http://tempuri.org/IService1/ArbolEspejoResponse")]
+        void ArbolEspejo();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -452,6 +696,58 @@ namespace WebApplication1.webServicePrueba {
         
         public string recorrerCol() {
             return base.Channel.recorrerCol();
+        }
+        
+        public void grafoMatriz(int level) {
+            base.Channel.grafoMatriz(level);
+        }
+        
+        public WebApplication1.webServicePrueba.Pieza getPieza(int fila, string columna, int nivel) {
+            return base.Channel.getPieza(fila, columna, nivel);
+        }
+        
+        public void insertParametro(WebApplication1.webServicePrueba.Parametros param) {
+            base.Channel.insertParametro(param);
+        }
+        
+        public WebApplication1.webServicePrueba.Parametros getPJ() {
+            return base.Channel.getPJ();
+        }
+        
+        public string insertarenTableroD(int fila, string columna, int nivel, WebApplication1.webServicePrueba.Pieza pieza) {
+            return base.Channel.insertarenTableroD(fila, columna, nivel, pieza);
+        }
+        
+        public void grafoDestruct(int nivel) {
+            base.Channel.grafoDestruct(nivel);
+        }
+        
+        public void grafoUsuario(string jugador, int nivel) {
+            base.Channel.grafoUsuario(jugador, nivel);
+        }
+        
+        public void crearMatriz() {
+            base.Channel.crearMatriz();
+        }
+        
+        public void eliminarMatriz() {
+            base.Channel.eliminarMatriz();
+        }
+        
+        public void crearMatrizD() {
+            base.Channel.crearMatrizD();
+        }
+        
+        public void eliminarMatrizD() {
+            base.Channel.eliminarMatrizD();
+        }
+        
+        public bool matrizVacia() {
+            return base.Channel.matrizVacia();
+        }
+        
+        public void ArbolEspejo() {
+            base.Channel.ArbolEspejo();
         }
     }
 }

@@ -5,7 +5,11 @@
         <tr>
             <td>Nickname </td>
             
-            <td><asp:TextBox ID="txtNickname" runat="server"  Width="237px"></asp:TextBox></td>
+            <td>
+                <br />
+                <asp:TextBox ID="txtNickname" runat="server"  Width="237px"></asp:TextBox>
+                <br />
+            </td>
 
             
             
@@ -14,7 +18,11 @@
             
             <td>Contraseña</td>
             
-            <td><asp:TextBox ID="txtContrasenia" runat="server"  Width="237px"></asp:TextBox></td>
+            <td>
+                <br />
+                <asp:TextBox ID="txtContrasenia" runat="server"  Width="237px"></asp:TextBox>
+                <br />
+            </td>
             
             
             
@@ -23,7 +31,11 @@
             
             <td>Correo Electronico</td>
             
-            <td><asp:TextBox ID="txtCorreo" runat="server"  Width="237px"></asp:TextBox></td>
+            <td>
+                <br />
+                <asp:TextBox ID="txtCorreo" runat="server"  Width="237px"></asp:TextBox>
+                <br />
+            </td>
             
                         
         </tr>
@@ -32,6 +44,10 @@
             <td> <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="Button4_Click"></asp:Button> </td>
             
             <td> 
+                <br />
+                <asp:Button ID="btnLimpiarTablero" runat="server" Text="Limpiar Tablero" OnClick="Button20_Click"></asp:Button> 
+                <br />
+                <br />
             </td>
             
             
@@ -80,6 +96,42 @@
                  
                 <asp:Button ID="Button2" runat="server" Text="Cargar Archivo Juegos" OnClick="Button8_Click"></asp:Button>
                  <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                <br />
+                <br />
+            </td>
+            
+            
+        </tr>
+
+        <tr>
+            <td>  
+
+
+            </td>
+            <td>
+                 
+                <br />
+                 
+                <asp:Button ID="Button3" runat="server" Text="Cargar Archivo Tablero" OnClick="Button9_Click"></asp:Button>
+                 <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+                <br />
+                <br />
+            </td>
+            
+            
+        </tr>
+        <tr>
+            <td>  
+
+
+            </td>
+            <td>
+                 
+                <br />
+                 
+                <asp:Button ID="Button4" runat="server" Text="Cargar Archivo Juego" OnClick="Button10_Click"></asp:Button>
+                 <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+                <br />
                 <br />
             </td>
             

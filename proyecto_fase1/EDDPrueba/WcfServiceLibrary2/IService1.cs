@@ -51,6 +51,37 @@ namespace WcfServiceLibrary2
         [OperationContract]
         string recorrerCol();
 
+        [OperationContract]
+        void grafoMatriz(int level);
+
+        [OperationContract]
+        Pieza getPieza(int fila, string columna, int nivel);
+        [OperationContract]
+        void insertParametro(Parametros param);
+        [OperationContract]
+        Parametros getPJ();
+
+        [OperationContract]
+        string insertarenTableroD(int fila, string columna, int nivel, Pieza pieza);
+
+        [OperationContract]
+        void grafoDestruct(int nivel);
+
+        [OperationContract]
+        void grafoUsuario(string jugador, int nivel);
+        [OperationContract]
+        void crearMatriz();
+        [OperationContract]
+        void eliminarMatriz();
+        [OperationContract]
+        void crearMatrizD();
+        [OperationContract]
+        void eliminarMatrizD();
+        [OperationContract]
+        bool matrizVacia();
+
+        [OperationContract]
+        void ArbolEspejo();
         // TODO: agregue aquí sus operaciones de servicio
     }
 
