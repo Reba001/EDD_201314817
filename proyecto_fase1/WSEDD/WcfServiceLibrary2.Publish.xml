@@ -1,0 +1,46 @@
+<publishData>
+  <publishTarget publishUrl="C:\Users\aaper\Desktop\WSEDD\">
+    <file relUrl="Parametros.cs" publishTime="12/26/2017 14:30:19" />
+    <file relUrl="Service1.cs" publishTime="12/28/2017 14:58:38" />
+    <file relUrl="Arbol.cs" publishTime="12/28/2017 15:22:30" />
+    <file relUrl="bin/WcfServiceLibrary2.dll.config" publishTime="12/19/2017 22:58:09" />
+    <file relUrl="Web.config" publishTime="12/19/2017 23:48:15" />
+    <file relUrl="WcfServiceLibrary2.csproj" publishTime="12/28/2017 17:44:14" />
+    <file relUrl="Juego.cs" publishTime="12/28/2017 14:58:38" />
+    <file relUrl="Encabezado.cs" publishTime="12/25/2017 10:46:55" />
+    <file relUrl="IService1.cs" publishTime="12/28/2017 14:58:38" />
+    <file relUrl="NodoPJ.cs" publishTime="12/26/2017 14:18:43" />
+    <file relUrl="WcfServiceLibrary2.Publish.xml" publishTime="12/28/2017 17:46:07" />
+    <file relUrl="bin\Release/Interop.WINGRAPHVIZLib.dll" publishTime="12/28/2017 16:47:08" />
+    <file relUrl="WcfServiceLibrary2.csproj.user" publishTime="12/28/2017 17:46:27" />
+    <file relUrl="Nodo.cs" publishTime="12/26/2017 13:58:50" />
+    <file relUrl="Properties/AssemblyInfo.cs" publishTime="12/19/2017 22:53:52" />
+    <file relUrl="bin/WcfServiceLibrary2.dll" publishTime="12/28/2017 17:47:37" />
+    <file relUrl="bin\Release/WcfServiceLibrary2.dll.config" publishTime="12/19/2017 22:58:09" />
+    <file relUrl="Usuario.cs" publishTime="12/20/2017 21:59:02" />
+    <file relUrl="Pieza.cs" publishTime="12/26/2017 13:50:02" />
+    <file relUrl="bin/WcfServiceLibrary2.pdb" publishTime="12/28/2017 17:47:37" />
+    <file relUrl="bin\Release/WcfServiceLibrary2.pdb" publishTime="12/28/2017 17:46:27" />
+    <file relUrl="ListaPrueba.cs" publishTime="12/25/2017 10:48:09" />
+    <file relUrl="ListaParametros.cs" publishTime="12/26/2017 14:19:28" />
+    <file relUrl="NodoL.cs" publishTime="12/20/2017 21:40:51" />
+    <file relUrl="bin/Interop.WINGRAPHVIZLib.dll" publishTime="12/21/2017 19:41:13" />
+    <file relUrl="App.config" publishTime="12/19/2017 22:58:09" />
+    <file relUrl="ListaEncabezado.cs" publishTime="12/27/2017 20:52:30" />
+    <file relUrl="Servicio.svc" publishTime="12/19/2017 23:49:49" />
+    <file relUrl="Matriz.cs" publishTime="12/28/2017 14:58:37" />
+    <file relUrl="bin\Release/WcfServiceLibrary2.dll" publishTime="12/28/2017 17:46:27" />
+    <file relUrl="WcfServiceLibrary2.Service1.svc" publishTime="12/28/2017 17:47:37" />
+    <file relUrl="ListaJuego.cs" publishTime="12/28/2017 14:58:38" />
+    <file relUrl="NodoA.cs" publishTime="12/23/2017 11:50:55" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\WEBSERVICE\">
+    <file relUrl="bin/Interop.WINGRAPHVIZLib.dll" publishTime="12/21/2017 19:41:13" />
+    <file relUrl="bin/WcfServiceLibrary2.dll" publishTime="12/28/2017 15:22:31" />
+    <file relUrl="bin/WcfServiceLibrary2.dll.config" publishTime="12/19/2017 22:58:09" />
+    <file relUrl="bin/WcfServiceLibrary2.pdb" publishTime="12/28/2017 15:22:30" />
+    <file relUrl="Web.config" publishTime="12/19/2017 22:58:09" />
+    <file relUrl="Servicio.svc" publishTime="12/19/2017 23:49:49" />
+    <file relUrl="WcfServiceLibrary2.Service1.svc" publishTime="12/28/2017 16:44:12" />
+  </publishTarget>
+</publishData>
