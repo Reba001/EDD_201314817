@@ -137,6 +137,76 @@
             
             
         </tr>
+        <tr>
+            <td>  
+
+
+            </td>
+            <td>
+                 
+                <br />
+                 
+                <asp:Button ID="Button5" runat="server" Text="Cargar Archivo Contactos" OnClick="Button11_Click"></asp:Button>
+                 <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+                <br />
+                <br />
+            </td>
+            
+            
+        </tr>
+        <tr>
+            <td>  
+
+
+            </td>
+            <td>
+                 
+                <br />
+                 
+                <asp:Button ID="Button6" runat="server" Text="Dispersar Contactos" OnClick="Button12_Click"></asp:Button>
+                 <asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+                <br />
+                <br />
+            </td>
+            
+            
+        </tr>
+        <tr>
+            <td>  
+
+
+            </td>
+            <td>
+                 
+                <br />
+                 
+                <asp:Button ID="Button7" runat="server" Text="Cargar Historial" OnClick="Button13_Click"></asp:Button>
+                 <asp:Label ID="Label7" runat="server" Text=""></asp:Label>
+                <br />
+                <br />
+            </td>
+            
+            
+        </tr>
+        <tr>
+            <td>  
+                
+                <asp:TextBox ID="txtUsuario" runat="server"  Width="150px"></asp:TextBox>
+
+            </td>
+
+            <td>
+                 
+                <br />
+                 
+                <asp:Button ID="Button8" runat="server" Text="Cargar Contactos" OnClick="Button14_Click"></asp:Button>
+                 <asp:Label ID="Label8" runat="server" Text=""></asp:Label>
+                <br />
+                <br />
+            </td>
+            
+            
+        </tr>
     </table>
         <div>
             <br />

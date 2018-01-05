@@ -626,81 +626,81 @@ namespace WcfServiceLibrary2
                 Encabezado enivelC = ecolumna.ListAcceso.getEncabezado(nivel);
                 if (enivelF != null && enivelC != null && enivelC.Acceso != null && enivelF.Acceso != null )
                 {
-                    //iniicio en nodo en acceso a elimina
-                    if (enivelF.Acceso.Columna == columna && enivelC.Acceso.Fila == fila)
-                    {
-                        Nodo auxC = enivelC.Acceso;
-                        Nodo auxF = enivelF.Acceso;
-                        if (enivelF.Siguiente != null && enivelF.Siguiente.Acceso != null)
-                        {
-                            if (enivelF.Anterior != null && enivelF.Anterior.Acceso != null)
-                            {
-                                enivelF.Acceso.Adelante.Atras = enivelF.Acceso.Atras;
-                                enivelF.Acceso.Atras.Adelante = enivelF.Acceso.Adelante;
+                    ////iniicio en nodo en acceso a elimina
+                    //if (enivelF.Acceso.Columna == columna && enivelC.Acceso.Fila == fila)
+                    //{
+                    //    Nodo auxC = enivelC.Acceso;
+                    //    Nodo auxF = enivelF.Acceso;
+                    //    if (enivelF.Siguiente != null && enivelF.Siguiente.Acceso != null)
+                    //    {
+                    //        if (enivelF.Anterior != null && enivelF.Anterior.Acceso != null)
+                    //        {
+                    //            enivelF.Acceso.Adelante.Atras = enivelF.Acceso.Atras;
+                    //            enivelF.Acceso.Atras.Adelante = enivelF.Acceso.Adelante;
 
-                            }
-                            else
-                            {
-                                enivelF.Acceso.Adelante.Atras = null;
-                            }
-                        }
-                        else
-                        {
-                            if (enivelF.Anterior != null && enivelF.Anterior.Acceso != null)
-                            {
-                                enivelF.Acceso.Atras.Adelante = null;
-                            }
-                        }
+                    //        }
+                    //        else
+                    //        {
+                    //            enivelF.Acceso.Adelante.Atras = null;
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        if (enivelF.Anterior != null && enivelF.Anterior.Acceso != null)
+                    //        {
+                    //            enivelF.Acceso.Atras.Adelante = null;
+                    //        }
+                    //    }
 
-                        if (enivelF.Acceso.Siguiente == null && enivelC.Acceso.Abajo == null)
-                        {
-                            enivelF.Acceso = null;
-                            enivelC.Acceso = null;
-                            efila.ListAcceso.eliminar(nivel);
-                            ecolumna.ListAcceso.eliminar(nivel);
-                            if (efila.ListAcceso.Cabeza == null)
-                            {
-                                this.eFila.eliminar(fila);
-                            }
+                    //    if (enivelF.Acceso.Siguiente == null && enivelC.Acceso.Abajo == null)
+                    //    {
+                    //        enivelF.Acceso = null;
+                    //        enivelC.Acceso = null;
+                    //        efila.ListAcceso.eliminar(nivel);
+                    //        ecolumna.ListAcceso.eliminar(nivel);
+                    //        if (efila.ListAcceso.Cabeza == null)
+                    //        {
+                    //            this.eFila.eliminar(fila);
+                    //        }
 
-                            if (ecolumna.ListAcceso.Cabeza == null)
-                            {
-                                this.eColumna.eliminar(columna);
-                            }
-                        }
-                        else if (enivelF.Acceso.Siguiente == null && enivelC.Acceso.Abajo != null)
-                        {
-                            enivelC.Acceso = enivelC.Acceso.Abajo;
-                            enivelF.Acceso = null;
-                            efila.ListAcceso.eliminar(nivel);
-                            if (efila.ListAcceso.Cabeza == null)
-                            {
-                                this.eFila.eliminar(fila);
-                            }
-                        }
-                        else if (enivelC.Acceso.Abajo == null && enivelF.Acceso.Siguiente != null)
-                        {
-                            enivelF.Acceso = enivelF.Acceso.Siguiente;
-                            enivelC.Acceso = null;
-                            ecolumna.ListAcceso.eliminar(nivel);
-                            if (ecolumna.ListAcceso.Cabeza == null)
-                            {
-                                this.eColumna.eliminar(columna);
-                            }
-                        }
-                        else
-                        {
-                            enivelF.Acceso = enivelF.Acceso.Siguiente;
-                            enivelC.Acceso = enivelC.Acceso.Abajo;
-                        }
+                    //        if (ecolumna.ListAcceso.Cabeza == null)
+                    //        {
+                    //            this.eColumna.eliminar(columna);
+                    //        }
+                    //    }
+                    //    else if (enivelF.Acceso.Siguiente == null && enivelC.Acceso.Abajo != null)
+                    //    {
+                    //        enivelC.Acceso = enivelC.Acceso.Abajo;
+                    //        enivelF.Acceso = null;
+                    //        efila.ListAcceso.eliminar(nivel);
+                    //        if (efila.ListAcceso.Cabeza == null)
+                    //        {
+                    //            this.eFila.eliminar(fila);
+                    //        }
+                    //    }
+                    //    else if (enivelC.Acceso.Abajo == null && enivelF.Acceso.Siguiente != null)
+                    //    {
+                    //        enivelF.Acceso = enivelF.Acceso.Siguiente;
+                    //        enivelC.Acceso = null;
+                    //        ecolumna.ListAcceso.eliminar(nivel);
+                    //        if (ecolumna.ListAcceso.Cabeza == null)
+                    //        {
+                    //            this.eColumna.eliminar(columna);
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        enivelF.Acceso = enivelF.Acceso.Siguiente;
+                    //        enivelC.Acceso = enivelC.Acceso.Abajo;
+                    //    }
 
-                        auxF = null;
-                        auxC = null;
+                    //    auxF = null;
+                    //    auxC = null;
 
-                        //end if accesos fila y columna
-                    }
-                    else 
-                    {
+                    //    //end if accesos fila y columna
+                    //}
+                    //else 
+                    //{
 
                         if (enivelF.Acceso.Columna == columna)
                         {
@@ -721,7 +721,8 @@ namespace WcfServiceLibrary2
                             {
                                 if (enivelF.Anterior != null && enivelF.Anterior.Acceso != null)
                                 {
-                                    enivelF.Acceso.Atras.Adelante = null;
+                                    
+                                    enivelF.Anterior.Acceso.Adelante = null;
                                 }
                             }
 
@@ -890,7 +891,7 @@ namespace WcfServiceLibrary2
                                 actual = actual.Abajo;
                             }
                         }
-                    }
+                    //}
                     // fin nodo acceso a eliminar
                 }
             }

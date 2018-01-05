@@ -11,8 +11,8 @@ C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba
 C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba\WcfServiceLibrary2\bin\WcfServiceLibrary2.dll
 C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba\WcfServiceLibrary2\bin\WcfServiceLibrary2.pdb
 C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba\WcfServiceLibrary2\bin\Interop.WINGRAPHVIZLib.dll
-C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba\WcfServiceLibrary2\obj\Debug\WcfServiceLibrary2.csprojResolveAssemblyReference.cache
 C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba\WcfServiceLibrary2\obj\Debug\Interop.WINGRAPHVIZLib.dll
 C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba\WcfServiceLibrary2\obj\Debug\WcfServiceLibrary2.csproj.ResolveComReference.cache
 C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba\WcfServiceLibrary2\obj\Debug\WcfServiceLibrary2.dll
 C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba\WcfServiceLibrary2\obj\Debug\WcfServiceLibrary2.pdb
+C:\Users\aaper\OneDrive\Documentos\GitHub\EDD_201314817\proyecto_fase1\EDDPrueba\WcfServiceLibrary2\obj\Debug\WcfServiceLibrary2.csprojResolveAssemblyReference.cache

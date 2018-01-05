@@ -100,6 +100,20 @@ namespace WcfServiceLibrary2
         void grafoTopWin();
         [OperationContract]
         void grafoTopDest();
+        [OperationContract]
+        string eliminarPieza(int fila, string columna, int nivel);
+
+        [OperationContract]
+        string insertarContacto(string nickname, string nickname2, string contrasenia, string correo);
+
+        [OperationContract]
+        string grafoContactos(string nickname);
+
+        [OperationContract]
+        void TablaDispersa();
+
+        [OperationContract]
+        void insertarHistoria(Movimiento move);
         // TODO: agregue aquí sus operaciones de servicio
     }
 

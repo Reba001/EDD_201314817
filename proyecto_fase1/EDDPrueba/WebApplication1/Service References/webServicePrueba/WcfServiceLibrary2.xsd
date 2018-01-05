@@ -45,4 +45,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Parametros" nillable="true" type="tns:Parametros" />
+  <xs:complexType name="Movimiento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Atacante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fecha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Key" type="xs:int" />
+      <xs:element minOccurs="0" name="NickEmisor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NickReceptor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumerodeAtaque" type="xs:int" />
+      <xs:element minOccurs="0" name="Resultado" type="xs:int" />
+      <xs:element minOccurs="0" name="TiempoRestante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoUD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Y1" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Movimiento" nillable="true" type="tns:Movimiento" />
 </xs:schema>

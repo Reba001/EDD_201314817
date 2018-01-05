@@ -299,10 +299,8 @@
     <Content Include="bootstrap-3.3.6\test-infra\requirements.txt" />
     <Content Include="Cliente.aspx" />
     <Content Include="Cliente2.aspx" />
-    <Content Include="Default.aspx" />
     <Content Include="default.css" />
     <Content Include="Global.asax" />
-    <Content Include="images\Arbol.jpg" />
     <Content Include="images\img01.gif" />
     <Content Include="images\img02.jpg" />
     <Content Include="images\img03.jpg" />
@@ -312,9 +310,7 @@
     <Content Include="images\img07.gif" />
     <Content Include="images\img08.jpg" />
     <Content Include="images\img09.gif" />
-    <Content Include="index.html" />
     <Content Include="IngresoUsuarios.aspx" />
-    <Content Include="license.txt" />
     <Content Include="Login.aspx" />
     <Content Include="ModificarEliminar.aspx" />
     <Content Include="MostrarGrafo.aspx" />
@@ -457,15 +453,17 @@
     <Content Include="bootstrap-3.3.6\_config.yml" />
     <Content Include="Admin.Master" />
     <Content Include="Cliente.Master" />
-    <Content Include="WebForm1.aspx" />
-    <None Include="Properties\PublishProfiles\EDDfase1.pubxml" />
     <None Include="Service References\webServicePrueba\configuration91.svcinfo" />
     <None Include="Service References\webServicePrueba\configuration.svcinfo" />
     <None Include="Service References\webServicePrueba\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
+    <None Include="Properties\PublishProfiles\EDDfase1.pubxml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -495,13 +493,6 @@
     </Compile>
     <Compile Include="Cliente2.aspx.designer.cs">
       <DependentUpon>Cliente2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -563,13 +554,13 @@
     <None Include="Service References\webServicePrueba\WcfServiceLibrary2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\webServicePrueba\WebApplication1.webServicePrueba.Usuario.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\webServicePrueba\WebApplication1.webServicePrueba.Parametros.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\webServicePrueba\WebApplication1.webServicePrueba.Pieza.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\webServicePrueba\WebApplication1.webServicePrueba.Usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">

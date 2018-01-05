@@ -206,7 +206,7 @@ namespace WebApplication1
                                     Label3.Text = servicio.insertarenTablero(fila, row[1], 3, pieza);
                                 }
                             }
-                            else if (row[3].StartsWith("Helicóptero de combate"))
+                            else if (row[3].StartsWith("Helicóptero"))
                             {
                                 pieza.Nickname = row[0];
                                 pieza.Unidad = row[3];
@@ -359,6 +359,123 @@ namespace WebApplication1
         {
             servicio.eliminarMatriz();
             servicio.eliminarMatrizD();
+        }
+
+        protected void Button11_Click(object sender, EventArgs e)
+        {
+            string filename = FileUpload1.FileName;
+            try
+            {
+
+                FileUpload1.SaveAs(dir + filename);
+                using (StreamReader readFile = new StreamReader(dir + filename))
+                {
+                    string line;
+                    string[] row;
+                    int contador = 0;
+
+                    while ((line = readFile.ReadLine()) != null)
+                    {
+                        if (contador != 0)
+                        {
+                            row = line.Split(',');
+                            string nicknamepadre = row[0];
+                            string nicknameC = row[1];
+                            string contrasenia = row[2];
+                            string correo = row[3];
+
+                           Label5.Text = servicio.insertarContacto(nicknamepadre, nicknameC, contrasenia, correo); 
+                        }
+                        contador++;
+
+                    }
+                }
+
+            }
+            catch
+            {
+                String popupScript = "<script language='JavaScript'> alert('Archivo Invalido'); </script>";
+                Page.RegisterStartupScript("PopupScript", popupScript);
+
+            }
+
+        }
+
+        protected void Button12_Click(object sender, EventArgs e)
+        {
+            try {
+                servicio.TablaDispersa();
+                Label6.Text = "Creada";
+            }
+            catch {
+                String popupScript = "<script language='JavaScript'> alert('Archivo Invalido'); </script>";
+                Page.RegisterStartupScript("PopupScript", popupScript);
+
+            }
+        }
+
+        protected void Button13_Click(object sender, EventArgs e)
+        {
+            string filename = FileUpload1.FileName;
+            try
+            {
+
+                FileUpload1.SaveAs(dir + filename);
+                using (StreamReader readFile = new StreamReader(dir + filename))
+                {
+                    string line;
+                    string[] row;
+                    int contador = 0;
+
+                    while ((line = readFile.ReadLine()) != null)
+                    {
+                        if (contador != 0)
+                        {
+                            row = line.Split(',');
+                            webServicePrueba.Movimiento mover = new webServicePrueba.Movimiento();
+                            mover.X1 = row[0];
+                            mover.Y1 = Convert.ToInt32(row[1]);
+                            mover.Atacante = row[2];
+                            mover.Resultado = Convert.ToInt32(row[3]);
+                            mover.TipoUD = row[4];
+                            mover.NickEmisor = row[5];
+                            mover.NickReceptor = row[6];
+                            mover.Fecha = row[7];
+                            mover.TiempoRestante = row[8];
+                            mover.NumerodeAtaque = Convert.ToInt32(row[9]);
+
+                            servicio.insertarHistoria(mover);
+                            Label6.Text = "Insertado";
+                        }
+                        contador++;
+
+                    }
+                }
+
+            }
+            catch
+            {
+                String popupScript = "<script language='JavaScript'> alert('Archivo Invalido'); </script>";
+                Page.RegisterStartupScript("PopupScript", popupScript);
+
+            }
+
+        }
+
+        protected void Button14_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                string nickname = txtUsuario.Text;
+                servicio.grafoContactos(nickname);
+
+            }
+            catch 
+            {
+                String popupScript = "<script language='JavaScript'> alert('Archivo Invalido'); </script>";
+                Page.RegisterStartupScript("PopupScript", popupScript);
+
+            }
         }
 
     }

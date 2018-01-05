@@ -217,6 +217,36 @@
   <wsdl:message name="IService1_grafoTopDest_OutputMessage">
     <wsdl:part name="parameters" element="tns:grafoTopDestResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_eliminarPieza_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarPieza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarPieza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarPiezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertarContacto_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarContacto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertarContacto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarContactoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoContactos_InputMessage">
+    <wsdl:part name="parameters" element="tns:grafoContactos" />
+  </wsdl:message>
+  <wsdl:message name="IService1_grafoContactos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:grafoContactosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TablaDispersa_InputMessage">
+    <wsdl:part name="parameters" element="tns:TablaDispersa" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TablaDispersa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TablaDispersaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertarHistoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarHistoria" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertarHistoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarHistoriaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
@@ -357,6 +387,26 @@
     <wsdl:operation name="grafoTopDest">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/grafoTopDest" message="tns:IService1_grafoTopDest_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/grafoTopDestResponse" message="tns:IService1_grafoTopDest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarPieza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/eliminarPieza" message="tns:IService1_eliminarPieza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/eliminarPiezaResponse" message="tns:IService1_eliminarPieza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarContacto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/insertarContacto" message="tns:IService1_insertarContacto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/insertarContactoResponse" message="tns:IService1_insertarContacto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoContactos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/grafoContactos" message="tns:IService1_grafoContactos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/grafoContactosResponse" message="tns:IService1_grafoContactos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TablaDispersa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TablaDispersa" message="tns:IService1_TablaDispersa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TablaDispersaResponse" message="tns:IService1_TablaDispersa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarHistoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/insertarHistoria" message="tns:IService1_insertarHistoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/insertarHistoriaResponse" message="tns:IService1_insertarHistoria_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -669,6 +719,51 @@
     </wsdl:operation>
     <wsdl:operation name="grafoTopDest">
       <soap:operation soapAction="http://tempuri.org/IService1/grafoTopDest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarPieza">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarPieza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarContacto">
+      <soap:operation soapAction="http://tempuri.org/IService1/insertarContacto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoContactos">
+      <soap:operation soapAction="http://tempuri.org/IService1/grafoContactos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TablaDispersa">
+      <soap:operation soapAction="http://tempuri.org/IService1/TablaDispersa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarHistoria">
+      <soap:operation soapAction="http://tempuri.org/IService1/insertarHistoria" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

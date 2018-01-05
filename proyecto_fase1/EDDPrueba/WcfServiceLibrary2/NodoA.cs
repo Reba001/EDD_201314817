@@ -11,6 +11,7 @@ namespace WcfServiceLibrary2
         private NodoA derecha;
         private NodoA padre;
         private Usuario usuario;
+        public ArbolAVL contactos;
         public ListaJuego listJuego;
         //public ListaJuego listGame;
         public NodoA(Usuario usuario) {
@@ -19,6 +20,7 @@ namespace WcfServiceLibrary2
             this.derecha = null;
             this.padre = null;
             this.listJuego = new ListaJuego();
+            this.contactos = new ArbolAVL();
           //  this.listGame = new ListaJuego();
         }
         public Usuario Usuario

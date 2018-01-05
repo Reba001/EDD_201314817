@@ -15,6 +15,8 @@ namespace WcfServiceLibrary2
         public static Matriz tablero = new Matriz();
         public static Matriz tableroD = new Matriz();
         public static ListaParametros listP = new ListaParametros();
+        public static ArbolB historia = new ArbolB();
+
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -282,6 +284,45 @@ namespace WcfServiceLibrary2
         public void grafoTopDest()
         {
             usuarios.getTopDest();
+        }
+
+
+        public string eliminarPieza(int fila, string columna, int nivel)
+        {
+            tablero.eliminarPieza(fila, columna, nivel);
+            return "Pieza Eliminada";
+        }
+
+
+
+
+
+        public string insertarContacto(string nickname, string nickname2, string contrasenia, string correo)
+        {
+            if (usuarios.insertarContacto(nickname, nickname2, contrasenia, correo))
+            {
+                return "insertado";
+            }
+            return "Error no inserto";
+        }
+
+
+
+
+        public string grafoContactos(string nickname)
+        {
+            return usuarios.grafoContactos(nickname);
+        }
+
+        public void TablaDispersa()
+        {
+            usuarios.getHash();
+        }
+
+        public void insertarHistoria(Movimiento move) 
+        {
+            historia.insertar(move);
+
         }
     }
 }

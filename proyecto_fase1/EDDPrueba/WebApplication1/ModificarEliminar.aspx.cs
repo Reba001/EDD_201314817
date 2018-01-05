@@ -95,5 +95,33 @@ namespace WebApplication1
             servicio.invocarGrafo();
             servicio.ArbolEspejo();
         }
+
+        protected void Button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int fila = Convert.ToInt32(txtFila.Text);
+                string columna = txtColumna.Text;
+                int nivel = Convert.ToInt32(txtNivel.Text);
+
+                servicio.eliminarPieza(fila, columna, nivel);
+                servicio.grafoMatriz(1);
+                servicio.grafoMatriz(2);
+                servicio.grafoMatriz(3);
+                servicio.grafoMatriz(4);
+                Label16.Text = "LA PIEZA HA SIDO ELIMINADA";
+
+            }
+            catch 
+            {
+                Label16.Text = "ERROR FATAK :v y Ella no te ama";
+              
+            }
+        }
+
+        protected void Button9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

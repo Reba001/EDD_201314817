@@ -9,6 +9,7 @@ namespace WcfServiceLibrary2
     public class Arbol
     {
         NodoA raiz;
+        
         ListaJuego listTopDest;
         ListaJuego listToopWin;
         public Arbol() 
@@ -92,6 +93,42 @@ namespace WcfServiceLibrary2
         }
 
         //FIN INSERCION
+
+        // INSERCION DE CONTACTO
+        public bool insertarContacto(string nickname, string nickname2, string contrasenia, string correo)
+        {
+            NodoA usuario = this.buscar(nickname);
+            if (usuario != null)
+            {
+                NodoA contacto = buscar(nickname2);
+                if (contacto != null)
+                {
+
+                    return usuario.contactos.insertar(new NodoA(contacto.Usuario));
+                }
+                else 
+                {
+                    Usuario user = new Usuario(nickname2, contrasenia, correo, false);
+                    return usuario.contactos.insertar(new NodoA(user));
+                }
+
+            }
+            return false;
+        }
+
+        //GRAFO CONTACTOS
+        public string grafoContactos(string nickname) 
+        {
+            NodoA usuario = buscar(nickname);
+            if (usuario != null)
+            {
+                usuario.contactos.crearGrafo();
+                return "Contactos Creados";
+            }
+            return "Erro no existe el usuario";
+        }
+        //FIN GRAFOCONTACTOS
+        //FIN INSERCION DE CONTACTO
         //IMPRESION PREORDEN
         //arbol espejo
         public void espejo() {
@@ -204,6 +241,7 @@ namespace WcfServiceLibrary2
             return total.ToString();
         }
         //FIN IMPRESION PREORDEN
+        
         // INICIO RECORRIDO TOP WIN
         public void getTopDest() {
             this.listTopDest.primero = null;
@@ -244,6 +282,30 @@ namespace WcfServiceLibrary2
              
         }
         //FIN RECORRIDO TOP WIN 
+        //HASH
+        public void getHash()
+        {
+
+            if (raiz != null)
+            {
+                TablaHash hashtable = new TablaHash();
+                recorridoHash(raiz,ref hashtable);
+                hashtable.grafoTablaHash();
+            }
+        }
+
+        public void recorridoHash(NodoA actual, ref TablaHash hashtable)
+        {
+            if (actual != null && hashtable != null)
+            {
+                hashtable.insertar(actual.Usuario);
+                recorridoHash(actual.Izquierda, ref hashtable);
+                recorridoHash(actual.Derecha, ref hashtable);
+            }
+
+        }
+
+        //FIN HASH
         //CALCULO DE ALTURA
         public int calcularAltura() 
         {
@@ -392,7 +454,7 @@ namespace WcfServiceLibrary2
             {
                 int ri = getRamas(actual.Izquierda);
                 int rd = getRamas(actual.Derecha);
-                return ri + rd + 1;
+                return ri + rd+1;
             }
         }
         // fin calculo de ramas

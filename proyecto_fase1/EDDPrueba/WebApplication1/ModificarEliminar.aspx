@@ -144,6 +144,58 @@
             <br />
             <br />
             <br />
+        <div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+        <div style="text-align:center; float:none; width:300px;">Modificar y Eliminar Pieza:
+             
+
+        </div>
+        <table style="width: 90%;">
+        <tr>
+            
+            <td>Fila</td>
+            
+            <td><asp:TextBox ID="txtFila" runat="server"  Width="237px"></asp:TextBox></td>
+            
+            <td> <asp:Label ID="Label15" runat="server" Text=""></asp:Label> </td>
+            
+        </tr>
+            <tr>
+            
+            <td>Columna</td>
+            
+            <td><asp:TextBox ID="txtColumna" runat="server"  Width="237px"></asp:TextBox></td>
+            
+            <td> <asp:Label ID="Label16" runat="server" Text=""></asp:Label> </td>
+            
+        </tr>
+        <tr>
+            
+            <td>Nivel</td>
+            
+            <td><asp:TextBox ID="txtNivel" runat="server"  Width="237px"></asp:TextBox></td>
+            
+            <td> <asp:Label ID="Label17" runat="server" Text=""></asp:Label> </td>
+            
+        </tr>
+        
+        <tr>
+            <td> <asp:Button ID="Button1" runat="server" Text="Guardar Cambios" OnClick="Button9_Click"></asp:Button> </td>
+            
+            <td> <asp:Button ID="Button2" runat="server" Text="Eliminar Juego" OnClick="Button10_Click"></asp:Button> </td>
+            
+            <td> <asp:Label ID="Label21" runat="server" Text=""></asp:Label> </td>
+            
+        </tr>
+    </table>
+        
             <br />
             <br />
             <br />

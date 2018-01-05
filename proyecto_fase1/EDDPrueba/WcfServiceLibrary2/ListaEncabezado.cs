@@ -159,6 +159,7 @@ namespace WcfServiceLibrary2
                         this.cabeza.Anterior = null;
                         aux = null;
                     }
+                    return;
                 }
                 else
                 {
@@ -177,11 +178,13 @@ namespace WcfServiceLibrary2
 
                     if (aux.Siguiente == null && aux.Id == id)
                     {
-                        this.cola = this.cola.Anterior;
-                        this.cola.Siguiente = null;
-                        aux = null;
+                        this.cola = aux.Anterior;
+                        aux.Anterior.Siguiente = null;
+                        
                     }
+                    aux = null;
                 }
+                
 
             }
 
@@ -224,8 +227,8 @@ namespace WcfServiceLibrary2
 
                     if (aux.Siguiente == null && aux.Identificador == identificador)
                     {
-                        this.cola = this.cola.Anterior;
-                        this.cola.Siguiente = null;
+                        this.cola = aux.Anterior;
+                        aux.Anterior.Siguiente = null;
                         aux = null;
                     }
                 }
