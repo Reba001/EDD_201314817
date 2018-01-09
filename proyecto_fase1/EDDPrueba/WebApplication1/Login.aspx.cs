@@ -9,7 +9,7 @@ namespace WebApplication1
 {
     public partial class Login : System.Web.UI.Page
     {
-        webServicePrueba.Service1Client serv1;
+         serv1;
 
         protected void Page_Load(object sender, EventArgs e)
         {

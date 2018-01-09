@@ -44,6 +44,7 @@ namespace WcfServiceLibrary2
             this.fecha = "";
             this.tiempoRestante = "";
             this.numerodeAtaque = 0;
+            
         }
         [DataMember]
         public int Key
@@ -113,23 +114,26 @@ namespace WcfServiceLibrary2
             set { numerodeAtaque = value; }
         }
 
-        public int clave() 
+        public void clave() 
         {
             int c = 0;
+            int nick= 0; 
             for (int i = 0; i < X.Length; i++)
                 c += X[i];
 
-            if (atacante.StartsWith("Neosatelite"))
-                c += 4;
-            else if (atacante.StartsWith("Bombardero") || atacante.StartsWith("Caza") || atacante.StartsWith("Helicóptero"))
-                c += 3;
-            else if (atacante.StartsWith("Fragata") || atacante.StartsWith("Crucero"))
-                c += 2;
-            else if (atacante.StartsWith("Submarino"))
-                c += 1;
+            for (int k = 0; k < this.nickEmisor.Length; k++)
+                nick += nickEmisor[k];
 
-            this.key = c + Y;
-            return key;
+                if (atacante.StartsWith("Neosatelite"))
+                    c += 4;
+                else if (atacante.StartsWith("Bombardero") || atacante.StartsWith("Caza") || atacante.StartsWith("Helicóptero"))
+                    c += 3;
+                else if (atacante.StartsWith("Fragata") || atacante.StartsWith("Crucero"))
+                    c += 2;
+                else if (atacante.StartsWith("Submarino"))
+                    c += 1;
+
+            this.key = c+Y+nick;
         }
         public string toString() 
         {

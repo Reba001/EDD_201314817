@@ -16,9 +16,9 @@ namespace WcfServiceLibrary2
 
         public bool buscarNodo(Pagina actual, Movimiento move, ref int k) 
         {
-            int c1 = move.clave();
+            int c1 = move.Key;
             bool encontrado = false;
-            if (c1 < actual.movimientos[1].clave())
+            if (c1 < actual.movimientos[1].Key)
             {
                 encontrado = false;
                 k = 0;
@@ -26,9 +26,9 @@ namespace WcfServiceLibrary2
             else 
             {
                 k = actual.cuenta;
-                while ((c1 < actual.movimientos[k].clave()) && (k > 1))
+                while ((c1 < actual.movimientos[k].Key) && (k > 1))
                     k--;
-                encontrado = (c1 == actual.movimientos[k].clave());
+                encontrado = (c1 == actual.movimientos[k].Key);
             }
             return encontrado;
         }
@@ -51,14 +51,14 @@ namespace WcfServiceLibrary2
 
         public void insertar(Movimiento move)//insertar movimiento 
         {
-            bool subeArriba = true;
+            
             Movimiento mediana = null ;
-            Pagina p, np = null;
+            Pagina np = null;
 
-            empujar(raiz, move, ref subeArriba, ref mediana, np);
+            bool subeArriba = empujar(raiz, move, ref mediana, ref np);
             if (subeArriba)
             {
-                p = new Pagina();
+                Pagina p = new Pagina();
                 p.cuenta = 1;
                 p.movimientos[1] = mediana;
                 p.ramas[0] = raiz;
@@ -67,11 +67,14 @@ namespace WcfServiceLibrary2
             }
         }
 
-        private void empujar(Pagina actual, Movimiento move, ref bool subearriba, ref Movimiento mediana, Pagina nuevo) 
+        private bool empujar(Pagina actual, Movimiento move, ref Movimiento mediana, ref Pagina nuevo) 
         {
             int k = 0;
+            bool subearriba = false;
             if (actual == null)
             {
+                // envia hacia arriba la clave move y su rama derecha null
+                // para que se inserte en la pagina padre
                 subearriba = true;
                 mediana = move;
                 nuevo = null;
@@ -80,18 +83,14 @@ namespace WcfServiceLibrary2
             {
                 bool esta = buscarNodo(actual, move, ref k);
                 if (esta)
-                {
-                    // si la clave esta duplicada
-                    Console.WriteLine("Clave Duplicada");
-                    subearriba = false;
-                    return;
-                }
-                empujar(actual.ramas[k], move,ref subearriba,ref mediana, nuevo );
+                    Console.Write("Clave duplicada");
+
+                subearriba = empujar(actual.ramas[k], move, ref mediana, ref nuevo);
                 if (subearriba)
                 {
                     if (actual.nodoLLeno())
                     {
-                        dividirNodo(actual , ref mediana, nuevo, k, mediana, nuevo );
+                        dividirNodo(actual , ref mediana, ref nuevo, k);
                     }
                     else 
                     {
@@ -101,53 +100,56 @@ namespace WcfServiceLibrary2
                 }
 
             }
+            return subearriba;
 
         }
 
         private void meterHoja(Pagina actual, Movimiento move, Pagina rd, int k) 
         {
-            int i;
-            for (i = actual.cuenta; i >= k + 1; i-- )
+            // desplaza a la derecha los elementos para poder insertar uno
+            
+            for (int i = actual.cuenta; i >= k + 1; i-- )
             {
                 actual.movimientos[i + 1] = actual.movimientos[i];
                 actual.ramas[i + 1] = actual.ramas[i];
             }
-            actual.movimientos[i + 1] = move;
-            actual.ramas[i + 1] = rd;
+            //por la clave y la rama derecha en la posicion k+1
+            actual.movimientos[k + 1] = move;
+            actual.ramas[k + 1] = rd;
             actual.cuenta++;
-
         }
 
-        private void dividirNodo(Pagina actual,ref Movimiento mov, Pagina rd, int k,  Movimiento mediana, Pagina nuevo) 
+        private void dividirNodo(Pagina actual, ref Movimiento mediana,ref  Pagina nuevo, int pos ) 
         {
-            int i, posMda;
-            posMda = (k <= 5/2) ? 5/2: (5/2)+1;//posicion a la mitad
-            nuevo = new Pagina();//nuevo nodo pagina
-            for (i = posMda + 1; i < 5; i++)
+            int i, posMda, k;
+            Pagina nuevapag;
+            k = pos; //posicion clave mediana
+            posMda = (k <= (5/2)) ? 5/2 :(5/2) + 1;
+            nuevapag = new Pagina();
+            for (i = posMda + 1; i < 5;i++ )
             {
-                //es desplazada la mitad derecha al nuevo nodo la clave mediana se queda en el nodo origen
-                nuevo.movimientos[i - posMda] = actual.movimientos[i];
-                nuevo.ramas[i - posMda] = actual.ramas[i];
+                //desplaza la mitad derecha a la nueva pagina, mediana se queda en pagina aactual
+                nuevapag.movimientos[i - posMda] = actual.movimientos[i];
+                nuevapag.ramas[i - posMda] = actual.ramas[i];
             }
-            nuevo.cuenta = 4 - posMda; //claves en el nuevo nodo
-            actual.cuenta = posMda;//claves en el nodod de origen
-
-            // es insertada la clave y rama en el nodo que le corresponde
+            nuevapag.cuenta = 4 - posMda;//claves de nueva pagina
+            actual.cuenta = posMda; //claves en la pagina de origen
+            //inserta la clave y rama en la pagina que le corresponde
             if (k <= 5 / 2)
             {
-                meterHoja(actual, mov, rd, k);
+                meterHoja(actual, mediana, nuevo, pos);
             }
             else 
             {
-                meterHoja(nuevo, mov, rd, k-posMda);
+                pos = k-posMda;
+                meterHoja(nuevapag, mediana, nuevo, pos);
             }
-
-            //Se extrae la clave mediana del nodo origen
+            // extrae clave mediana de la pagina origen
             mediana = actual.movimientos[actual.cuenta];
-            // Rama del nuevo nodo es la rama de la mediana
-            nuevo.ramas[0] = actual.ramas[actual.cuenta];
-            actual.cuenta--; // disminuye ya que se quita la mediana
-
+            //rama 0 del nuevo nodo es la rama de la mediana
+            nuevapag.ramas[0] = actual.ramas[actual.cuenta];
+            actual.cuenta = actual.cuenta - 1;//se quita la mediana
+            nuevo = nuevapag;//devuelve la página
         }
         public int clave(int fila, string columna, string nivel)
         {

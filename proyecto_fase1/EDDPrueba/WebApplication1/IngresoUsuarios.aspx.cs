@@ -443,7 +443,7 @@ namespace WebApplication1
                             mover.Fecha = row[7];
                             mover.TiempoRestante = row[8];
                             mover.NumerodeAtaque = Convert.ToInt32(row[9]);
-
+                            mover.Key = clave(row[0], Convert.ToInt32(row[1]), row[2], Convert.ToInt32(row[9]));
                             servicio.insertarHistoria(mover);
                             Label6.Text = "Insertado";
                         }
@@ -476,6 +476,26 @@ namespace WebApplication1
                 Page.RegisterStartupScript("PopupScript", popupScript);
 
             }
+        }
+
+        public int clave(string X, int Y, string atacante, int numataque)
+        {
+            int c = 0;
+            int nick = 0;
+            for (int i = 0; i < X.Length; i++)
+                c += X[i];
+
+            
+            if (atacante.StartsWith("Neosatelite"))
+                c += 4;
+            else if (atacante.StartsWith("Bombardero") || atacante.StartsWith("Caza") || atacante.StartsWith("Helicóptero"))
+                c += 3;
+            else if (atacante.StartsWith("Fragata") || atacante.StartsWith("Crucero"))
+                c += 2;
+            else if (atacante.StartsWith("Submarino"))
+                c += 1;
+
+            return (c + Y + numataque);
         }
 
     }
