@@ -1,0 +1,358 @@
+digraph g{
+"Altura: 7
+Nodos Hoja: 5
+Niveles: 8
+Ramas: 15";
+	"Nickname: Many
+Contraseña: 1234abc
+E-mail: manymontes@live.com
+Conectado: True" -> "Nickname: Mord86
+Contraseña: NPZ44VGE5FD
+E-mail: scelerisque.sed@lectusa.com
+Conectado: True";
+	"Nickname: Many
+Contraseña: 1234abc
+E-mail: manymontes@live.com
+Conectado: True" -> "Nickname: Asro25
+Contraseña: PDW92QLF0HC
+E-mail: turpis.Aliquam.adipiscing@tincidunt.net
+Conectado: False";
+	"Nickname: Mord86
+Contraseña: NPZ44VGE5FD
+E-mail: scelerisque.sed@lectusa.com
+Conectado: True" -> "Nickname: Stin94
+Contraseña: WAG95DOM2LZ
+E-mail: in.tempus@a.com
+Conectado: True";
+	"Nickname: Mord86
+Contraseña: NPZ44VGE5FD
+E-mail: scelerisque.sed@lectusa.com
+Conectado: True" -> "Nickname Oponente: Stin94
+Destruidas: 2
+Desplegadas: 10
+Sobrevivientes: 8
+Ganada: True";
+	 subgraph cluster512{
+				"Nickname Oponente: Stin94
+Destruidas: 2
+Desplegadas: 10
+Sobrevivientes: 8
+Ganada: True" -> "Nickname Oponente: Asro25
+Destruidas: 5
+Desplegadas: 15
+Sobrevivientes: 10
+Ganada: True";
+		"Nickname Oponente: Asro25
+Destruidas: 5
+Desplegadas: 15
+Sobrevivientes: 10
+Ganada: True" -> "Nickname Oponente: Stin94
+Destruidas: 2
+Desplegadas: 10
+Sobrevivientes: 8
+Ganada: True";
+		"Nickname Oponente: Asro25
+Destruidas: 5
+Desplegadas: 15
+Sobrevivientes: 10
+Ganada: True" -> "Nickname Oponente: Imre78
+Destruidas: 17
+Desplegadas: 20
+Sobrevivientes: 3
+Ganada: False";
+		"Nickname Oponente: Imre78
+Destruidas: 17
+Desplegadas: 20
+Sobrevivientes: 3
+Ganada: False" -> "Nickname Oponente: Asro25
+Destruidas: 5
+Desplegadas: 15
+Sobrevivientes: 10
+Ganada: True";
+		"Nickname Oponente: Imre78
+Destruidas: 17
+Desplegadas: 20
+Sobrevivientes: 3
+Ganada: False" -> "Nickname Oponente: Taon95
+Destruidas: 6
+Desplegadas: 16
+Sobrevivientes: 10
+Ganada: False";
+		"Nickname Oponente: Taon95
+Destruidas: 6
+Desplegadas: 16
+Sobrevivientes: 10
+Ganada: False" -> "Nickname Oponente: Imre78
+Destruidas: 17
+Desplegadas: 20
+Sobrevivientes: 3
+Ganada: False";
+		"Nickname Oponente: Taon95
+Destruidas: 6
+Desplegadas: 16
+Sobrevivientes: 10
+Ganada: False" -> "Nickname Oponente: Avey48
+Destruidas: 10
+Desplegadas: 18
+Sobrevivientes: 8
+Ganada: False";
+		"Nickname Oponente: Avey48
+Destruidas: 10
+Desplegadas: 18
+Sobrevivientes: 8
+Ganada: False" -> "Nickname Oponente: Taon95
+Destruidas: 6
+Desplegadas: 16
+Sobrevivientes: 10
+Ganada: False";
+		"Nickname Oponente: Avey48
+Destruidas: 10
+Desplegadas: 18
+Sobrevivientes: 8
+Ganada: False" -> "Nickname Oponente: Kaez42
+Destruidas: 10
+Desplegadas: 20
+Sobrevivientes: 10
+Ganada: False";
+		"Nickname Oponente: Kaez42
+Destruidas: 10
+Desplegadas: 20
+Sobrevivientes: 10
+Ganada: False" -> "Nickname Oponente: Avey48
+Destruidas: 10
+Desplegadas: 18
+Sobrevivientes: 8
+Ganada: False";
+		"Nickname Oponente: Kaez42
+Destruidas: 10
+Desplegadas: 20
+Sobrevivientes: 10
+Ganada: False" -> "Nickname Oponente: Idin94
+Destruidas: 1
+Desplegadas: 30
+Sobrevivientes: 29
+Ganada: True";
+		"Nickname Oponente: Idin94
+Destruidas: 1
+Desplegadas: 30
+Sobrevivientes: 29
+Ganada: True" -> "Nickname Oponente: Kaez42
+Destruidas: 10
+Desplegadas: 20
+Sobrevivientes: 10
+Ganada: False";
+		"Nickname Oponente: Idin94
+Destruidas: 1
+Desplegadas: 30
+Sobrevivientes: 29
+Ganada: True" -> "Nickname Oponente: Jado86
+Destruidas: 24
+Desplegadas: 25
+Sobrevivientes: 1
+Ganada: False";
+}
+	"Nickname: Stin94
+Contraseña: WAG95DOM2LZ
+E-mail: in.tempus@a.com
+Conectado: True" -> "Nickname: Taon95
+Contraseña: USW07EIK1AC
+E-mail: parturient@Nulla.co.uk
+Conectado: False";
+	"Nickname: Stin94
+Contraseña: WAG95DOM2LZ
+E-mail: in.tempus@a.com
+Conectado: True" -> "Nickname: Roan78
+Contraseña: FOA51PLE0LG
+E-mail: odio@Etiambibendumfermentum.edu
+Conectado: True";
+	"Nickname: Stin94
+Contraseña: WAG95DOM2LZ
+E-mail: in.tempus@a.com
+Conectado: True" -> "Nickname Oponente: Mord86
+Destruidas: 6
+Desplegadas: 21
+Sobrevivientes: 15
+Ganada: False";
+	 subgraph cluster523{
+				"Nickname Oponente: Mord86
+Destruidas: 6
+Desplegadas: 21
+Sobrevivientes: 15
+Ganada: False" -> "Nickname Oponente: Asro25
+Destruidas: 5
+Desplegadas: 19
+Sobrevivientes: 14
+Ganada: False";
+		"Nickname Oponente: Asro25
+Destruidas: 5
+Desplegadas: 19
+Sobrevivientes: 14
+Ganada: False" -> "Nickname Oponente: Mord86
+Destruidas: 6
+Desplegadas: 21
+Sobrevivientes: 15
+Ganada: False";
+		"Nickname Oponente: Asro25
+Destruidas: 5
+Desplegadas: 19
+Sobrevivientes: 14
+Ganada: False" -> "Nickname Oponente: Imre78
+Destruidas: 2
+Desplegadas: 18
+Sobrevivientes: 16
+Ganada: True";
+		"Nickname Oponente: Imre78
+Destruidas: 2
+Desplegadas: 18
+Sobrevivientes: 16
+Ganada: True" -> "Nickname Oponente: Asro25
+Destruidas: 5
+Desplegadas: 19
+Sobrevivientes: 14
+Ganada: False";
+		"Nickname Oponente: Imre78
+Destruidas: 2
+Desplegadas: 18
+Sobrevivientes: 16
+Ganada: True" -> "Nickname Oponente: Taon95
+Destruidas: 1
+Desplegadas: 10
+Sobrevivientes: 9
+Ganada: False";
+		"Nickname Oponente: Taon95
+Destruidas: 1
+Desplegadas: 10
+Sobrevivientes: 9
+Ganada: False" -> "Nickname Oponente: Imre78
+Destruidas: 2
+Desplegadas: 18
+Sobrevivientes: 16
+Ganada: True";
+		"Nickname Oponente: Taon95
+Destruidas: 1
+Desplegadas: 10
+Sobrevivientes: 9
+Ganada: False" -> "Nickname Oponente: Avey48
+Destruidas: 9
+Desplegadas: 19
+Sobrevivientes: 10
+Ganada: True";
+		"Nickname Oponente: Avey48
+Destruidas: 9
+Desplegadas: 19
+Sobrevivientes: 10
+Ganada: True" -> "Nickname Oponente: Taon95
+Destruidas: 1
+Desplegadas: 10
+Sobrevivientes: 9
+Ganada: False";
+		"Nickname Oponente: Avey48
+Destruidas: 9
+Desplegadas: 19
+Sobrevivientes: 10
+Ganada: True" -> "Nickname Oponente: Kaez42
+Destruidas: 9
+Desplegadas: 17
+Sobrevivientes: 8
+Ganada: False";
+		"Nickname Oponente: Kaez42
+Destruidas: 9
+Desplegadas: 17
+Sobrevivientes: 8
+Ganada: False" -> "Nickname Oponente: Avey48
+Destruidas: 9
+Desplegadas: 19
+Sobrevivientes: 10
+Ganada: True";
+		"Nickname Oponente: Kaez42
+Destruidas: 9
+Desplegadas: 17
+Sobrevivientes: 8
+Ganada: False" -> "Nickname Oponente: Idin94
+Destruidas: 20
+Desplegadas: 23
+Sobrevivientes: 3
+Ganada: True";
+		"Nickname Oponente: Idin94
+Destruidas: 20
+Desplegadas: 23
+Sobrevivientes: 3
+Ganada: True" -> "Nickname Oponente: Kaez42
+Destruidas: 9
+Desplegadas: 17
+Sobrevivientes: 8
+Ganada: False";
+		"Nickname Oponente: Idin94
+Destruidas: 20
+Desplegadas: 23
+Sobrevivientes: 3
+Ganada: True" -> "Nickname Oponente: Jado86
+Destruidas: 23
+Desplegadas: 28
+Sobrevivientes: 5
+Ganada: True";
+}
+	"Nickname: Asro25
+Contraseña: PDW92QLF0HC
+E-mail: turpis.Aliquam.adipiscing@tincidunt.net
+Conectado: False" -> "Nickname: Imre78
+Contraseña: MDQ80CXX3XT
+E-mail: eget.dictum.placerat@atsem.net
+Conectado: False";
+	"Nickname: Asro25
+Contraseña: PDW92QLF0HC
+E-mail: turpis.Aliquam.adipiscing@tincidunt.net
+Conectado: False" -> "Nickname: Amer64
+Contraseña: MMU55KUG4GZ
+E-mail: sit@eu.org
+Conectado: False";
+	"Nickname: Imre78
+Contraseña: MDQ80CXX3XT
+E-mail: eget.dictum.placerat@atsem.net
+Conectado: False" -> "Nickname: Kaez42
+Contraseña: BLH11FPZ6AP
+E-mail: consectetuer.cursus.et@semmolestiesodales.co.uk
+Conectado: False";
+	"Nickname: Imre78
+Contraseña: MDQ80CXX3XT
+E-mail: eget.dictum.placerat@atsem.net
+Conectado: False" -> "Nickname: Avey48
+Contraseña: ZEE21HJG3WL
+E-mail: Class@orci.net
+Conectado: False";
+	"Nickname: Kaez42
+Contraseña: BLH11FPZ6AP
+E-mail: consectetuer.cursus.et@semmolestiesodales.co.uk
+Conectado: False" -> "Nickname: Jado86
+Contraseña: NDG72OCE0BM
+E-mail: eu@eleifendvitaeerat.org
+Conectado: True";
+	"Nickname: Avey48
+Contraseña: ZEE21HJG3WL
+E-mail: Class@orci.net
+Conectado: False" -> "Nickname: Idin94
+Contraseña: NMB35GLX6GU
+E-mail: tempus.non@nullaDonec.com
+Conectado: False";
+	"Nickname: Idin94
+Contraseña: NMB35GLX6GU
+E-mail: tempus.non@nullaDonec.com
+Conectado: False" -> "Nickname: Axon36
+Contraseña: XJJ16GWD0XD
+E-mail: Pellentesque.ultricies.dignissim@idmagnaet.ca
+Conectado: False";
+	"Nickname: Axon36
+Contraseña: XJJ16GWD0XD
+E-mail: Pellentesque.ultricies.dignissim@idmagnaet.ca
+Conectado: False" -> "Nickname: Frly47
+Contraseña: UBB80CLZ9IE
+E-mail: elit.a@aliquamiaculis.ca
+Conectado: True";
+	"Nickname: Amer64
+Contraseña: MMU55KUG4GZ
+E-mail: sit@eu.org
+Conectado: False" -> "Nickname: Abwn30
+Contraseña: EMX47IQS8EJ
+E-mail: imperdiet.non.vestibulum@tellusidnunc.ca
+Conectado: False";
+}

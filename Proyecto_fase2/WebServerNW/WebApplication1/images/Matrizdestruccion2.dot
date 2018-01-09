@@ -1,0 +1,124 @@
+digraph g{
+	 node[shape=box, style=filled, color=Gray95];
+	 edge[color = black];
+	 rankdir = UD; 
+{rank=min;"Tablero2";"A";"B";"C";"D";"E";"T";"X";};
+{rank=same;"1";"Usuario: Mord86
+Unidad: Fragata9
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";};
+{rank=same;"2";"Usuario: Mord86
+Unidad: Fragata10
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";};
+{rank=same;"3";"Usuario: Mord86
+Unidad: Fragata11
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";};
+{rank=same;"7";};
+{rank=same;"8";};
+{rank=same;"9";};
+{rank=same;"10";};
+"E" -> "Usuario: Mord86
+Unidad: Fragata9
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"1" -> "Usuario: Mord86
+Unidad: Fragata9
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"2" -> "Usuario: Mord86
+Unidad: Fragata10
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"3" -> "Usuario: Mord86
+Unidad: Fragata11
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"Usuario: Mord86
+Unidad: Fragata9
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10" -> "Usuario: Mord86
+Unidad: Fragata10
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"Usuario: Mord86
+Unidad: Fragata10
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10" -> "Usuario: Mord86
+Unidad: Fragata9
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"Usuario: Mord86
+Unidad: Fragata10
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10" -> "Usuario: Mord86
+Unidad: Fragata11
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"Usuario: Mord86
+Unidad: Fragata11
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10" -> "Usuario: Mord86
+Unidad: Fragata10
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"Tablero2" -> "1"[rankdir=UD];
+subgraph cluster0{
+"1" -> "2"[rankdir=UD];
+"2" -> "1"[rankdir=UD];
+"2" -> "3"[rankdir=UD];
+"3" -> "2"[rankdir=UD];
+"3" -> "7"[rankdir=UD];
+"7" -> "3"[rankdir=UD];
+"7" -> "8"[rankdir=UD];
+"8" -> "7"[rankdir=UD];
+"8" -> "9"[rankdir=UD];
+"9" -> "8"[rankdir=UD];
+"9" -> "10"[rankdir=UD];
+"10" -> "9"[rankdir=UD];
+}
+"Tablero2" -> "A";
+"A" -> "B";
+"B" -> "A";
+"B" -> "C";
+"C" -> "B";
+"C" -> "D";
+"D" -> "C";
+"D" -> "E";
+"E" -> "D";
+"E" -> "T";
+"T" -> "E";
+"T" -> "X";
+"X" -> "T";
+}

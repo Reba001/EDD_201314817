@@ -1,0 +1,2285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://NavalWarsEDD.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://NavalWarsEDD.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://NavalWarsEDD.com">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="value" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contrasenia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="conectado" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTopContactos">
+        <s:complexType />
+      </s:element>
+      <s:element name="getTopContactosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTopContactosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTopEliminadas">
+        <s:complexType />
+      </s:element>
+      <s:element name="getTopEliminadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTopEliminadasResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getConectado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getConectadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getConectadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUsuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="getUsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUsuariosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="invocarGrafo">
+        <s:complexType />
+      </s:element>
+      <s:element name="invocarGrafoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="invocarGrafoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMovimiento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="x" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMovimientoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getMovimientoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAlcance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="x" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAlcanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getAlcanceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDanio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="x" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDanioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getDanioResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="x" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVidaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getVidaResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setVida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="x" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="vida" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setVidaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setVidaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPiezasDestruidas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPiezasDestruidasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getPiezasDestruidasResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNick">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="x" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNickResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNickResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="moverPieza">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="x" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xde" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="yde" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivelde" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="moverPiezaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="moverPiezaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarContacto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicknameC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarContactoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eliminarContactoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eliminarUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarContacto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contacto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contactonuevo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarContactoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modificarContactoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicknameNuevo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modificarUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarContraseniaContacto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contacto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contrasenia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarContraseniaContactoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modificarContraseniaContactoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarContrasenia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contrasenia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarContraseniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modificarContraseniaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarCorreoContacto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contacto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarCorreoContactoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modificarCorreoContactoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarCorreo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarCorreoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modificarCorreoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarEstad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modificarEstadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modificarEstadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscarUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarJuegos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nicknameActual" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicknameO" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="desplegadas" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sob" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dest" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ganar" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarJuegosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertarJuegosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarenTablero">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fila" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="columna" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="unidad" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="alcance" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="movimiento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="danio" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="vida" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarenTableroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertarenTableroResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="recorrerFila">
+        <s:complexType />
+      </s:element>
+      <s:element name="recorrerFilaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recorrerFilaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="recorrerCol">
+        <s:complexType />
+      </s:element>
+      <s:element name="recorrerColResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recorrerColResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoMatriz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="level" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoMatrizResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="grafoMatrizResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPieza">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fila" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="columna" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPiezaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPiezaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarenTableroD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fila" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="columna" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="unidad" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="alcance" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="movimiento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="danio" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="vida" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarenTableroDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertarenTableroDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoDestruct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoDestructResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="grafoDestructResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jugador" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoUsuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="crearMatriz">
+        <s:complexType />
+      </s:element>
+      <s:element name="crearMatrizResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="eliminarMatriz">
+        <s:complexType />
+      </s:element>
+      <s:element name="eliminarMatrizResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="crearMatrizD">
+        <s:complexType />
+      </s:element>
+      <s:element name="crearMatrizDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="eliminarMatrizD">
+        <s:complexType />
+      </s:element>
+      <s:element name="eliminarMatrizDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="matrizVacia">
+        <s:complexType />
+      </s:element>
+      <s:element name="matrizVaciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="matrizVaciaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArbolEspejo">
+        <s:complexType />
+      </s:element>
+      <s:element name="ArbolEspejoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ArbolEspejoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modNickO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicko" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicknuevo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modNickOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modNickOResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modDesp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicko" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="desp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modDespResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modDespResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modSob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicko" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sob" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modSobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modSobResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modDest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicko" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dest" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modDestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modDestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modgana">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicko" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="gana" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="modganaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modganaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarJuego">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nicko" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarJuegoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eliminarJuegoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoTopWin">
+        <s:complexType />
+      </s:element>
+      <s:element name="grafoTopWinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="grafoTopWinResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoTopDest">
+        <s:complexType />
+      </s:element>
+      <s:element name="grafoTopDestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="grafoTopDestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarPieza">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fila" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="columna" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarPiezaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eliminarPiezaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarContacto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contrasenia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarContactoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertarContactoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoContactos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="grafoContactosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="grafoContactosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TablaDispersa">
+        <s:complexType />
+      </s:element>
+      <s:element name="TablaDispersaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TablaDispersaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarHistoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="X" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="atacante" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="resultado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoUD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickEmisor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickReceptor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tiempoRestante" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroA" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="key" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarHistoriaResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="setUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:setUsuario" />
+  </wsdl:message>
+  <wsdl:message name="setUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:setUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopContactosSoapIn">
+    <wsdl:part name="parameters" element="tns:getTopContactos" />
+  </wsdl:message>
+  <wsdl:message name="getTopContactosSoapOut">
+    <wsdl:part name="parameters" element="tns:getTopContactosResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopEliminadasSoapIn">
+    <wsdl:part name="parameters" element="tns:getTopEliminadas" />
+  </wsdl:message>
+  <wsdl:message name="getTopEliminadasSoapOut">
+    <wsdl:part name="parameters" element="tns:getTopEliminadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="getConectadoSoapIn">
+    <wsdl:part name="parameters" element="tns:getConectado" />
+  </wsdl:message>
+  <wsdl:message name="getConectadoSoapOut">
+    <wsdl:part name="parameters" element="tns:getConectadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:getUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="getUsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:getUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="invocarGrafoSoapIn">
+    <wsdl:part name="parameters" element="tns:invocarGrafo" />
+  </wsdl:message>
+  <wsdl:message name="invocarGrafoSoapOut">
+    <wsdl:part name="parameters" element="tns:invocarGrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMovimientoSoapIn">
+    <wsdl:part name="parameters" element="tns:getMovimiento" />
+  </wsdl:message>
+  <wsdl:message name="getMovimientoSoapOut">
+    <wsdl:part name="parameters" element="tns:getMovimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAlcanceSoapIn">
+    <wsdl:part name="parameters" element="tns:getAlcance" />
+  </wsdl:message>
+  <wsdl:message name="getAlcanceSoapOut">
+    <wsdl:part name="parameters" element="tns:getAlcanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDanioSoapIn">
+    <wsdl:part name="parameters" element="tns:getDanio" />
+  </wsdl:message>
+  <wsdl:message name="getDanioSoapOut">
+    <wsdl:part name="parameters" element="tns:getDanioResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVidaSoapIn">
+    <wsdl:part name="parameters" element="tns:getVida" />
+  </wsdl:message>
+  <wsdl:message name="getVidaSoapOut">
+    <wsdl:part name="parameters" element="tns:getVidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="setVidaSoapIn">
+    <wsdl:part name="parameters" element="tns:setVida" />
+  </wsdl:message>
+  <wsdl:message name="setVidaSoapOut">
+    <wsdl:part name="parameters" element="tns:setVidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPiezasDestruidasSoapIn">
+    <wsdl:part name="parameters" element="tns:getPiezasDestruidas" />
+  </wsdl:message>
+  <wsdl:message name="getPiezasDestruidasSoapOut">
+    <wsdl:part name="parameters" element="tns:getPiezasDestruidasResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNickSoapIn">
+    <wsdl:part name="parameters" element="tns:getNick" />
+  </wsdl:message>
+  <wsdl:message name="getNickSoapOut">
+    <wsdl:part name="parameters" element="tns:getNickResponse" />
+  </wsdl:message>
+  <wsdl:message name="moverPiezaSoapIn">
+    <wsdl:part name="parameters" element="tns:moverPieza" />
+  </wsdl:message>
+  <wsdl:message name="moverPiezaSoapOut">
+    <wsdl:part name="parameters" element="tns:moverPiezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarContactoSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarContacto" />
+  </wsdl:message>
+  <wsdl:message name="eliminarContactoSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarContactoResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="eliminarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarContactoSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarContacto" />
+  </wsdl:message>
+  <wsdl:message name="modificarContactoSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarContactoResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="modificarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarContraseniaContactoSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarContraseniaContacto" />
+  </wsdl:message>
+  <wsdl:message name="modificarContraseniaContactoSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarContraseniaContactoResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarContraseniaSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarContrasenia" />
+  </wsdl:message>
+  <wsdl:message name="modificarContraseniaSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarContraseniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarCorreoContactoSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarCorreoContacto" />
+  </wsdl:message>
+  <wsdl:message name="modificarCorreoContactoSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarCorreoContactoResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarCorreoSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarCorreo" />
+  </wsdl:message>
+  <wsdl:message name="modificarCorreoSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="modificarEstadSoapIn">
+    <wsdl:part name="parameters" element="tns:modificarEstad" />
+  </wsdl:message>
+  <wsdl:message name="modificarEstadSoapOut">
+    <wsdl:part name="parameters" element="tns:modificarEstadResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:buscarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="buscarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:buscarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarJuegosSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarJuegos" />
+  </wsdl:message>
+  <wsdl:message name="insertarJuegosSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarJuegosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarenTableroSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarenTablero" />
+  </wsdl:message>
+  <wsdl:message name="insertarenTableroSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarenTableroResponse" />
+  </wsdl:message>
+  <wsdl:message name="recorrerFilaSoapIn">
+    <wsdl:part name="parameters" element="tns:recorrerFila" />
+  </wsdl:message>
+  <wsdl:message name="recorrerFilaSoapOut">
+    <wsdl:part name="parameters" element="tns:recorrerFilaResponse" />
+  </wsdl:message>
+  <wsdl:message name="recorrerColSoapIn">
+    <wsdl:part name="parameters" element="tns:recorrerCol" />
+  </wsdl:message>
+  <wsdl:message name="recorrerColSoapOut">
+    <wsdl:part name="parameters" element="tns:recorrerColResponse" />
+  </wsdl:message>
+  <wsdl:message name="grafoMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:grafoMatriz" />
+  </wsdl:message>
+  <wsdl:message name="grafoMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:grafoMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPiezaSoapIn">
+    <wsdl:part name="parameters" element="tns:getPieza" />
+  </wsdl:message>
+  <wsdl:message name="getPiezaSoapOut">
+    <wsdl:part name="parameters" element="tns:getPiezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarenTableroDSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarenTableroD" />
+  </wsdl:message>
+  <wsdl:message name="insertarenTableroDSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarenTableroDResponse" />
+  </wsdl:message>
+  <wsdl:message name="grafoDestructSoapIn">
+    <wsdl:part name="parameters" element="tns:grafoDestruct" />
+  </wsdl:message>
+  <wsdl:message name="grafoDestructSoapOut">
+    <wsdl:part name="parameters" element="tns:grafoDestructResponse" />
+  </wsdl:message>
+  <wsdl:message name="grafoUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:grafoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="grafoUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:grafoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="crearMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:crearMatriz" />
+  </wsdl:message>
+  <wsdl:message name="crearMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:crearMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarMatriz" />
+  </wsdl:message>
+  <wsdl:message name="eliminarMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="crearMatrizDSoapIn">
+    <wsdl:part name="parameters" element="tns:crearMatrizD" />
+  </wsdl:message>
+  <wsdl:message name="crearMatrizDSoapOut">
+    <wsdl:part name="parameters" element="tns:crearMatrizDResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarMatrizDSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarMatrizD" />
+  </wsdl:message>
+  <wsdl:message name="eliminarMatrizDSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarMatrizDResponse" />
+  </wsdl:message>
+  <wsdl:message name="matrizVaciaSoapIn">
+    <wsdl:part name="parameters" element="tns:matrizVacia" />
+  </wsdl:message>
+  <wsdl:message name="matrizVaciaSoapOut">
+    <wsdl:part name="parameters" element="tns:matrizVaciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ArbolEspejoSoapIn">
+    <wsdl:part name="parameters" element="tns:ArbolEspejo" />
+  </wsdl:message>
+  <wsdl:message name="ArbolEspejoSoapOut">
+    <wsdl:part name="parameters" element="tns:ArbolEspejoResponse" />
+  </wsdl:message>
+  <wsdl:message name="modNickOSoapIn">
+    <wsdl:part name="parameters" element="tns:modNickO" />
+  </wsdl:message>
+  <wsdl:message name="modNickOSoapOut">
+    <wsdl:part name="parameters" element="tns:modNickOResponse" />
+  </wsdl:message>
+  <wsdl:message name="modDespSoapIn">
+    <wsdl:part name="parameters" element="tns:modDesp" />
+  </wsdl:message>
+  <wsdl:message name="modDespSoapOut">
+    <wsdl:part name="parameters" element="tns:modDespResponse" />
+  </wsdl:message>
+  <wsdl:message name="modSobSoapIn">
+    <wsdl:part name="parameters" element="tns:modSob" />
+  </wsdl:message>
+  <wsdl:message name="modSobSoapOut">
+    <wsdl:part name="parameters" element="tns:modSobResponse" />
+  </wsdl:message>
+  <wsdl:message name="modDestSoapIn">
+    <wsdl:part name="parameters" element="tns:modDest" />
+  </wsdl:message>
+  <wsdl:message name="modDestSoapOut">
+    <wsdl:part name="parameters" element="tns:modDestResponse" />
+  </wsdl:message>
+  <wsdl:message name="modganaSoapIn">
+    <wsdl:part name="parameters" element="tns:modgana" />
+  </wsdl:message>
+  <wsdl:message name="modganaSoapOut">
+    <wsdl:part name="parameters" element="tns:modganaResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarJuegoSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarJuego" />
+  </wsdl:message>
+  <wsdl:message name="eliminarJuegoSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarJuegoResponse" />
+  </wsdl:message>
+  <wsdl:message name="grafoTopWinSoapIn">
+    <wsdl:part name="parameters" element="tns:grafoTopWin" />
+  </wsdl:message>
+  <wsdl:message name="grafoTopWinSoapOut">
+    <wsdl:part name="parameters" element="tns:grafoTopWinResponse" />
+  </wsdl:message>
+  <wsdl:message name="grafoTopDestSoapIn">
+    <wsdl:part name="parameters" element="tns:grafoTopDest" />
+  </wsdl:message>
+  <wsdl:message name="grafoTopDestSoapOut">
+    <wsdl:part name="parameters" element="tns:grafoTopDestResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarPiezaSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarPieza" />
+  </wsdl:message>
+  <wsdl:message name="eliminarPiezaSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarPiezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarContactoSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarContacto" />
+  </wsdl:message>
+  <wsdl:message name="insertarContactoSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarContactoResponse" />
+  </wsdl:message>
+  <wsdl:message name="grafoContactosSoapIn">
+    <wsdl:part name="parameters" element="tns:grafoContactos" />
+  </wsdl:message>
+  <wsdl:message name="grafoContactosSoapOut">
+    <wsdl:part name="parameters" element="tns:grafoContactosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TablaDispersaSoapIn">
+    <wsdl:part name="parameters" element="tns:TablaDispersa" />
+  </wsdl:message>
+  <wsdl:message name="TablaDispersaSoapOut">
+    <wsdl:part name="parameters" element="tns:TablaDispersaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarHistoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarHistoria" />
+  </wsdl:message>
+  <wsdl:message name="insertarHistoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarHistoriaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProyectoEDDSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input message="tns:GetDataSoapIn" />
+      <wsdl:output message="tns:GetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setUsuario">
+      <wsdl:input message="tns:setUsuarioSoapIn" />
+      <wsdl:output message="tns:setUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTopContactos">
+      <wsdl:input message="tns:getTopContactosSoapIn" />
+      <wsdl:output message="tns:getTopContactosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTopEliminadas">
+      <wsdl:input message="tns:getTopEliminadasSoapIn" />
+      <wsdl:output message="tns:getTopEliminadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getConectado">
+      <wsdl:input message="tns:getConectadoSoapIn" />
+      <wsdl:output message="tns:getConectadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsuarios">
+      <wsdl:input message="tns:getUsuariosSoapIn" />
+      <wsdl:output message="tns:getUsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="invocarGrafo">
+      <wsdl:input message="tns:invocarGrafoSoapIn" />
+      <wsdl:output message="tns:invocarGrafoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMovimiento">
+      <wsdl:input message="tns:getMovimientoSoapIn" />
+      <wsdl:output message="tns:getMovimientoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAlcance">
+      <wsdl:input message="tns:getAlcanceSoapIn" />
+      <wsdl:output message="tns:getAlcanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDanio">
+      <wsdl:input message="tns:getDanioSoapIn" />
+      <wsdl:output message="tns:getDanioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVida">
+      <wsdl:input message="tns:getVidaSoapIn" />
+      <wsdl:output message="tns:getVidaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setVida">
+      <wsdl:input message="tns:setVidaSoapIn" />
+      <wsdl:output message="tns:setVidaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPiezasDestruidas">
+      <wsdl:input message="tns:getPiezasDestruidasSoapIn" />
+      <wsdl:output message="tns:getPiezasDestruidasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNick">
+      <wsdl:input message="tns:getNickSoapIn" />
+      <wsdl:output message="tns:getNickSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="moverPieza">
+      <wsdl:input message="tns:moverPiezaSoapIn" />
+      <wsdl:output message="tns:moverPiezaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarContacto">
+      <wsdl:input message="tns:eliminarContactoSoapIn" />
+      <wsdl:output message="tns:eliminarContactoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUsuario">
+      <wsdl:input message="tns:eliminarUsuarioSoapIn" />
+      <wsdl:output message="tns:eliminarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarContacto">
+      <wsdl:input message="tns:modificarContactoSoapIn" />
+      <wsdl:output message="tns:modificarContactoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <wsdl:input message="tns:modificarUsuarioSoapIn" />
+      <wsdl:output message="tns:modificarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarContraseniaContacto">
+      <wsdl:input message="tns:modificarContraseniaContactoSoapIn" />
+      <wsdl:output message="tns:modificarContraseniaContactoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarContrasenia">
+      <wsdl:input message="tns:modificarContraseniaSoapIn" />
+      <wsdl:output message="tns:modificarContraseniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarCorreoContacto">
+      <wsdl:input message="tns:modificarCorreoContactoSoapIn" />
+      <wsdl:output message="tns:modificarCorreoContactoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarCorreo">
+      <wsdl:input message="tns:modificarCorreoSoapIn" />
+      <wsdl:output message="tns:modificarCorreoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarEstad">
+      <wsdl:input message="tns:modificarEstadSoapIn" />
+      <wsdl:output message="tns:modificarEstadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuario">
+      <wsdl:input message="tns:buscarUsuarioSoapIn" />
+      <wsdl:output message="tns:buscarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarJuegos">
+      <wsdl:input message="tns:insertarJuegosSoapIn" />
+      <wsdl:output message="tns:insertarJuegosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTablero">
+      <wsdl:input message="tns:insertarenTableroSoapIn" />
+      <wsdl:output message="tns:insertarenTableroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="recorrerFila">
+      <wsdl:input message="tns:recorrerFilaSoapIn" />
+      <wsdl:output message="tns:recorrerFilaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="recorrerCol">
+      <wsdl:input message="tns:recorrerColSoapIn" />
+      <wsdl:output message="tns:recorrerColSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoMatriz">
+      <wsdl:input message="tns:grafoMatrizSoapIn" />
+      <wsdl:output message="tns:grafoMatrizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPieza">
+      <wsdl:input message="tns:getPiezaSoapIn" />
+      <wsdl:output message="tns:getPiezaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTableroD">
+      <wsdl:input message="tns:insertarenTableroDSoapIn" />
+      <wsdl:output message="tns:insertarenTableroDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoDestruct">
+      <wsdl:input message="tns:grafoDestructSoapIn" />
+      <wsdl:output message="tns:grafoDestructSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoUsuario">
+      <wsdl:input message="tns:grafoUsuarioSoapIn" />
+      <wsdl:output message="tns:grafoUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="crearMatriz">
+      <wsdl:input message="tns:crearMatrizSoapIn" />
+      <wsdl:output message="tns:crearMatrizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatriz">
+      <wsdl:input message="tns:eliminarMatrizSoapIn" />
+      <wsdl:output message="tns:eliminarMatrizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="crearMatrizD">
+      <wsdl:input message="tns:crearMatrizDSoapIn" />
+      <wsdl:output message="tns:crearMatrizDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatrizD">
+      <wsdl:input message="tns:eliminarMatrizDSoapIn" />
+      <wsdl:output message="tns:eliminarMatrizDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="matrizVacia">
+      <wsdl:input message="tns:matrizVaciaSoapIn" />
+      <wsdl:output message="tns:matrizVaciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ArbolEspejo">
+      <wsdl:input message="tns:ArbolEspejoSoapIn" />
+      <wsdl:output message="tns:ArbolEspejoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modNickO">
+      <wsdl:input message="tns:modNickOSoapIn" />
+      <wsdl:output message="tns:modNickOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modDesp">
+      <wsdl:input message="tns:modDespSoapIn" />
+      <wsdl:output message="tns:modDespSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modSob">
+      <wsdl:input message="tns:modSobSoapIn" />
+      <wsdl:output message="tns:modSobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modDest">
+      <wsdl:input message="tns:modDestSoapIn" />
+      <wsdl:output message="tns:modDestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="modgana">
+      <wsdl:input message="tns:modganaSoapIn" />
+      <wsdl:output message="tns:modganaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarJuego">
+      <wsdl:input message="tns:eliminarJuegoSoapIn" />
+      <wsdl:output message="tns:eliminarJuegoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopWin">
+      <wsdl:input message="tns:grafoTopWinSoapIn" />
+      <wsdl:output message="tns:grafoTopWinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopDest">
+      <wsdl:input message="tns:grafoTopDestSoapIn" />
+      <wsdl:output message="tns:grafoTopDestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarPieza">
+      <wsdl:input message="tns:eliminarPiezaSoapIn" />
+      <wsdl:output message="tns:eliminarPiezaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarContacto">
+      <wsdl:input message="tns:insertarContactoSoapIn" />
+      <wsdl:output message="tns:insertarContactoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="grafoContactos">
+      <wsdl:input message="tns:grafoContactosSoapIn" />
+      <wsdl:output message="tns:grafoContactosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TablaDispersa">
+      <wsdl:input message="tns:TablaDispersaSoapIn" />
+      <wsdl:output message="tns:TablaDispersaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarHistoria">
+      <wsdl:input message="tns:insertarHistoriaSoapIn" />
+      <wsdl:output message="tns:insertarHistoriaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProyectoEDDSoap" type="tns:ProyectoEDDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://NavalWarsEDD.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://NavalWarsEDD.com/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUsuario">
+      <soap:operation soapAction="http://NavalWarsEDD.com/setUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopContactos">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getTopContactos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopEliminadas">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getTopEliminadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConectado">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getConectado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsuarios">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invocarGrafo">
+      <soap:operation soapAction="http://NavalWarsEDD.com/invocarGrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMovimiento">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getMovimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAlcance">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getAlcance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDanio">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getDanio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVida">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getVida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setVida">
+      <soap:operation soapAction="http://NavalWarsEDD.com/setVida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPiezasDestruidas">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getPiezasDestruidas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNick">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getNick" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="moverPieza">
+      <soap:operation soapAction="http://NavalWarsEDD.com/moverPieza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarContacto">
+      <soap:operation soapAction="http://NavalWarsEDD.com/eliminarContacto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUsuario">
+      <soap:operation soapAction="http://NavalWarsEDD.com/eliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarContacto">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modificarContacto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modificarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarContraseniaContacto">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modificarContraseniaContacto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarContrasenia">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modificarContrasenia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarCorreoContacto">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modificarCorreoContacto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarCorreo">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modificarCorreo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarEstad">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modificarEstad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuario">
+      <soap:operation soapAction="http://NavalWarsEDD.com/buscarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarJuegos">
+      <soap:operation soapAction="http://NavalWarsEDD.com/insertarJuegos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTablero">
+      <soap:operation soapAction="http://NavalWarsEDD.com/insertarenTablero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerFila">
+      <soap:operation soapAction="http://NavalWarsEDD.com/recorrerFila" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerCol">
+      <soap:operation soapAction="http://NavalWarsEDD.com/recorrerCol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoMatriz">
+      <soap:operation soapAction="http://NavalWarsEDD.com/grafoMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPieza">
+      <soap:operation soapAction="http://NavalWarsEDD.com/getPieza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTableroD">
+      <soap:operation soapAction="http://NavalWarsEDD.com/insertarenTableroD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoDestruct">
+      <soap:operation soapAction="http://NavalWarsEDD.com/grafoDestruct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoUsuario">
+      <soap:operation soapAction="http://NavalWarsEDD.com/grafoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearMatriz">
+      <soap:operation soapAction="http://NavalWarsEDD.com/crearMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatriz">
+      <soap:operation soapAction="http://NavalWarsEDD.com/eliminarMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearMatrizD">
+      <soap:operation soapAction="http://NavalWarsEDD.com/crearMatrizD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatrizD">
+      <soap:operation soapAction="http://NavalWarsEDD.com/eliminarMatrizD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="matrizVacia">
+      <soap:operation soapAction="http://NavalWarsEDD.com/matrizVacia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArbolEspejo">
+      <soap:operation soapAction="http://NavalWarsEDD.com/ArbolEspejo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modNickO">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modNickO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modDesp">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modDesp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modSob">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modSob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modDest">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modDest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modgana">
+      <soap:operation soapAction="http://NavalWarsEDD.com/modgana" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarJuego">
+      <soap:operation soapAction="http://NavalWarsEDD.com/eliminarJuego" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopWin">
+      <soap:operation soapAction="http://NavalWarsEDD.com/grafoTopWin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopDest">
+      <soap:operation soapAction="http://NavalWarsEDD.com/grafoTopDest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarPieza">
+      <soap:operation soapAction="http://NavalWarsEDD.com/eliminarPieza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarContacto">
+      <soap:operation soapAction="http://NavalWarsEDD.com/insertarContacto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoContactos">
+      <soap:operation soapAction="http://NavalWarsEDD.com/grafoContactos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TablaDispersa">
+      <soap:operation soapAction="http://NavalWarsEDD.com/TablaDispersa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarHistoria">
+      <soap:operation soapAction="http://NavalWarsEDD.com/insertarHistoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProyectoEDDSoap12" type="tns:ProyectoEDDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUsuario">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/setUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopContactos">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getTopContactos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopEliminadas">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getTopEliminadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConectado">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getConectado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsuarios">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getUsuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="invocarGrafo">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/invocarGrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMovimiento">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getMovimiento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAlcance">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getAlcance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDanio">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getDanio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVida">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getVida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setVida">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/setVida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPiezasDestruidas">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getPiezasDestruidas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNick">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getNick" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="moverPieza">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/moverPieza" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarContacto">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/eliminarContacto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUsuario">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/eliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarContacto">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modificarContacto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modificarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarContraseniaContacto">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modificarContraseniaContacto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarContrasenia">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modificarContrasenia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarCorreoContacto">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modificarCorreoContacto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarCorreo">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modificarCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarEstad">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modificarEstad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuario">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/buscarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarJuegos">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/insertarJuegos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTablero">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/insertarenTablero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerFila">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/recorrerFila" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recorrerCol">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/recorrerCol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoMatriz">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/grafoMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPieza">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/getPieza" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarenTableroD">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/insertarenTableroD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoDestruct">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/grafoDestruct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoUsuario">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/grafoUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearMatriz">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/crearMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatriz">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/eliminarMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearMatrizD">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/crearMatrizD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMatrizD">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/eliminarMatrizD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="matrizVacia">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/matrizVacia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArbolEspejo">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/ArbolEspejo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modNickO">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modNickO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modDesp">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modDesp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modSob">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modSob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modDest">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modDest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modgana">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/modgana" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarJuego">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/eliminarJuego" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopWin">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/grafoTopWin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoTopDest">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/grafoTopDest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarPieza">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/eliminarPieza" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarContacto">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/insertarContacto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="grafoContactos">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/grafoContactos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TablaDispersa">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/TablaDispersa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarHistoria">
+      <soap12:operation soapAction="http://NavalWarsEDD.com/insertarHistoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProyectoEDD">
+    <wsdl:port name="ProyectoEDDSoap" binding="tns:ProyectoEDDSoap">
+      <soap:address location="http://192.168.1.56:8080/NWWS/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProyectoEDDSoap12" binding="tns:ProyectoEDDSoap12">
+      <soap12:address location="http://192.168.1.56:8080/NWWS/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,112 @@
+digraph g{
+	 node[shape=box, style=filled, color=Gray95];
+	 edge[color = black];
+	 rankdir = UD; 
+{rank=min;"Tablero2";"A";"B";"D";"E";"F";"G";"V";};
+{rank=same;"1";"Usuario: Mord86
+Unidad: Crucero1
+Alcance: 1
+Movimiento: 6
+Daño: 3
+Vida: 15";};
+{rank=same;"2";"Usuario: Mord86
+Unidad: Fragata2
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";};
+{rank=same;"5";"Usuario: Mord86
+Unidad: Fragata3
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";};
+{rank=same;"7";};
+{rank=same;"8";"Usuario: Mord86
+Unidad: Fragata1
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";};
+{rank=same;"9";};
+{rank=same;"10";};
+{rank=same;"12";};
+"A" -> "Usuario: Mord86
+Unidad: Crucero1
+Alcance: 1
+Movimiento: 6
+Daño: 3
+Vida: 15";
+"E" -> "Usuario: Mord86
+Unidad: Fragata1
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"F" -> "Usuario: Mord86
+Unidad: Fragata2
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"G" -> "Usuario: Mord86
+Unidad: Fragata3
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"1" -> "Usuario: Mord86
+Unidad: Crucero1
+Alcance: 1
+Movimiento: 6
+Daño: 3
+Vida: 15";
+"2" -> "Usuario: Mord86
+Unidad: Fragata2
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"5" -> "Usuario: Mord86
+Unidad: Fragata3
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"8" -> "Usuario: Mord86
+Unidad: Fragata1
+Alcance: 6
+Movimiento: 5
+Daño: 3
+Vida: 10";
+"Tablero2" -> "1"[rankdir=UD];
+subgraph cluster0{
+"1" -> "2"[rankdir=UD];
+"2" -> "1"[rankdir=UD];
+"2" -> "5"[rankdir=UD];
+"5" -> "2"[rankdir=UD];
+"5" -> "7"[rankdir=UD];
+"7" -> "5"[rankdir=UD];
+"7" -> "8"[rankdir=UD];
+"8" -> "7"[rankdir=UD];
+"8" -> "9"[rankdir=UD];
+"9" -> "8"[rankdir=UD];
+"9" -> "10"[rankdir=UD];
+"10" -> "9"[rankdir=UD];
+"10" -> "12"[rankdir=UD];
+"12" -> "10"[rankdir=UD];
+}
+"Tablero2" -> "A";
+"A" -> "B";
+"B" -> "A";
+"B" -> "D";
+"D" -> "B";
+"D" -> "E";
+"E" -> "D";
+"E" -> "F";
+"F" -> "E";
+"F" -> "G";
+"G" -> "F";
+"G" -> "V";
+"V" -> "G";
+}

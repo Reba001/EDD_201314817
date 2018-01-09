@@ -1,0 +1,34 @@
+digraph g{
+"Altura: 3
+Nodos Hoja: 3
+Niveles: 4
+Ramas: 5";
+	"Nickname: Imre78
+Contraseña: MDQ80CXX3XT
+E-mail: eget.dictum.placerat@atsem.net
+Conectado: False" -> "Nickname: Asro25
+Contraseña: PDW92QLF0HC
+E-mail: turpis.Aliquam.adipiscing@tincidunt.net
+Conectado: False";
+	"Nickname: Imre78
+Contraseña: MDQ80CXX3XT
+E-mail: eget.dictum.placerat@atsem.net
+Conectado: False" -> "Nickname: otro
+Contraseña: 123kjd
+E-mail: correo2@dominio.com
+Conectado: False";
+	"Nickname: otro
+Contraseña: 123kjd
+E-mail: correo2@dominio.com
+Conectado: False" -> "Nickname: Nuevo
+Contraseña: abdads
+E-mail: correo@dominio.com
+Conectado: False";
+	"Nickname: otro
+Contraseña: 123kjd
+E-mail: correo2@dominio.com
+Conectado: False" -> "Nickname: Stin94
+Contraseña: WAG95DOM2LZ
+E-mail: in.tempus@a.com
+Conectado: True";
+}

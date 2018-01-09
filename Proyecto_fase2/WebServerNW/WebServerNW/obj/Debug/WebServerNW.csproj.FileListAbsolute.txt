@@ -1,0 +1,6 @@
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\WebServerNW\WebServerNW\obj\Debug\WebServerNW.csprojResolveAssemblyReference.cache
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\WebServerNW\WebServerNW\bin\WebServerNW.dll.config
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\WebServerNW\WebServerNW\bin\WebServerNW.dll
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\WebServerNW\WebServerNW\bin\WebServerNW.pdb
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\WebServerNW\WebServerNW\obj\Debug\WebServerNW.dll
+c:\users\aaper\onedrive\documentos\visual studio 2013\Projects\WebServerNW\WebServerNW\obj\Debug\WebServerNW.pdb

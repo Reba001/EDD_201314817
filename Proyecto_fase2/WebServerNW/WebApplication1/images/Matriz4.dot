@@ -1,0 +1,308 @@
+digraph g{
+	 node[shape=box, style=filled, color=Gray95];
+	 edge[color = black];
+	 rankdir = UD; 
+{rank=min;"Tablero4";"A";"B";"D";"E";"F";"G";"V";};
+{rank=same;"1";"Usuario: Mord86
+Unidad: Neosatelite1
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";"Usuario: Mord86
+Unidad: Neosatelite6
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";"Usuario: Mord86
+Unidad: Neosatelite7
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";"Usuario: Mord86
+Unidad: Neosatelite8
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";};
+{rank=same;"2";"Usuario: Mord86
+Unidad: Neosatelite3
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";"Usuario: Mord86
+Unidad: Neosatelite5
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";"Usuario: Mord86
+Unidad: Neosatelite9
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";"Usuario: Mord86
+Unidad: Neosatelite10
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";};
+{rank=same;"5";};
+{rank=same;"7";};
+{rank=same;"8";};
+{rank=same;"9";};
+{rank=same;"10";};
+{rank=same;"12";};
+"A" -> "Usuario: Mord86
+Unidad: Neosatelite1
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"B" -> "Usuario: Mord86
+Unidad: Neosatelite5
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"D" -> "Usuario: Mord86
+Unidad: Neosatelite6
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"E" -> "Usuario: Mord86
+Unidad: Neosatelite7
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"F" -> "Usuario: Mord86
+Unidad: Neosatelite8
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"V" -> "Usuario: Mord86
+Unidad: Neosatelite10
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"1" -> "Usuario: Mord86
+Unidad: Neosatelite1
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"2" -> "Usuario: Mord86
+Unidad: Neosatelite3
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"Usuario: Mord86
+Unidad: Neosatelite1
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite6
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite6
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite1
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite6
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite7
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite7
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite6
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite7
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite8
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite8
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite7
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite3
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite5
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite5
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite3
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite5
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite9
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite9
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite5
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite9
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite10
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite10
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite9
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10"[constraint=false];
+"Usuario: Mord86
+Unidad: Neosatelite1
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite3
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"Usuario: Mord86
+Unidad: Neosatelite3
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite1
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"Usuario: Mord86
+Unidad: Neosatelite6
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite9
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"Usuario: Mord86
+Unidad: Neosatelite9
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10" -> "Usuario: Mord86
+Unidad: Neosatelite6
+Alcance: 0
+Movimiento: 6
+Daño: 2
+Vida: 10";
+"Tablero4" -> "1"[rankdir=UD];
+subgraph cluster0{
+"1" -> "2"[rankdir=UD];
+"2" -> "1"[rankdir=UD];
+"2" -> "5"[rankdir=UD];
+"5" -> "2"[rankdir=UD];
+"5" -> "7"[rankdir=UD];
+"7" -> "5"[rankdir=UD];
+"7" -> "8"[rankdir=UD];
+"8" -> "7"[rankdir=UD];
+"8" -> "9"[rankdir=UD];
+"9" -> "8"[rankdir=UD];
+"9" -> "10"[rankdir=UD];
+"10" -> "9"[rankdir=UD];
+"10" -> "12"[rankdir=UD];
+"12" -> "10"[rankdir=UD];
+}
+"Tablero4" -> "A";
+"A" -> "B";
+"B" -> "A";
+"B" -> "D";
+"D" -> "B";
+"D" -> "E";
+"E" -> "D";
+"E" -> "F";
+"F" -> "E";
+"F" -> "G";
+"G" -> "F";
+"G" -> "V";
+"V" -> "G";
+}
