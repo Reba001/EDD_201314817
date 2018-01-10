@@ -16,7 +16,7 @@ namespace WebApplication1
         {
             servicio = (webServiceNW.ProyectoEDD)Application["WebServer"];
             this.crearGrafo(servicio.grafoTopWin(), "GANADAS");
-            //this.crearGrafo(servicio.grafoTopDest(), "DESTRUIDAS");
+            this.crearGrafo(servicio.grafoTopDest(), "DESTRUIDAS");
             this.crearGrafo(servicio.getTopContactos(), "CONTACTOS");
             this.crearGrafo(servicio.getTopEliminadas(), "ELIMINADAS");
             if (File.Exists(Server.MapPath("/images") + "\\GANADAS.jpg"))

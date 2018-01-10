@@ -120,118 +120,206 @@ namespace WebApplication1
 
                 //este metodo es para mover pieza 
                 //cumplir las condiciones: si es base hasta que capturen la base 
-                // si es normal hasta que se destruyan las piezas 
-                // si es por tiempo hasta que se termine el tiempo
+                 //si es normal hasta que se destruyan las piezas 
+                 //si es por tiempo hasta que se termine el tiempo
+                string user2 = Application["usuario2"].ToString();
+                if (txtDestX.Text != "" && txtDestY.Text != "" && txtPosX.Text != "" && txtPosY.Text != "")
+                {
+                    if (tipo == 1)
+                    {
+                        if (servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                            this.MoverPieza();
+                        else if (servicio.getPiezasDestruidas(usuario) && !servicio.getPiezasDestruidas(user2))
+                        {
+                            int ataques = (int)Application["contAtack"];
+                            int ataques2 = (int)Application["contAtack2"];
+                            String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript3);
+                            String popupScript2 = "<script language='JavaScript'> alert('EL OPONENTE YA NO TIENE PIEZAS HAS GANADO LA PARTIDA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            int contU = (int)Application["contU"];
+                            int contD = (int)Application["contD"];
+                            int contS = contU - contD;
+                            servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                            Response.Redirect("Cliente.aspx");
+                        }
+                        else if (!servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                        {
+                            int ataques = (int)Application["contAtack"];
+                            int ataques2 = (int)Application["contAtack2"];
+                            String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript3);
+                            String popupScript2 = "<script language='JavaScript'> alert('YA NO TIENES PIEZAS HAS PERDIDO LA PARTIDA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            int contU = (int)Application["contU"];
+                            int contD = (int)Application["contD"];
+                            int contS = contU - contD;
+                            servicio.insertarJuegos(usuario, user2, contU, contS, contD, false);
+                            Response.Redirect("Cliente.aspx");
+                        }
+                    }
+                    else if (tipo == 2)
+                    {
+                        if (lblHoras.Text != "00" && lblMinutos.Text != "00" && lblSegundos.Text != "00")
+                        {
+                            if (servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                            {
+                                this.MoverPieza();
+                            }
+                            else if (servicio.getPiezasDestruidas(usuario) && !servicio.getPiezasDestruidas(user2))
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript2 = "<script language='JavaScript'> alert('EL OPONENTE YA NO TIENE PIEZAS HAS GANADO LA PARTIDA'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript2);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            else if (!servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript2 = "<script language='JavaScript'> alert('YA NO TIENES PIEZAS HAS PERDIDO LA PARTIDA'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript2);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, false);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                        }
+                        else
+                        {
+                            String popupScript2 = "<script language='JavaScript'> alert('SE TERMINO EL TIEMPO JUEGO COMIENZE UNA PARTIDA NUEVA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            int usuario1 = servicio.getContarP(usuario);
+                            int usuario2 = servicio.getContarP(user2);
+                            if (usuario1 > usuario2)
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript = "<script language='JavaScript'> alert('GANADOR"+usuario+"'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            else if (usuario2 > usuario1)
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript = "<script language='JavaScript'> alert('GANADOR" + user2 + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, false);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            else 
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript = "<script language='JavaScript'> alert('EMPATE'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, false);
+                                Response.Redirect("Cliente.aspx");
+                            }
 
-                //if (txtDestX.Text != "" && txtDestY.Text != "" && txtPosX.Text != "" && txtPosY.Text != "")
-                //{
-                //    if (tipo == 1)
-                //    {
-                //        if (servicio.getPiezasDestruidas(usuario))
-                //            this.MoverPieza();
-                //        else
-                //        {
-                //            String popupScript2 = "<script language='JavaScript'> alert('NO TIENES PIEZAS HAS PERDIDO LA PARTIDA'); </script>";
-                //            Page.RegisterStartupScript("PopupScript", popupScript2);
-                //        }
-                //    }
-                //    else if (tipo == 2)
-                //    {
-                //        if (jugar && servicio.getPiezasDestruidas(usuario))
-                //            this.MoverPieza();
-                //        else
-                //        {
-                //            String popupScript2 = "<script language='JavaScript'> alert('SE TERMINO EL TIEMPO JUEGO COMIENZE UNA PARTIDA NUEVA'); </script>";
-                //            Page.RegisterStartupScript("PopupScript", popupScript2);
-                //        }
+                        }
 
-                //    }
-                //    else 
-                //    {
-                //        if (servicio.getPiezasDestruidas(usuario))
-                //            this.MoverPieza();
-                //        else 
-                //        {
-                //            String popupScript2 = "<script language='JavaScript'> alert('SE TERMINO EL TIEMPO JUEGO COMIENZE UNA PARTIDA NUEVA'); </script>";
-                //            Page.RegisterStartupScript("PopupScript", popupScript2);
-                //        }
+                    }
+                    else 
+                    {
+                        int b = (int) Application["BASE"];
+                        int b2 = (int) Application["BASE2"];
+                        if (b == 1 && b2 == 1)
+                        {
+
+                            if (servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                                this.MoverPieza();
+                            else if (servicio.getPiezasDestruidas(usuario) && !servicio.getPiezasDestruidas(user2))
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript2 = "<script language='JavaScript'> alert('EL OPONENTE YA NO TIENE PIEZAS HAS GANADO LA PARTIDA'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript2);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            else if (!servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript2 = "<script language='JavaScript'> alert('YA NO TIENES PIEZAS HAS PERDIDO LA PARTIDA'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript2);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, false);
+                                Response.Redirect("Cliente.aspx");
+                            }
                             
-                //    }
+                        }
+                        else if (b == 0 && b2 == 1)
+                        {
+                            String popupScript2 = "<script language='JavaScript'> alert('Has Capturado la Base HAS GANADO LA PARTIDA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            int ataques = (int)Application["contAtack"];
+                            int ataques2 = (int)Application["contAtack2"];
+                            String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript3);
 
-                //}
-                string x = txtPosX.Text;
-                int y = int.Parse(txtPosY.Text);
-                int yde = int.Parse(txtDestY.Text);
-                string xde = txtDestX.Text;
-                int nivel = 0;
-                string selectNivel = DropDownList1.SelectedItem.ToString();
-                if (selectNivel.Equals("Submarino"))
-                {
-                    nivel = 1;
+                            
+                            int contU = (int)Application["contU"];
+                            int contD = (int)Application["contD"];
+                            int contS = contU - contD;
+                            servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                            Response.Redirect("Cliente.aspx");
+                        }else if (b == 1 && b2 == 0)
+                        {
+                            int ataques = (int)Application["contAtack"];
+                            int ataques2 = (int)Application["contAtack2"];
+                            String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript3);
+
+                            String popupScript2 = "<script language='JavaScript'> alert('Han Capturado tu Base HAS PERDIDO LA PARTIDA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            int contU = (int)Application["contU"];
+                            int contD = (int)Application["contD"];
+                            int contS = contU - contD;
+                            servicio.insertarJuegos(usuario, user2, contU, contS, contD, false);
+                            Response.Redirect("Cliente.aspx");
+                        }
+                    }
+
                 }
-                else if (selectNivel.Equals("Fragata") || selectNivel.Equals("Crucero"))
-                {
-                    nivel = 2;
-                }
-                else if (selectNivel.Equals("Bombardero") || selectNivel.Equals("Caza") || selectNivel.Equals("Helicóptero de combate"))
-                {
-                    nivel = 3;
-                }
-                else
-                {
-                    nivel = 4;
-                }
-
-                servicio.moverPieza(x, y, nivel, xde, yde, nivel);
-                txtConsola.Text += "Pieza movida de " + x + " , " + y.ToString() + " , " + selectNivel + " \n a "+xde+" , "+yde.ToString()+" , "+selectNivel +"\n";
-                this.crearGrafo(servicio.grafoMatriz(1), "Matriz1cliente2");
-                this.crearGrafo(servicio.grafoMatriz(2), "Matriz2cliente2");
-                this.crearGrafo(servicio.grafoMatriz(3), "Matriz3cliente2");
-                this.crearGrafo(servicio.grafoMatriz(4), "Matriz4cliente2");
-                //para recargar los grafos 
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz1cliente2.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz1cliente2.jpg");
-                this.Image1.ImageUrl = null;
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz2cliente2.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz2cliente2.jpg");
-                this.Image2.ImageUrl = null;
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz3cliente2.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz3cliente2.jpg");
-                this.Image3.ImageUrl = null;
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz4cliente2.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz4cliente2.jpg");
-                this.Image4.ImageUrl = null;
-
-                if (File.Exists("C:\\CSVFile\\Imagen\\Matriz1cliente2.jpg"))
-                {
-                    File.Copy("C:\\CSVFile\\Imagen\\Matriz1cliente2.jpg", Server.MapPath("/images") + "\\Matriz1cliente2.jpg");
-                    this.Image1.ImageUrl = "images/Matriz1cliente2.jpg";
-                }
-
-
-                if (File.Exists("C:\\CSVFile\\Imagen\\Matriz2cliente2.jpg"))
-                {
-                    File.Copy("C:\\CSVFile\\Imagen\\Matriz2cliente2.jpg", Server.MapPath("/images") + "\\Matriz2cliente2.jpg");
-                    this.Image2.ImageUrl = "images/Matriz2cliente2.jpg";
-                }
-
-
-                if (File.Exists("C:\\CSVFile\\Imagen\\Matriz3cliente2.jpg"))
-                {
-                    File.Copy("C:\\CSVFile\\Imagen\\Matriz3cliente2.jpg", Server.MapPath("/images") + "\\Matriz3cliente2.jpg");
-                    this.Image3.ImageUrl = "images/Matriz3cliente2.jpg";
-                }
-
-
-                if (File.Exists("C:\\CSVFile\\Imagen\\Matriz4cliente2.jpg"))
-                {
-                    File.Copy("C:\\CSVFile\\Imagen\\Matriz4cliente2.jpg", Server.MapPath("/images") + "\\Matriz4cliente2.jpg");
-                    this.Image4.ImageUrl = "images/Matriz4cliente2.jpg";
-                }
+                
             }
             catch 
             {
@@ -240,10 +328,166 @@ namespace WebApplication1
                 Page.RegisterStartupScript("PopupScript", popupScript2);
 
             }
-
-            
         }
+        private void ataqueProfundidad()
+        {
+            string x = txtPosX.Text;
+            int y = int.Parse(txtPosY.Text);
+            string selectNivel = DropDownList1.SelectedItem.ToString();
+            string xdes = txtDestX.Text;
+            int ydes = int.Parse(txtDestY.Text);
+            int nivel = 0;
+            if (selectNivel.Equals("Submarino"))
+            {
+                nivel = 1;
+            }
+            else if (selectNivel.Equals("Fragata") || selectNivel.Equals("Crucero"))
+            {
+                nivel = 2;
+            }
+            else if (selectNivel.Equals("Bombardero") || selectNivel.Equals("Caza") || selectNivel.Equals("Helicóptero de combate"))
+            {
+                nivel = 3;
+            }
+            else
+            {
+                nivel = 4;
+            }
+            int posX2 = 0;// x2 posicion nueva
+            int div = this.limitX / 26;// dividimos dentro de 26 para poder tener un multiplo para multiplicarlo de nuevo :V 
+            int sum = this.limitX - (div * 26);// la diferencia para sumarlo y asi tener un limite verdadero
+            this.limitX = (65 * xdes.Length) + sum;// lo sumamos dependiendo de cuanto sea el limite
+            for (int i = 0; i < xdes.Length; i++) posX2 += xdes[i];// nuevo codigo para posicion en X
 
+            if ((ydes <= this.limitY) && (ydes > 0) && (posX2 < this.limitX) && (posX2 > 64))//para poder realizar el movimiento
+            {
+                string nickname = servicio.getNick(x, y, nivel);
+                
+                if ( nickname == usuario)
+                {
+                    float danio = servicio.getDanio(x, y, nivel);
+                    string lvls = servicio.nivelesAtacar(y, x, nivel);
+                    if (lvls != "")
+                    {
+                        string[] lvl = lvls.Split(',');
+                        /*** aqui empieza a cambiar ****/
+                        for (int j = 0; j < lvl.Length-1; j++)
+                        {
+                            int n = int.Parse(lvl[j]);
+                            float life = servicio.getVida(x, y, n);
+                            string nickdes = servicio.getNick(x, y, n);
+                            if (danio > 0 && life > 0 && nickdes != usuario)// SI  NO ENCUENTRA LAS PIEZAS DEVUELVE -1
+                            {
+                                string destino = servicio.getPieza(y, x, n);
+                                if (destino == "BASE2")
+                                    life = 0;
+                                else 
+                                    life = life - danio;
+
+                                servicio.setVida(x, y, n, life);
+                                string origen = servicio.getPieza(y, x, nivel);
+                                
+                                string insercion = origen + " Ataco a: Pieza " + destino + " en posicion: (" + x + ", " + y.ToString() + ", " + n.ToString() + ") vida: " + life.ToString() + "\n";
+                                if (life <= 0)
+                                {
+                                    if (destino == "BASE2")
+                                        Application["BASE"] = 0;
+                                    insercion += " Pieza " + destino + " en posicion: (" + x + ", " + y.ToString() + ", " + n.ToString() + ") Eliminada \n";
+                                    string unidad = servicio.getPieza(y, x, n);
+                                    int alcance2 = servicio.getAlcance(x, y, n);
+                                    int movimiento2 = servicio.getMovimiento(x, y, n);
+                                    float danio2 = servicio.getDanio(x, y, n);
+                                    servicio.insertarenTableroD(y, x, n, nickdes, unidad, alcance2, movimiento2, danio2, life);
+                                    servicio.eliminarPieza(y, x, n);
+                                    int contD = (int)Application["contD"];
+                                    contD++;
+                                    Application["contD"] = contD;
+                                    
+                                }
+                                int ataque1 = (int)Application["contAtack"];
+                                ataque1++;
+                                Application["contAtack"] = ataque1;
+                                txtConsola.Text += insercion;
+                            }
+                            else 
+                            {
+                                txtConsola.Text += "No se puedes atacar a tus propias piezas \n";
+                            }
+                            
+                            
+                        }
+
+                    }
+                    else 
+                    {
+                        String popupScript2 = "<script language='JavaScript'> alert('NO HAY PIEZAS PARA ATACAR POR DEBAJO'); </script>";
+                        Page.RegisterStartupScript("PopupScript", popupScript2);
+                    }
+                    
+                    this.crearGrafo(servicio.grafoMatriz(1), "Matriz1cliente2");
+                    this.crearGrafo(servicio.grafoMatriz(2), "Matriz2cliente2");
+                    this.crearGrafo(servicio.grafoMatriz(3), "Matriz3cliente2");
+                    this.crearGrafo(servicio.grafoMatriz(4), "Matriz4cliente2");
+                    //para recargar los grafos 
+
+                    if (File.Exists(Server.MapPath("/images") + "\\Matriz1cliente2.jpg"))
+                        File.Delete(Server.MapPath("/images") + "\\Matriz1cliente2.jpg");
+                    this.Image1.ImageUrl = null;
+
+                    if (File.Exists(Server.MapPath("/images") + "\\Matriz2cliente2.jpg"))
+                        File.Delete(Server.MapPath("/images") + "\\Matriz2cliente2.jpg");
+                    this.Image2.ImageUrl = null;
+
+                    if (File.Exists(Server.MapPath("/images") + "\\Matriz3cliente2.jpg"))
+                        File.Delete(Server.MapPath("/images") + "\\Matriz3cliente2.jpg");
+                    this.Image3.ImageUrl = null;
+
+                    if (File.Exists(Server.MapPath("/images") + "\\Matriz4cliente2.jpg"))
+                        File.Delete(Server.MapPath("/images") + "\\Matriz4cliente2.jpg");
+                    this.Image4.ImageUrl = null;
+
+                    if (File.Exists("C:\\CSVFile\\Imagen\\Matriz1cliente2.jpg"))
+                    {
+                        File.Copy("C:\\CSVFile\\Imagen\\Matriz1cliente2.jpg", Server.MapPath("/images") + "\\Matriz1cliente2.jpg");
+                        this.Image1.ImageUrl = "images/Matriz1cliente2.jpg";
+                    }
+
+
+                    if (File.Exists("C:\\CSVFile\\Imagen\\Matriz2cliente2.jpg"))
+                    {
+                        File.Copy("C:\\CSVFile\\Imagen\\Matriz2cliente2.jpg", Server.MapPath("/images") + "\\Matriz2cliente2.jpg");
+                        this.Image2.ImageUrl = "images/Matriz2cliente2.jpg";
+                    }
+
+
+                    if (File.Exists("C:\\CSVFile\\Imagen\\Matriz3cliente2.jpg"))
+                    {
+                        File.Copy("C:\\CSVFile\\Imagen\\Matriz3cliente2.jpg", Server.MapPath("/images") + "\\Matriz3cliente2.jpg");
+                        this.Image3.ImageUrl = "images/Matriz3cliente2.jpg";
+                    }
+
+
+                    if (File.Exists("C:\\CSVFile\\Imagen\\Matriz4cliente2.jpg"))
+                    {
+                        File.Copy("C:\\CSVFile\\Imagen\\Matriz4cliente2.jpg", Server.MapPath("/images") + "\\Matriz4cliente2.jpg");
+                        this.Image4.ImageUrl = "images/Matriz4cliente2.jpg";
+                    }
+                }// movimiento realizado
+                else //fallo por si no se cumple los parametros del movimiento
+                {
+                    String popupScript2 = "<script language='JavaScript'> alert('ATAQUE NO PERMITIDO'); </script>";
+                    Page.RegisterStartupScript("PopupScript", popupScript2);
+
+                }// fin de movimiento
+
+            }
+            else
+            {
+                //definimos un mensaje en caso de esxcedernos del limite
+                String popupScript3 = "<script language='JavaScript'> alert('LIMITE EN X O EN Y EXCEDIDO'); </script>";
+                Page.RegisterStartupScript("PopupScript", popupScript3);
+            }
+        }
         private void AtaqueAlcance()
         {
             string x = txtPosX.Text;
@@ -298,22 +542,37 @@ namespace WebApplication1
                     float danio = servicio.getDanio(x,y, nivel);
                     float life = servicio.getVida(xdes, ydes, nivel);
                     string nickdes = servicio.getNick(xdes, ydes, nivel);
-                    if (danio > -1 && life > -1 && nickdes != usuario)// SI  NO ENCUENTRA LAS PIEZAS DEVUELVE -1
+                    if (danio > 0 && life > 0 && nickdes != usuario)// SI  NO ENCUENTRA LAS PIEZAS DEVUELVE -1
                     {
-                        life = life - danio;
-                        servicio.setVida(xdes, ydes, nivel, life);
 
-                        string insercion = selectNivel + " Ataco a: Pieza en posicion: "+xdes+" "+ydes.ToString()+ " "+nivel.ToString();
+                        string destino = servicio.getPieza(ydes, xdes, nivel);
+                        if (destino == "BASE2")
+                            life = 0;
+                        else 
+                            life = life - danio;
+                        servicio.setVida(xdes, ydes, nivel, life);
+                        string origen = servicio.getPieza(y, x, nivel);
+                        string insercion = origen + " Ataco a: Pieza "+destino+" en posicion: "+xdes+" "+ydes.ToString()+ " "+nivel.ToString()+" vida: "+life.ToString()+"\n";
                         if (life <= 0)
                         {
-                            insercion += " Pieza en posicion: " + xdes + " " + ydes.ToString() + " " + nivel.ToString()+ " Eliminada";
+                            if (destino == "BASE2")
+                                Application["BASE"] = 0;
+
+                            insercion += " Pieza "+destino+" en posicion: " + xdes + " " + ydes.ToString() + " " + nivel.ToString()+ " Eliminada \n";
                             string unidad = servicio.getPieza(ydes, xdes, nivel);
                             int alcance2 = servicio.getAlcance(xdes, ydes, nivel);
                             int movimiento2= servicio.getMovimiento(xdes, ydes, nivel);
                             float danio2 = servicio.getDanio(xdes, ydes, nivel);
                             servicio.insertarenTableroD(ydes, xdes, nivel, nickdes,unidad,alcance2, movimiento2 ,danio2, life);
                             servicio.eliminarPieza(ydes, xdes, nivel);
+                            int contD = (int)Application["contD"];
+                            contD++;
+                            Application["contD"] = contD;
                         }
+
+                        int ataque1 = (int)Application["contAtack"];
+                        ataque1++;
+                        Application["contAtack"] = ataque1;
                         txtConsola.Text += insercion;
                     }
                     else 
@@ -373,7 +632,7 @@ namespace WebApplication1
                 }// movimiento realizado
                 else //fallo por si no se cumple los parametros del movimiento
                 {
-                    String popupScript2 = "<script language='JavaScript'> alert('MOVIMIENTO NO PERMITIDO'); </script>";
+                    String popupScript2 = "<script language='JavaScript'> alert('ATAQUE NO PERMITIDO'); </script>";
                     Page.RegisterStartupScript("PopupScript", popupScript2);
 
                 }// fin de movimiento
@@ -513,153 +772,233 @@ namespace WebApplication1
                 //cumplir las condiciones: si es base hasta que capturen la base 
                 // si es normal hasta que se destruyan las piezas 
                 // si es por tiempo hasta que se termine el tiempo
-                //String user2 = Session["usuario2"].ToString();
-                //string selectnivel = DropDownList1.SelectedItem.ToString();
-                //if (txtDestX.Text != "" && txtDestY.Text != "" && txtPosX.Text != "" && txtPosY.Text != "")
-                //{
-                //    if (tipo == 1)
-                //    {
-                //        if (servicio.getPiezasDestruidas(user2)) 
-                //        {
-                //            if (selectnivel == "Submarino" || selectnivel == "Crucero" || selectnivel == "Fragata" || selectnivel == "Helicóptero de combate" || selectnivel == "Caza")
-                //            {
-                //                this.AtaqueAlcance();
-                //            }
-                //            else 
-                //            {
-                //                // ataquepornivel
-                //            }
-                //        }
-
-                //        else
-                //        {
-                //            String popupScript2 = "<script language='JavaScript'> alert('EL OPONENTE YA NO TIENE PIEZAS HAS GANADO LA PARTIDA'); </script>";
-                //            Page.RegisterStartupScript("PopupScript", popupScript2);
-                //        }
-                //    }
-                //    else if (tipo == 2)
-                //    {
-                //        if (jugar && servicio.getPiezasDestruidas(user2))
-                //        {
-                //            if (selectnivel == "Submarino" || selectnivel == "Crucero" || selectnivel == "Fragata" || selectnivel == "Helicóptero de combate" || selectnivel == "Caza")
-                //            {
-                //                this.AtaqueAlcance();
-                //            }
-                //            else
-                //            {
-                //                // ataquepornivel
-                //            }
-
-                //        }
-                //        else
-                //        {
-                //            String popupScript2 = "<script language='JavaScript'> alert('SE TERMINO EL TIEMPO JUEGO COMIENZE UNA PARTIDA NUEVA'); </script>";
-                //            Page.RegisterStartupScript("PopupScript", popupScript2);
-                //        }
-
-                //    }
-                //    else
-                //    {
-                //        if (servicio.getPiezasDestruidas(user2))
-                //        {
-                //            if (selectnivel == "Submarino" || selectnivel == "Crucero" || selectnivel == "Fragata" || selectnivel == "Helicóptero de combate" || selectnivel == "Caza")
-                //            {
-                //                this.AtaqueAlcance();
-                //            }
-                //            else
-                //            {
-                //                // ataquepornivel
-                //            }
-
-                //        }
-                //        else
-                //        {
-                //            String popupScript2 = "<script language='JavaScript'> alert('SE TERMINO EL TIEMPO JUEGO COMIENZE UNA PARTIDA NUEVA'); </script>";
-                //            Page.RegisterStartupScript("PopupScript", popupScript2);
-                //        }
-
-                //    }
-
-                //}
-
-
-                string x = txtPosX.Text;
-                int y = int.Parse(txtPosY.Text);
-                int yde = int.Parse(txtDestY.Text);
-                string xde = txtDestX.Text;
-                int nivel = 0;
-                string selectNivel = DropDownList1.SelectedItem.ToString();
-                if (selectNivel.Equals("Submarino"))
+                
+                String user2 = Application["usuario2"].ToString();
+                string selectnivel = DropDownList1.SelectedItem.ToString();
+                if (txtDestX.Text != "" && txtDestY.Text != "" && txtPosX.Text != "" && txtPosY.Text != "")
                 {
-                    nivel = 1;
+                    if (tipo == 1)
+                    {
+                        if ( servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                        {
+                            if (selectnivel == "Submarino" || selectnivel == "Crucero" || selectnivel == "Fragata" || selectnivel == "Helicóptero de combate" || selectnivel == "Caza")
+                            {
+                                this.AtaqueAlcance();
+                            }
+                            else
+                            {
+                                this.ataqueProfundidad();
+                            }
+                        }
+                        else if (servicio.getPiezasDestruidas(usuario) && !servicio.getPiezasDestruidas(user2))
+                        {
+                            int ataques = (int)Application["contAtack"];
+                            int ataques2 = (int)Application["contAtack2"];
+                            String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript3);
+                            String popupScript2 = "<script language='JavaScript'> alert('EL OPONENTE YA NO TIENE PIEZAS HAS GANADO LA PARTIDA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            int contU = (int)Application["contU"];
+                            int contD = (int)Application["contD"];
+                            int contS = contU - contD;
+                            servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                            Response.Redirect("Cliente.aspx");
+                        }
+                        else if (!servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                        {
+                            int ataques = (int)Application["contAtack"];
+                            int ataques2 = (int)Application["contAtack2"];
+                            String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript3);
+                            String popupScript2 = "<script language='JavaScript'> alert('YA NO TIENES PIEZAS HAS PERDIDO LA PARTIDA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            int contU = (int)Application["contU"];
+                            int contD = (int)Application["contD"];
+                            int contS = contU - contD;
+                            servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                            Response.Redirect("Cliente.aspx");
+                        }
+                    }
+                    else if (tipo == 2)
+                    {
+                        if (lblHoras.Text != "00" && lblMinutos.Text != "00" && lblSegundos.Text != "00")
+                        {
+                            if (servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                            {
+                                if (selectnivel == "Submarino" || selectnivel == "Crucero" || selectnivel == "Fragata" || selectnivel == "Helicóptero de combate" || selectnivel == "Caza")
+                                {
+                                    this.AtaqueAlcance();
+                                }
+                                else
+                                {
+                                    this.ataqueProfundidad();
+                                }
+
+                            }
+                            else if (servicio.getPiezasDestruidas(usuario) && !servicio.getPiezasDestruidas(user2))
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript2 = "<script language='JavaScript'> alert('EL OPONENTE YA NO TIENE PIEZAS HAS GANADO LA PARTIDA'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript2);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            else if (!servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript2 = "<script language='JavaScript'> alert('YA NO TIENES PIEZAS HAS PERDIDO LA PARTIDA'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript2);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            
+
+                        }
+                        else
+                        {
+                            String popupScript2 = "<script language='JavaScript'> alert('SE TERMINO EL TIEMPO JUEGO COMIENZE UNA PARTIDA NUEVA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            
+                            int usuario1 = servicio.getContarP(usuario);
+                            int usuario2 = servicio.getContarP(user2);
+                            if (usuario1 > usuario2)
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript = "<script language='JavaScript'> alert('GANADOR" + usuario + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            else if (usuario2 > usuario1)
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript = "<script language='JavaScript'> alert('GANADOR" + user2 + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            else
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript3 = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript3);
+                                String popupScript = "<script language='JavaScript'> alert('EMPATE'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        int b = (int) Application["BASE"];
+                        int b2 = (int) Application["BASE2"];
+                        if (b == 1 && b2 == 1)
+                        {
+                            if (servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                            {
+                                if (selectnivel == "Submarino" || selectnivel == "Crucero" || selectnivel == "Fragata" || selectnivel == "Helicóptero de combate" || selectnivel == "Caza")
+                                {
+                                    this.AtaqueAlcance();
+                                }
+                                else
+                                {
+                                    this.ataqueProfundidad();
+                                }
+                            }
+                            else if (servicio.getPiezasDestruidas(usuario) && !servicio.getPiezasDestruidas(user2))
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript);
+                                String popupScript2 = "<script language='JavaScript'> alert('EL OPONENTE YA NO TIENE PIEZAS HAS GANADO LA PARTIDA'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript2);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+                            else if (!servicio.getPiezasDestruidas(usuario) && servicio.getPiezasDestruidas(user2))
+                            {
+                                int ataques = (int)Application["contAtack"];
+                                int ataques2 = (int)Application["contAtack2"];
+                                String popupScript = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript);
+                                String popupScript2 = "<script language='JavaScript'> alert('YA NO TIENES PIEZAS HAS PERDIDO LA PARTIDA'); </script>";
+                                Page.RegisterStartupScript("PopupScript", popupScript2);
+                                int contU = (int)Application["contU"];
+                                int contD = (int)Application["contD"];
+                                int contS = contU - contD;
+                                servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                                Response.Redirect("Cliente.aspx");
+                            }
+
+                        }
+                        else if (b == 0 && b2 == 1)
+                        {
+                            int ataques = (int)Application["contAtack"];
+                            int ataques2 = (int)Application["contAtack2"];
+                            String popupScript = "<script language='JavaScript'> alert('Ataques de " + usuario + ": " + ataques.ToString() + "\n Ataques de" + user2 + ":" + ataques2.ToString() + "'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript);
+                            String popupScript2 = "<script language='JavaScript'> alert('Has Capturado la Base HAS GANADO LA PARTIDA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            int contU = (int)Application["contU"];
+                            int contD = (int)Application["contD"];
+                            int contS = contU - contD;
+                            servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                            Response.Redirect("Cliente.aspx");
+                        }
+                        else if (b == 1 && b2 == 0)
+                        {
+                            int ataques = (int) Application["contAtack"];
+                            int ataques2 = (int) Application["contAtack2"];
+                            String popupScript = "<script language='JavaScript'> alert('Ataques de "+usuario+": "+ataques.ToString()+"\n Ataques de"+user2+":"+ataques2.ToString()+"'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript);
+                            String popupScript2 = "<script language='JavaScript'> alert('Han Capturado tu Base HAS PERDIDO LA PARTIDA'); </script>";
+                            Page.RegisterStartupScript("PopupScript", popupScript2);
+                            int contU = (int)Application["contU"];
+                            int contD = (int)Application["contD"];
+                            int contS = contU - contD;
+                            servicio.insertarJuegos(usuario, user2, contU, contS, contD, true);
+                            Response.Redirect("Cliente.aspx");
+                        }
+
+                        
+                    }
+
                 }
-                else if (selectNivel.Equals("Fragata") || selectNivel.Equals("Crucero"))
-                {
-                    nivel = 2;
-                }
-                else if (selectNivel.Equals("Bombardero") || selectNivel.Equals("Caza") || selectNivel.Equals("Helicóptero de combate"))
-                {
-                    nivel = 3;
-                }
-                else
-                {
-                    nivel = 4;
-                }
-
-                string insercion = servicio.eliminarPieza(yde, xde, nivel);
-                txtConsola.Text =  "Pieza eliminada en " + xde + " , " + yde.ToString() + " , " + selectNivel + " \n";
-                this.crearGrafo(servicio.grafoMatriz(1), "Matriz1cliente2");
-                this.crearGrafo(servicio.grafoMatriz(2), "Matriz2cliente2");
-                this.crearGrafo(servicio.grafoMatriz(3), "Matriz3cliente2");
-                this.crearGrafo(servicio.grafoMatriz(4), "Matriz4cliente2");
-                //para recargar los grafos 
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz1cliente2.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz1cliente2.jpg");
-                this.Image1.ImageUrl = null;
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz2cliente2.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz2cliente2.jpg");
-                this.Image2.ImageUrl = null;
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz3cliente2.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz3cliente2.jpg");
-                this.Image3.ImageUrl = null;
-
-                if (File.Exists(Server.MapPath("/images") + "\\Matriz4cliente2.jpg"))
-                    File.Delete(Server.MapPath("/images") + "\\Matriz4cliente2.jpg");
-                this.Image4.ImageUrl = null;
-
-                if (File.Exists("C:\\CSVFile\\Imagen\\Matriz1cliente2.jpg"))
-                {
-                    File.Copy("C:\\CSVFile\\Imagen\\Matriz1cliente2.jpg", Server.MapPath("/images") + "\\Matriz1cliente2.jpg");
-                    this.Image1.ImageUrl = "images/Matriz1cliente2.jpg";
-                }
-
-
-                if (File.Exists("C:\\CSVFile\\Imagen\\Matriz2cliente2.jpg"))
-                {
-                    File.Copy("C:\\CSVFile\\Imagen\\Matriz2cliente2.jpg", Server.MapPath("/images") + "\\Matriz2cliente2.jpg");
-                    this.Image2.ImageUrl = "images/Matriz2cliente2.jpg";
-                }
-
-
-                if (File.Exists("C:\\CSVFile\\Imagen\\Matriz3cliente2.jpg"))
-                {
-                    File.Copy("C:\\CSVFile\\Imagen\\Matriz3cliente2.jpg", Server.MapPath("/images") + "\\Matriz3cliente2.jpg");
-                    this.Image3.ImageUrl = "images/Matriz3cliente2.jpg";
-                }
-
-
-                if (File.Exists("C:\\CSVFile\\Imagen\\Matriz4cliente2.jpg"))
-                {
-                    File.Copy("C:\\CSVFile\\Imagen\\Matriz4cliente2.jpg", Server.MapPath("/images") + "\\Matriz4cliente2.jpg");
-                    this.Image4.ImageUrl = "images/Matriz4cliente2.jpg";
-                }
-
-
-
-
             }
             catch
             {

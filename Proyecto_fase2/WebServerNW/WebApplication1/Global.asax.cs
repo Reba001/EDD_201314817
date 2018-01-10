@@ -49,6 +49,21 @@ namespace WebApplication1
             Application["hora2"] = -1;
             Application["minutos2"] = -1;
             Application["segundos2"] = -1;
+
+            Application["BASE"] = 1;
+            Application["BASE2"] = 1;
+
+            Application["contU"] = 0;
+            Application["contD"] = 0;
+            Application["contS"] = 0;
+
+            Application["contAtack"] = 0;
+            Application["contAtack2"] = 0;
+
+            Application["contU2"] = 0;
+            Application["contD2"] = 0;
+            Application["contS2"] = 0;
+
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

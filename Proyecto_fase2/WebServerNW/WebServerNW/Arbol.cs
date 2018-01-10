@@ -325,8 +325,10 @@ namespace WebServerNW
         {
             if (actual != null && this.listTopDest != null)
             {
-                int porcentaje = (actual.listJuego.contadoDest *100)/ actual.listJuego.contadoUni;
-                this.listTopDest.insertarMayor(actual.Usuario.Nickname, porcentaje);
+                double porcentaje = 0;
+                if (actual.listJuego.contadoUni != 0)
+                    porcentaje = (actual.listJuego.contadoDest * 100) / actual.listJuego.contadoUni;
+                this.listTopDest.insertarMayor(actual.Usuario.Nickname, Convert.ToInt32(porcentaje));
                 recorridoDest(actual.Izquierda);
                 recorridoDest(actual.Derecha);
             }

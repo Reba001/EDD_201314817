@@ -649,300 +649,284 @@ namespace WebServerNW
             recorrido.Append(filcol);
             return recorrido.ToString();
         }
+        // Metodo pendiente para despues de atacar
+
+        public int contarPNick(string nickname) 
+        {
+            int contador = 0;
+            Encabezado efila = this.eFila.Cabeza;
+            while (efila != null)
+            {
+                Encabezado enivel = efila.ListAcceso.Cabeza;
+                while (enivel != null)
+                {
+                    Nodo acceso = enivel.Acceso;
+                    while (acceso != null)
+                    {
+                        if (acceso.Pieza.Nickname == nickname)
+                            contador++;
+                        acceso = acceso.Siguiente;
+                    }
+                    enivel = enivel.Siguiente;
+                }
+                efila = efila.Siguiente;
+            }
+            return contador;
+        }
+        public string nivelesAtacados(int fila, string columna, int nivel) 
+        {
+            Nodo pieza = buscarPiezaNodo(fila, columna, nivel);
+            string niveles = "";
+            int lvl = 0;
+            while (pieza != null)
+            {
+                if (lvl != 0)
+                    niveles += pieza.Nivel.ToString() + ",";
+                lvl++;
+                pieza = pieza.Atras;
+            }
+            return niveles;
+        }
+        public int nivelAtacado(int fila, string columna , int nivel) 
+        {
+            Nodo pieza = buscarPiezaNodo(fila, columna, nivel);
+            int level = 0;
+            if (pieza.Atras != null)
+            {
+                if (pieza.Atras.Pieza.Unidad.StartsWith("Bombardero") || pieza.Atras.Pieza.Unidad.StartsWith("Caza") || pieza.Atras.Pieza.Unidad.StartsWith("Helicóptero"))
+                    level = 3;
+                else if (pieza.Atras.Pieza.Unidad.StartsWith("Fragata") || pieza.Atras.Pieza.Unidad.StartsWith("Crucero"))
+                    level = 2;
+                else if (pieza.Atras.Pieza.Unidad.StartsWith("Submarino"))
+                    level = 1;
+            }
+            return level;
+        }
         public void eliminarPieza(int fila , string columna , int nivel) 
         {
             Encabezado efila = this.eFila.getEncabezado(fila);
             Encabezado ecolumna = this.eColumna.getEncabezado(columna);
             // if si fila es econtrada
-            if (efila != null && ecolumna != null && ecolumna.ListAcceso.Cabeza != null && efila.ListAcceso.Cabeza != null)
+            if (efila != null)
             {
                 Encabezado enivelF = efila.ListAcceso.getEncabezado(nivel);
-                Encabezado enivelC = ecolumna.ListAcceso.getEncabezado(nivel);
-                if (enivelF != null && enivelC != null && enivelC.Acceso != null && enivelF.Acceso != null )
+                if (enivelF != null)
                 {
-                    ////iniicio en nodo en acceso a elimina
-                    //if (enivelF.Acceso.Columna == columna && enivelC.Acceso.Fila == fila)
-                    //{
-                    //    Nodo auxC = enivelC.Acceso;
-                    //    Nodo auxF = enivelF.Acceso;
-                    //    if (enivelF.Siguiente != null && enivelF.Siguiente.Acceso != null)
-                    //    {
-                    //        if (enivelF.Anterior != null && enivelF.Anterior.Acceso != null)
-                    //        {
-                    //            enivelF.Acceso.Adelante.Atras = enivelF.Acceso.Atras;
-                    //            enivelF.Acceso.Atras.Adelante = enivelF.Acceso.Adelante;
-
-                    //        }
-                    //        else
-                    //        {
-                    //            enivelF.Acceso.Adelante.Atras = null;
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        if (enivelF.Anterior != null && enivelF.Anterior.Acceso != null)
-                    //        {
-                    //            enivelF.Acceso.Atras.Adelante = null;
-                    //        }
-                    //    }
-
-                    //    if (enivelF.Acceso.Siguiente == null && enivelC.Acceso.Abajo == null)
-                    //    {
-                    //        enivelF.Acceso = null;
-                    //        enivelC.Acceso = null;
-                    //        efila.ListAcceso.eliminar(nivel);
-                    //        ecolumna.ListAcceso.eliminar(nivel);
-                    //        if (efila.ListAcceso.Cabeza == null)
-                    //        {
-                    //            this.eFila.eliminar(fila);
-                    //        }
-
-                    //        if (ecolumna.ListAcceso.Cabeza == null)
-                    //        {
-                    //            this.eColumna.eliminar(columna);
-                    //        }
-                    //    }
-                    //    else if (enivelF.Acceso.Siguiente == null && enivelC.Acceso.Abajo != null)
-                    //    {
-                    //        enivelC.Acceso = enivelC.Acceso.Abajo;
-                    //        enivelF.Acceso = null;
-                    //        efila.ListAcceso.eliminar(nivel);
-                    //        if (efila.ListAcceso.Cabeza == null)
-                    //        {
-                    //            this.eFila.eliminar(fila);
-                    //        }
-                    //    }
-                    //    else if (enivelC.Acceso.Abajo == null && enivelF.Acceso.Siguiente != null)
-                    //    {
-                    //        enivelF.Acceso = enivelF.Acceso.Siguiente;
-                    //        enivelC.Acceso = null;
-                    //        ecolumna.ListAcceso.eliminar(nivel);
-                    //        if (ecolumna.ListAcceso.Cabeza == null)
-                    //        {
-                    //            this.eColumna.eliminar(columna);
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        enivelF.Acceso = enivelF.Acceso.Siguiente;
-                    //        enivelC.Acceso = enivelC.Acceso.Abajo;
-                    //    }
-
-                    //    auxF = null;
-                    //    auxC = null;
-
-                    //    //end if accesos fila y columna
-                    //}
-                    //else 
-                    //{
-
-                        if (enivelF.Acceso.Columna == columna)
+                    Nodo Acceso = enivelF.Acceso;
+                    if (Acceso != null)
+                    {
+                        if (Acceso.Columna == columna)// eliminacion si se encuentra en el primer dato acceso
                         {
-                            Nodo aux = enivelF.Acceso;
-                            if (enivelF.Siguiente != null && enivelF.Siguiente.Acceso != null)
+                            if (enivelF.Siguiente != null && enivelF.Anterior != null)
                             {
-                                if (enivelF.Anterior != null && enivelF.Anterior.Acceso != null)
-                                {
-                                    enivelF.Acceso.Adelante.Atras = enivelF.Acceso.Atras;
-                                    enivelF.Acceso.Atras.Adelante = enivelF.Acceso.Adelante;
-
-                                }
-                                else
-                                {
-                                    enivelF.Acceso.Adelante.Atras = null;
-                                }
-                            }
-                            else if (enivelF.Siguiente == null)
-                            {
-                                if (enivelF.Anterior != null && enivelF.Anterior.Acceso != null)
-                                {
-                                    
-                                    enivelF.Anterior.Acceso.Adelante = null;
-
-                                }
-
+                                enivelF.Siguiente.Acceso.Atras = enivelF.Anterior.Acceso;
+                                enivelF.Anterior.Acceso.Adelante = enivelF.Siguiente.Acceso;
                             }
 
-                            if (enivelF.Acceso.Siguiente == null)
+                            if (enivelF.Siguiente == null && enivelF.Anterior != null)
+                                enivelF.Anterior.Acceso.Adelante = null;
+
+                            if (enivelF.Anterior == null && enivelF.Siguiente != null)
+                                enivelF.Siguiente.Acceso.Atras = null;
+
+                            if (Acceso.Siguiente != null)
                             {
+                                enivelF.Acceso = Acceso.Siguiente;
+                                enivelF.Acceso.Anterior = null;
+                                Acceso = null;
+                            }
+                            else
+                            {
+                                Acceso = null;
                                 enivelF.Acceso = null;
                                 efila.ListAcceso.eliminar(nivel);
                                 if (efila.ListAcceso.Cabeza == null)
                                 {
                                     this.eFila.eliminar(fila);
                                 }
-                                
                             }
-                            else
-                            {
-                                enivelF.Acceso = enivelF.Acceso.Siguiente;
-                                enivelF.Acceso.Anterior = null;
-                                
-                            }
-                            aux.Siguiente = null;
-                            aux = null;
-                            
                         }
-                        else 
+                        else// de lo contrario se encuentra en algun lugar de la  matriz 
                         {
-                            Nodo actualI = null;
-                            if (enivelF.Anterior != null){
-                                actualI = enivelF.Anterior.Acceso;
-                            }
-                            Nodo actualS = null;
-                            if (enivelF.Siguiente != null){
-                                actualS = enivelF.Siguiente.Acceso;
-                            }
-                            Nodo actual = enivelF.Acceso;
-
-                            while(actual != null)
+                            while (Acceso != null)
                             {
-                                if (actual.Columna == columna)
+                                if (Acceso.Columna == columna)
                                 {
-                                    if (actual.Siguiente != null)
+                                    if (enivelF.Siguiente != null && enivelF.Anterior != null)
                                     {
-                                        actual.Siguiente.Anterior = actual.Anterior;
-                                        actual.Anterior.Siguiente = actual.Siguiente;
-                                        while (actualI != null)
+                                        Nodo nivelS = enivelF.Siguiente.Acceso;
+                                        Nodo nivelA = enivelF.Anterior.Acceso;
+                                        while (nivelS != null)
                                         {
-                                            if (actualI.Columna == columna)
+                                            if (nivelS.Columna == columna)
                                             {
-                                                if (actual.Adelante != null)
+                                                while (nivelA.Siguiente != null)
                                                 {
-                                                    actualI.Adelante = actual.Adelante;
-                                                    actual.Adelante.Atras = actualI;
+                                                    if (nivelA.Columna == columna)
+                                                    {
+                                                        nivelA.Adelante = nivelS;
+                                                        nivelS.Atras = nivelA;
+                                                        break;
+                                                    }
+                                                    nivelA = nivelA.Siguiente;
+                                                }
+
+                                                if (nivelA.Columna == columna )
+                                                {
+                                                    nivelA.Adelante = nivelS;
+                                                    nivelS.Atras = nivelA;
                                                 }
                                                 else 
                                                 {
-                                                    actualI.Adelante = null;
+                                                    nivelS.Atras = null;
                                                 }
                                                 break;
                                             }
-                                            actualI = actualI.Siguiente;
+                                            nivelS = nivelS.Siguiente;
                                         }
 
-                                        while(actualS != null)
+                                        while (nivelA != null)
                                         {
-                                            if (actualS.Columna == columna)
+                                            if (nivelA.Columna == columna)
                                             {
-                                                if (actual.Atras != null)
-                                                {
-                                                    actualS.Atras = actual.Atras;
-                                                    actualS.Atras.Adelante = actualS;
-                                                }
-                                                else 
-                                                {
-                                                    actualS.Atras = null;
-                                                }
+                                                nivelA.Adelante = null;
                                                 break;
                                             }
-                                            actualS = actualS.Siguiente;
+                                            nivelA = nivelA.Siguiente;
                                         }
-                                        
+                                    }// si siguiente de diferente a null y anterior diferente anull
+
+                                    if (enivelF.Siguiente != null && enivelF.Anterior == null)
+                                    {
+                                        Nodo nivelS = enivelF.Siguiente.Acceso;
+                                        while(nivelS != null)
+                                        {
+                                            if (nivelS.Columna == columna)
+                                            {
+                                                nivelS.Atras = null;
+                                                break;
+                                            }
+                                            nivelS = nivelS.Siguiente;
+                                        }
+                                    }
+
+                                    if (enivelF.Anterior != null && enivelF.Siguiente == null)
+                                    {
+                                        Nodo nivelA = enivelF.Anterior.Acceso;
+                                        while(nivelA != null)
+                                        {
+                                            if (nivelA.Columna == columna)
+                                            {
+                                                nivelA.Adelante = null;
+                                                break;
+                                            }
+                                            nivelA = nivelA.Siguiente;
+                                        }
+                                    }
+
+                                    if (Acceso.Siguiente == null)
+                                    {
+                                        Acceso.Anterior.Siguiente = null;
+                                        Acceso = null;
                                         break;
                                     }
                                     else 
                                     {
-                                        actual.Anterior.Siguiente = null;
-                                        while (actualI != null)
-                                        {
-                                            if (actualI.Columna == columna)
-                                            {
-                                                if (actual.Adelante != null)
-                                                {
-                                                    actualI.Adelante = actual.Adelante;
-                                                    actual.Adelante.Atras = actualI;
-                                                }
-                                                else
-                                                {
-                                                    actualI.Adelante = null;
-                                                }
-                                                break;
-                                            }
-                                            actualI = actualI.Siguiente;
-                                        }
-
-                                        while (actualS != null)
-                                        {
-                                            if (actualS.Columna == columna)
-                                            {
-                                                if (actual.Atras != null)
-                                                {
-                                                    actualS.Atras = actual.Atras;
-                                                    actualS.Atras.Adelante = actualS;
-                                                }
-                                                else
-                                                {
-                                                    actualS.Atras = null;
-                                                }
-                                                break;
-                                            }
-                                            actualS = actualS.Siguiente;
-                                        }
-                                        
+                                        Acceso.Anterior.Siguiente = Acceso.Siguiente;
+                                        Acceso.Siguiente.Anterior = Acceso.Anterior;
+                                        Acceso = null;
                                         break;
                                     }
-                                }
-                                actual = actual.Siguiente;
-                            }
-                            actual = null;
-                        }
-                        
 
-                        if (enivelC.Acceso.Fila == fila)
+                                }
+                                Acceso = Acceso.Siguiente;
+                            }
+                        }//fin eliminacion fila
+                    }// fin acceso
+                }//fin nivel de fila
+            }//fin fila
+
+            if (ecolumna != null)
+            {
+                Encabezado enivelC = ecolumna.ListAcceso.getEncabezado(nivel);
+                if (enivelC != null)
+                {
+                    Nodo acceso = enivelC.Acceso;
+                    if (acceso != null)
+                    {
+                        if (acceso.Fila == fila)
                         {
-                            Nodo aux = enivelC.Acceso;
-                            if (enivelC.Acceso.Abajo == null)
+                            if (acceso.Abajo != null)
+                            {
+                                enivelC.Acceso = acceso.Abajo;
+                                enivelC.Acceso.Arriba = null;
+                                acceso = null;
+                            }
+                            else
                             {
                                 enivelC.Acceso = null;
+                                acceso = null;
                                 ecolumna.ListAcceso.eliminar(nivel);
                                 if (ecolumna.ListAcceso.Cabeza == null)
                                 {
                                     this.eColumna.eliminar(columna);
                                 }
-
                             }
-                            else
-                            {
-
-                                enivelC.Acceso = enivelC.Acceso.Abajo;
-                                enivelC.Acceso.Arriba = null;
-                            }
-                            aux.Abajo = null;
-                            aux = null;
                         }
                         else 
                         {
-                            Nodo actual = enivelC.Acceso;
-                            while(actual != null)
+                            while (acceso != null)
                             {
-                                if (actual.Fila == fila)
+                                if (acceso.Fila == fila)
                                 {
-                                    if (actual.Abajo != null)
+                                    if (acceso.Abajo != null)
                                     {
-                                        actual.Abajo.Arriba = actual.Arriba;
-                                        actual.Arriba.Abajo = actual.Abajo;
-                                        actual = null;
+                                        acceso.Arriba.Abajo = acceso.Abajo;
+                                        acceso.Abajo.Arriba = acceso.Arriba;
+                                        acceso = null;
                                         break;
                                     }
                                     else 
                                     {
-                                        actual.Arriba.Abajo = null;
-                                        actual = null;
+                                        acceso.Arriba.Abajo = null;
+                                        acceso = null;
                                         break;
                                     }
-
                                 }
-                                actual = actual.Abajo;
+                                acceso = acceso.Abajo;
                             }
                         }
-                   // }
-                    // fin nodo acceso a eliminar
-                }
-            }
-            // fin if fila y columna encontrada
+                    }// fin acceso
+                }// fin nivel columna
+            }// fin columna 
         }
 
+        public Nodo buscarPiezaNodo(int fila, string columna, int nivel) 
+        {
+            Encabezado efila = this.eFila.Cabeza;
+            while (efila != null)
+            {
+                if (efila.Id == fila)
+                {
+                    Encabezado enivel = efila.ListAcceso.getEncabezado(nivel);
+                    if (enivel != null)
+                    {
+                        Nodo acceso = enivel.Acceso;
+                        while (acceso != null)
+                        {
+                            if (acceso.Columna.Equals(columna))
+                                return acceso;
+
+                            acceso = acceso.Siguiente;
+                        }
+                    }
+                    return null;
+                }
+                efila = efila.Siguiente;
+            }
+            return null;
+
+        }
         public Pieza buscarPieza(int fila, string columna, int nivel) 
         {
             Encabezado efila = this.eFila.Cabeza; 

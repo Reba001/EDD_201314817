@@ -21,6 +21,15 @@ namespace WebServerNW
             this.destruidas = destruidas;
         }
 
+        public Juego(string nicnameO, int desplegadas, int sobrevivientes, int destruidas, bool ganar) 
+        {
+            this.nicknameO = nicnameO;
+            this.desplegadas = desplegadas;
+            this.sobrevivientes = sobrevivientes;
+            this.destruidas = destruidas;
+            this.ganar = ganar;
+        }
+
  
         public int Sobrevivientes
         {

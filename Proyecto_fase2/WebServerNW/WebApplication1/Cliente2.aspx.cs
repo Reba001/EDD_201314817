@@ -27,11 +27,11 @@ namespace WebApplication1
         {
             
             serv = (webServiceNW.ProyectoEDD)Application["WebServer"];
-
-            this.cont1 = (int)Application["contn1"];
-            this.cont2 = (int)Application["contn2"];
-            this.cont3 = (int)Application["contn3"];
-            this.cont4 = (int)Application["contn4"];
+            
+            this.cont1 = (int)Application["cont2n1"];
+            this.cont2 = (int)Application["cont2n2"];
+            this.cont3 = (int)Application["cont2n3"];
+            this.cont4 = (int)Application["cont2n4"];
 
             this.limitX = Convert.ToInt32(Application["lC"].ToString());
             this.limitY = Convert.ToInt32(Application["lF"].ToString());
@@ -152,7 +152,16 @@ namespace WebApplication1
                                 posX.Trim();
 
                                 string Nickname = Session["usuario2"].ToString();
-                                string unidad = unidadSelect + cont1.ToString();
+                                string unidad;
+                                if (tipo == 3 && this.chkBase.Checked)
+                                {
+                                    unidad = "BASE2";
+                                }
+                                else 
+                                {
+                                    unidad = unidadSelect + cont1.ToString();
+                                }
+                                 
                                 int movimiento = 5;
                                 int alcance = 1;
                                 float danio = 2;
@@ -182,7 +191,15 @@ namespace WebApplication1
                             {
                                 posX.Trim();
                                 string Nickname = Session["usuario2"].ToString();
-                                string unidad = unidadSelect + cont2.ToString();
+                                string unidad;
+                                if (tipo == 3 && this.chkBase.Checked)
+                                {
+                                    unidad = "BASE2";
+                                }
+                                else
+                                {
+                                    unidad = unidadSelect + cont2.ToString();
+                                }
                                 int movimiento = 5;
                                 int alcance = 6;
                                 float danio = 3;
@@ -211,7 +228,16 @@ namespace WebApplication1
                             {
                                 posX.Trim();
                                 string Nickname = Session["usuario2"].ToString();
-                                string unidad = unidadSelect + cont2.ToString();
+                                string unidad;
+                                if (tipo == 3 && this.chkBase.Checked)
+                                {
+                                    unidad = "BASE2";
+                                }
+                                else
+                                {
+                                    unidad = unidadSelect + cont2.ToString();
+                                }
+
                                 int movimiento = 6;
                                 int alcance = 1;
                                 float danio = 3;
@@ -239,7 +265,15 @@ namespace WebApplication1
                             {
                                 posX.Trim();
                                 string Nickname = Session["usuario2"].ToString();
-                                string Unidad = unidadSelect + cont3.ToString();
+                                string Unidad ;
+                                if (tipo == 3 && this.chkBase.Checked)
+                                {
+                                    Unidad = "BASE2";
+                                }
+                                else
+                                {
+                                    Unidad = unidadSelect + cont3.ToString();
+                                }
                                 int Movimiento = 7;
                                 int Alcance = 0;
                                 float Danio = 5;
@@ -268,7 +302,15 @@ namespace WebApplication1
                             {
                                 posX.Trim();
                                 string Nickname = Session["usuario2"].ToString();
-                                string Unidad = unidadSelect + cont3.ToString();
+                                string Unidad;
+                                if (tipo == 3 && this.chkBase.Checked)
+                                {
+                                    Unidad = "BASE2";
+                                }
+                                else
+                                {
+                                    Unidad = unidadSelect + cont3.ToString();
+                                }
                                 int Movimiento = 9;
                                 int Alcance = 1;
                                 float Danio = 2;
@@ -297,7 +339,15 @@ namespace WebApplication1
                             {
                                 posX.Trim();
                                 string Nickname = Session["usuario2"].ToString();
-                                string Unidad = "Helicóptero" + cont3.ToString();
+                                string Unidad ;
+                                if (tipo == 3 && this.chkBase.Checked)
+                                {
+                                    Unidad = "BASE2";
+                                }
+                                else
+                                {
+                                    Unidad = "Helicóptero" + cont3.ToString();
+                                }
                                 int Movimiento = 9;
                                 int Alcance = 1;
                                 float Danio = 3;
@@ -327,7 +377,15 @@ namespace WebApplication1
                             {
                                 posX.Trim();
                                 string Nickname = Session["usuario2"].ToString();
-                                string Unidad = unidadSelect + cont4.ToString();
+                                string Unidad ;
+                                if (tipo == 3 && this.chkBase.Checked)
+                                {
+                                    Unidad = "BASE2";
+                                }
+                                else
+                                {
+                                    Unidad = unidadSelect + cont4.ToString();
+                                }
                                 int Movimiento = 6;
                                 int Alcance = 0;
                                 int Danio = 2;
@@ -356,10 +414,9 @@ namespace WebApplication1
 
                             break;
                     }
-
-
-
-                    
+                    int contU = (int)Application["contU2"];
+                    contU++;
+                    Application["contU2"] = contU;
 
                 }
                 else

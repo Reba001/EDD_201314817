@@ -81,6 +81,12 @@ namespace WebApplication1.webServiceNW {
         
         private System.Threading.SendOrPostCallback buscarUsuarioOperationCompleted;
         
+        private System.Threading.SendOrPostCallback nivelAtacarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getContarPOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback nivelesAtacarOperationCompleted;
+        
         private System.Threading.SendOrPostCallback insertarJuegosOperationCompleted;
         
         private System.Threading.SendOrPostCallback insertarenTableroOperationCompleted;
@@ -252,6 +258,15 @@ namespace WebApplication1.webServiceNW {
         
         /// <remarks/>
         public event buscarUsuarioCompletedEventHandler buscarUsuarioCompleted;
+        
+        /// <remarks/>
+        public event nivelAtacarCompletedEventHandler nivelAtacarCompleted;
+        
+        /// <remarks/>
+        public event getContarPCompletedEventHandler getContarPCompleted;
+        
+        /// <remarks/>
+        public event nivelesAtacarCompletedEventHandler nivelesAtacarCompleted;
         
         /// <remarks/>
         public event insertarJuegosCompletedEventHandler insertarJuegosCompleted;
@@ -1142,6 +1157,101 @@ namespace WebApplication1.webServiceNW {
             if ((this.buscarUsuarioCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.buscarUsuarioCompleted(this, new buscarUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://NavalWarsEDD.com/nivelAtacar", RequestNamespace="http://NavalWarsEDD.com", ResponseNamespace="http://NavalWarsEDD.com", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int nivelAtacar(int fila, string columna, int nivel) {
+            object[] results = this.Invoke("nivelAtacar", new object[] {
+                        fila,
+                        columna,
+                        nivel});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void nivelAtacarAsync(int fila, string columna, int nivel) {
+            this.nivelAtacarAsync(fila, columna, nivel, null);
+        }
+        
+        /// <remarks/>
+        public void nivelAtacarAsync(int fila, string columna, int nivel, object userState) {
+            if ((this.nivelAtacarOperationCompleted == null)) {
+                this.nivelAtacarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnnivelAtacarOperationCompleted);
+            }
+            this.InvokeAsync("nivelAtacar", new object[] {
+                        fila,
+                        columna,
+                        nivel}, this.nivelAtacarOperationCompleted, userState);
+        }
+        
+        private void OnnivelAtacarOperationCompleted(object arg) {
+            if ((this.nivelAtacarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.nivelAtacarCompleted(this, new nivelAtacarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://NavalWarsEDD.com/getContarP", RequestNamespace="http://NavalWarsEDD.com", ResponseNamespace="http://NavalWarsEDD.com", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int getContarP(string nickname) {
+            object[] results = this.Invoke("getContarP", new object[] {
+                        nickname});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getContarPAsync(string nickname) {
+            this.getContarPAsync(nickname, null);
+        }
+        
+        /// <remarks/>
+        public void getContarPAsync(string nickname, object userState) {
+            if ((this.getContarPOperationCompleted == null)) {
+                this.getContarPOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetContarPOperationCompleted);
+            }
+            this.InvokeAsync("getContarP", new object[] {
+                        nickname}, this.getContarPOperationCompleted, userState);
+        }
+        
+        private void OngetContarPOperationCompleted(object arg) {
+            if ((this.getContarPCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getContarPCompleted(this, new getContarPCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://NavalWarsEDD.com/nivelesAtacar", RequestNamespace="http://NavalWarsEDD.com", ResponseNamespace="http://NavalWarsEDD.com", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string nivelesAtacar(int fila, string columna, int nivel) {
+            object[] results = this.Invoke("nivelesAtacar", new object[] {
+                        fila,
+                        columna,
+                        nivel});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void nivelesAtacarAsync(int fila, string columna, int nivel) {
+            this.nivelesAtacarAsync(fila, columna, nivel, null);
+        }
+        
+        /// <remarks/>
+        public void nivelesAtacarAsync(int fila, string columna, int nivel, object userState) {
+            if ((this.nivelesAtacarOperationCompleted == null)) {
+                this.nivelesAtacarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnnivelesAtacarOperationCompleted);
+            }
+            this.InvokeAsync("nivelesAtacar", new object[] {
+                        fila,
+                        columna,
+                        nivel}, this.nivelesAtacarOperationCompleted, userState);
+        }
+        
+        private void OnnivelesAtacarOperationCompleted(object arg) {
+            if ((this.nivelesAtacarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.nivelesAtacarCompleted(this, new nivelesAtacarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2711,6 +2821,84 @@ namespace WebApplication1.webServiceNW {
         private object[] results;
         
         internal buscarUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void nivelAtacarCompletedEventHandler(object sender, nivelAtacarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class nivelAtacarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal nivelAtacarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void getContarPCompletedEventHandler(object sender, getContarPCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getContarPCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getContarPCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void nivelesAtacarCompletedEventHandler(object sender, nivelesAtacarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class nivelesAtacarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal nivelesAtacarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

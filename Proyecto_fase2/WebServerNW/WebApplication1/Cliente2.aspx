@@ -138,6 +138,7 @@
             
             <td> 
                 <br />
+                <asp:CheckBox ID="chkBase" runat="server" Text="Base(Solo si es de tipo base)"/>
                 <br />
                 <br />
             </td>

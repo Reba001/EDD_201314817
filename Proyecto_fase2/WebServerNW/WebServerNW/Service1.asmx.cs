@@ -322,15 +322,27 @@ namespace WebServerNW
             }
             return null;
         }
+        [WebMethod]
+        public int nivelAtacar(int fila, string columna, int nivel) 
+        {
+            return tablero.nivelAtacado(fila, columna, nivel);
+        }
 
+        [WebMethod]
+        public int getContarP(string nickname) 
+        {
+            return tablero.contarPNick(nickname);
+        }
+
+        [WebMethod]
+        public string nivelesAtacar(int fila, string columna, int nivel) 
+        {
+            return tablero.nivelesAtacados(fila, columna, nivel);
+        }
         [WebMethod]
         public string insertarJuegos(string nicknameActual, string nicknameO, int desplegadas, int sob, int dest, bool ganar)
         {
-            Juego juego = new Juego(nicknameO, dest);
-            juego.Desplegadas = desplegadas;
-            juego.Sobrevivientes = sob;
-            juego.Ganar = ganar;
-    
+            Juego juego = new Juego(nicknameO,desplegadas, sob ,dest, ganar);
             NodoA users = usuarios.buscar(nicknameActual);
             if (users != null)
             {
