@@ -35,6 +35,8 @@ namespace WebApplication1
                 Label3.Text = servicio.modificarCorreo(txtNickname.Text, txtCorreo.Text);
             }
             this.crearGrafo(servicio.invocarGrafo(), "Arbol");
+
+            this.crearGrafo(servicio.ArbolEspejo(), "ArbolE");
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -111,7 +113,6 @@ namespace WebApplication1
                 this.crearGrafo(servicio.grafoMatriz(3), "Matriz3");
                 this.crearGrafo(servicio.grafoMatriz(4), "Matriz4");
                 Label16.Text = "LA PIEZA HA SIDO ELIMINADA";
-
             }
             catch 
             {
@@ -136,7 +137,30 @@ namespace WebApplication1
         }
         protected void Button9_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (txtColumna.Text != "" && txtFila.Text != "" && txtColDest.Text != "" && txtDestinoFila.Text != "" && txtNivel.Text != "")
+                {
+                    string col = txtColumna.Text;
+                    int fila = int.Parse(txtFila.Text);
+                    string colD = txtColDest.Text;
+                    int filaD = int.Parse(txtDestinoFila.Text);
+                    int lvl = int.Parse(txtNivel.Text);
+                    servicio.moverPieza(col, fila, lvl, colD, filaD, lvl);
+                    Label21.Text = "La pieza ha sido movida";
 
+                    this.crearGrafo(servicio.grafoMatriz(1), "Matriz1");
+                    this.crearGrafo(servicio.grafoMatriz(2), "Matriz2");
+                    this.crearGrafo(servicio.grafoMatriz(3), "Matriz3");
+                    this.crearGrafo(servicio.grafoMatriz(4), "Matriz4");
+                }
+
+            }
+            catch 
+            {
+                Label21.Text = "ERROR FATAL";
+            }
+            
         }
 
         protected void Button11_Click(object sender, EventArgs e)
@@ -147,6 +171,7 @@ namespace WebApplication1
                
                 Label20.Text = "Contacto Eliminado";
             }
+
         }
 
         protected void Button12_Click(object sender, EventArgs e)

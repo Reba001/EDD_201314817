@@ -175,7 +175,7 @@
             
             <td> <asp:Label ID="Label16" runat="server" Text=""></asp:Label> </td>
             
-        </tr>
+           </tr>
         <tr>
             
             <td>Nivel</td>
@@ -185,7 +185,24 @@
             <td> <asp:Label ID="Label17" runat="server" Text=""></asp:Label> </td>
             
         </tr>
-        
+        <tr>
+            
+            <td>Fila Destino</td>
+            
+            <td><asp:TextBox ID="txtDestinoFila" runat="server"  Width="237px"></asp:TextBox></td>
+            
+            <td> <asp:Label ID="Label23" runat="server" Text=""></asp:Label> </td>
+            
+        </tr>
+        <tr>
+            
+            <td>Columna Destino</td>
+            
+            <td><asp:TextBox ID="txtColDest" runat="server"  Width="237px"></asp:TextBox></td>
+            
+            <td> <asp:Label ID="Label24" runat="server" Text=""></asp:Label> </td>
+            
+        </tr>
         <tr>
             <td> <asp:Button ID="Button1" runat="server" Text="Guardar Cambios" OnClick="Button9_Click"></asp:Button> </td>
             

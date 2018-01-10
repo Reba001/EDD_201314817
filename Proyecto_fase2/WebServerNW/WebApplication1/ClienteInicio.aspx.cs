@@ -65,10 +65,9 @@ namespace WebApplication1
                     minutos = int.Parse(time[1]);
                     segundos = int.Parse(time[0]);
                 }
-
-
+                Timer1.Enabled = true;
             }
-            else 
+            else if (tipo == 3 && tipo == 1) 
             {
                 Timer1.Enabled = false;
             }
